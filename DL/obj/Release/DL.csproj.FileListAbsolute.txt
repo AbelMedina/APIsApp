@@ -1,0 +1,12 @@
+C:\Users\Abel\source\repos\Stuxnet\DL\bin\Release\DL.dll.config
+C:\Users\Abel\source\repos\Stuxnet\DL\bin\Release\DL.dll
+C:\Users\Abel\source\repos\Stuxnet\DL\bin\Release\DL.pdb
+C:\Users\Abel\source\repos\Stuxnet\DL\bin\Release\EntityFramework.dll
+C:\Users\Abel\source\repos\Stuxnet\DL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Abel\source\repos\Stuxnet\DL\bin\Release\EntityFramework.xml
+C:\Users\Abel\source\repos\Stuxnet\DL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Abel\source\repos\Stuxnet\DL\obj\Release\DL.csproj.AssemblyReference.cache
+C:\Users\Abel\source\repos\Stuxnet\DL\obj\Release\DL.csproj.CoreCompileInputs.cache
+C:\Users\Abel\source\repos\Stuxnet\DL\obj\Release\DL.csproj.CopyComplete
+C:\Users\Abel\source\repos\Stuxnet\DL\obj\Release\DL.dll
+C:\Users\Abel\source\repos\Stuxnet\DL\obj\Release\DL.pdb

@@ -1,0 +1,1694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="administracionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="actividad">
+    <Key>
+      <PropertyRef Name="id_actividad" />
+    </Key>
+    <Property Name="id_actividad" Type="int" Nullable="false" />
+    <Property Name="clave_actividad" Type="varchar" MaxLength="50" />
+    <Property Name="nom_actividad" Type="varchar" MaxLength="70" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="horas" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="archivo_documento_digital">
+    <Key>
+      <PropertyRef Name="id_archivo_documento_digital" />
+    </Key>
+    <Property Name="id_archivo_documento_digital" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="500" />
+    <Property Name="ruta" Type="nvarchar" MaxLength="800" />
+    <Property Name="extension" Type="nvarchar" MaxLength="50" />
+    <Property Name="id_solicitud_factura" Type="int" />
+    <Property Name="ruta_origen" Type="nvarchar" MaxLength="500" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="usuario" Type="int" />
+  </EntityType>
+  <EntityType Name="archivo_factura">
+    <Key>
+      <PropertyRef Name="id_archivo" />
+    </Key>
+    <Property Name="id_archivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="500" />
+    <Property Name="ruta" Type="nvarchar" MaxLength="500" />
+    <Property Name="extension" Type="nvarchar" MaxLength="50" />
+    <Property Name="id_datos_factura" Type="int" />
+    <Property Name="tipo" Type="int" />
+  </EntityType>
+  <EntityType Name="asignacion_de_gastos">
+    <Key>
+      <PropertyRef Name="id_asignacion" />
+    </Key>
+    <Property Name="id_asignacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="proyecto" Type="int" />
+    <Property Name="gasto" Type="int" />
+    <Property Name="mes" Type="nvarchar" MaxLength="15" />
+    <Property Name="ano" Type="int" />
+    <Property Name="acumulado" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="poliza" Type="nvarchar" MaxLength="15" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_gasto" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="numero_gasto" Type="int" />
+    <Property Name="id_comprobacion_detalle" Type="int" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom_cliente" Type="nvarchar" MaxLength="100" />
+    <Property Name="clave_cliente" Type="nvarchar" MaxLength="10" />
+    <Property Name="calle" Type="nvarchar" MaxLength="70" />
+    <Property Name="colonia" Type="nvarchar" MaxLength="50" />
+    <Property Name="ciudad" Type="nvarchar" MaxLength="50" />
+    <Property Name="cp" Type="nvarchar" MaxLength="7" />
+    <Property Name="grupo" Type="int" />
+    <Property Name="rfc" Type="nvarchar" MaxLength="50" />
+    <Property Name="telefono" Type="nvarchar" MaxLength="70" />
+    <Property Name="tasa_iva" Type="int" />
+    <Property Name="aplicar_iva" Type="nchar" MaxLength="2" />
+    <Property Name="dias_credito" Type="int" />
+    <Property Name="horario_cobro" Type="nvarchar" MaxLength="70" />
+    <Property Name="observaciones" Type="nvarchar" MaxLength="150" />
+    <Property Name="giro_empresa" Type="nvarchar" MaxLength="70" />
+    <Property Name="sector" Type="int" />
+    <Property Name="fecha_baja_alta" Type="date" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="vulnerable" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="id_zona" Type="int" />
+    <Property Name="id_concepto" Type="int" />
+  </EntityType>
+  <EntityType Name="cobranza">
+    <Key>
+      <PropertyRef Name="id_folio" />
+    </Key>
+    <Property Name="id_folio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cobranza" Type="int" />
+    <Property Name="pago" Type="int" />
+    <Property Name="referencia" Type="nvarchar" MaxLength="100" />
+    <Property Name="abono" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="saldo" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="factura" Type="int" />
+    <Property Name="serie" Type="nchar" MaxLength="1" />
+    <Property Name="observaciones" Type="nvarchar" MaxLength="500" />
+    <Property Name="folio_contpaq" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_pago" Type="date" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="datetime2" Precision="0" />
+    <Property Name="maquina" Type="nvarchar" MaxLength="70" />
+    <Property Name="tipo_registro" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="cobranza_traspaso">
+    <Key>
+      <PropertyRef Name="id_cobranza_traspaso" />
+    </Key>
+    <Property Name="id_cobranza_traspaso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_proyecto_factura" Type="int" />
+    <Property Name="abono" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="stamp" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="conceptos_factura">
+    <Key>
+      <PropertyRef Name="id_concepto" />
+    </Key>
+    <Property Name="id_concepto" Type="int" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="100" />
+    <Property Name="nombre" Type="varchar" MaxLength="255" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="serie" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="conceptos_sat">
+    <Key>
+      <PropertyRef Name="id_conceptos_SAT" />
+    </Key>
+    <Property Name="id_conceptos_SAT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="100" />
+    <Property Name="concepto" Type="varchar" MaxLength="250" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+  </EntityType>
+  <EntityType Name="contacto">
+    <Key>
+      <PropertyRef Name="id_contacto" />
+    </Key>
+    <Property Name="id_contacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cliente" Type="int" />
+    <Property Name="nom_contacto" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="70" />
+    <Property Name="puesto" Type="nvarchar" MaxLength="70" />
+    <Property Name="observaciones" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="contrasena">
+    <Key>
+      <PropertyRef Name="id_contrasenas" />
+    </Key>
+    <Property Name="id_contrasenas" Type="int" Nullable="false" />
+    <Property Name="proyectos" Type="nvarchar" MaxLength="70" />
+    <Property Name="tiempos" Type="nvarchar" MaxLength="70" />
+    <Property Name="cancelacion" Type="nvarchar" MaxLength="70" />
+    <Property Name="correo" Type="nvarchar" MaxLength="50" />
+    <Property Name="contrasena_correo" Type="nvarchar" MaxLength="50" />
+    <Property Name="estatus_tiempo" Type="int" />
+    <Property Name="correo_alter" Type="nvarchar" MaxLength="50" />
+    <Property Name="contrasena_correo_alter" Type="nvarchar" MaxLength="50" />
+    <Property Name="clasificacion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="contrasenia">
+    <Key>
+      <PropertyRef Name="id_contrasenia" />
+    </Key>
+    <Property Name="id_contrasenia" Type="int" Nullable="false" />
+    <Property Name="para" Type="varchar" MaxLength="255" />
+    <Property Name="contrasenia" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="correo_factura">
+    <Key>
+      <PropertyRef Name="id_correo" />
+    </Key>
+    <Property Name="id_correo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="datos" Type="int" />
+    <Property Name="correo" Type="nvarchar" MaxLength="100" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="stamp" Type="date" />
+    <Property Name="dirigido" Type="int" />
+  </EntityType>
+  <EntityType Name="correo_time">
+    <Key>
+      <PropertyRef Name="id_correo" />
+    </Key>
+    <Property Name="id_correo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empleado" Type="int" />
+    <Property Name="quincena" Type="int" />
+    <Property Name="mes" Type="nvarchar" MaxLength="15" />
+    <Property Name="anio" Type="int" />
+    <Property Name="de" Type="nvarchar" MaxLength="70" />
+    <Property Name="para" Type="nvarchar" MaxLength="700" />
+    <Property Name="copia" Type="nvarchar" MaxLength="100" />
+    <Property Name="asunto" Type="nvarchar" MaxLength="100" />
+    <Property Name="cuerpo" Type="nvarchar(max)" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="stamp" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="cuota">
+    <Key>
+      <PropertyRef Name="id_cuota" />
+    </Key>
+    <Property Name="id_cuota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cuota" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="costo" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="area" Type="int" />
+    <Property Name="nivel" Type="int" />
+    <Property Name="ano" Type="int" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+  </EntityType>
+  <EntityType Name="datos_factura">
+    <Key>
+      <PropertyRef Name="id_datos" />
+    </Key>
+    <Property Name="id_datos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="total" Type="numeric" Precision="15" Scale="4" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="concepto" Type="nvarchar" MaxLength="500" />
+    <Property Name="observaciones" Type="nvarchar" MaxLength="700" />
+    <Property Name="recurrente" Type="int" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="datetime2" Precision="0" />
+    <Property Name="fecha_modificacion" Type="datetime2" Precision="0" />
+    <Property Name="trabajo_finalizado" Type="int" />
+  </EntityType>
+  <EntityType Name="departamento">
+    <Key>
+      <PropertyRef Name="id_departamento" />
+    </Key>
+    <Property Name="id_departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave_departamento" Type="nvarchar" MaxLength="5" />
+    <Property Name="nom_departamento" Type="nvarchar" MaxLength="50" />
+    <Property Name="estado" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+  </EntityType>
+  <EntityType Name="departamento_gerente">
+    <Key>
+      <PropertyRef Name="id_departamento_gerente" />
+    </Key>
+    <Property Name="id_departamento_gerente" Type="int" Nullable="false" />
+    <Property Name="id_departamento" Type="int" />
+    <Property Name="id_gerente" Type="int" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="num_empleado" Type="nvarchar" MaxLength="5" />
+    <Property Name="nom_empleado" Type="nvarchar" MaxLength="50" />
+    <Property Name="apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="nivel" Type="int" />
+    <Property Name="num_departamento" Type="int" />
+    <Property Name="email" Type="nvarchar" MaxLength="254" />
+    <Property Name="pwd" Type="nvarchar" MaxLength="254" />
+    <Property Name="estado" Type="int" />
+    <Property Name="estatus_tiempo" Type="int" />
+    <Property Name="rfc" Type="nvarchar" MaxLength="50" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_registro" Type="date" />
+    <Property Name="fecha_alta" Type="date" />
+    <Property Name="fecha_baja" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="maquina" Type="nvarchar" MaxLength="70" />
+    <Property Name="alias" Type="nvarchar" MaxLength="100" />
+    <Property Name="actualizacontrasenia" Type="int" />
+    <Property Name="fecha_ultimo_dia" Type="date" />
+  </EntityType>
+  <EntityType Name="empleado_actividad">
+    <Key>
+      <PropertyRef Name="id_empleado_actividad" />
+    </Key>
+    <Property Name="id_empleado_actividad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empleado" Type="int" />
+    <Property Name="id_actividad" Type="int" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="horas" Type="varchar" MaxLength="18" />
+  </EntityType>
+  <EntityType Name="empleado_contrasenia">
+    <Key>
+      <PropertyRef Name="id_empleado_contrasenia" />
+    </Key>
+    <Property Name="id_empleado_contrasenia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empleado" Type="int" />
+    <Property Name="contrasenia" Type="varchar" MaxLength="254" />
+    <Property Name="fecha_creacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="envio_correo">
+    <Key>
+      <PropertyRef Name="id_envio" />
+    </Key>
+    <Property Name="id_envio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_solicitud" Type="int" />
+    <Property Name="de" Type="nvarchar" MaxLength="200" />
+    <Property Name="para" Type="nvarchar" MaxLength="200" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="fecha" Type="date" />
+  </EntityType>
+  <EntityType Name="estatus">
+    <Key>
+      <PropertyRef Name="id_estatus" />
+    </Key>
+    <Property Name="id_estatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom_estatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="estado" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="stamp" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="factura">
+    <Key>
+      <PropertyRef Name="id_factura" />
+      <PropertyRef Name="serie" />
+    </Key>
+    <Property Name="id_factura" Type="int" Nullable="false" />
+    <Property Name="serie" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="proyecto" Type="int" />
+    <Property Name="credito" Type="int" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="500" />
+    <Property Name="subtotal" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="iva" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="total" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="saldo" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="observaciones" Type="nvarchar" MaxLength="700" />
+    <Property Name="fecha_cancelacion" Type="date" />
+    <Property Name="motivo" Type="nvarchar" MaxLength="150" />
+    <Property Name="moneda" Type="nvarchar" MaxLength="20" />
+    <Property Name="tipo_cambio" Type="numeric" Precision="7" Scale="4" />
+    <Property Name="total_dolar" Type="nvarchar" MaxLength="20" />
+    <Property Name="fecha_credito" Type="date" />
+    <Property Name="debe" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="estado" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="mes" Type="nvarchar" MaxLength="15" />
+    <Property Name="ano" Type="int" />
+    <Property Name="stamp" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="maquina" Type="nvarchar" MaxLength="70" />
+    <Property Name="tipo_registro" Type="nvarchar" MaxLength="10" />
+    <Property Name="tipo_cancelacion" Type="nvarchar" MaxLength="10" />
+    <Property Name="traspaso" Type="int" />
+  </EntityType>
+  <EntityType Name="factura_detalles">
+    <Key>
+      <PropertyRef Name="id_detalles" />
+    </Key>
+    <Property Name="id_detalles" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_factura" Type="int" />
+    <Property Name="serie" Type="nchar" MaxLength="1" />
+    <Property Name="detalles" Type="nvarchar" MaxLength="900" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+  </EntityType>
+  <EntityType Name="forma_de_pago">
+    <Key>
+      <PropertyRef Name="id_forma_pago" />
+    </Key>
+    <Property Name="id_forma_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="100" />
+    <Property Name="forma_pago" Type="varchar" MaxLength="100" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="stamp" Type="date" />
+  </EntityType>
+  <EntityType Name="gastos">
+    <Key>
+      <PropertyRef Name="id_gastos" />
+    </Key>
+    <Property Name="id_gastos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave_gastos" Type="nchar" MaxLength="5" />
+    <Property Name="nom_gasto" Type="nvarchar" MaxLength="50" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+  </EntityType>
+  <EntityType Name="gerente">
+    <Key>
+      <PropertyRef Name="id_gerente" />
+    </Key>
+    <Property Name="id_gerente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave_gerente" Type="nvarchar" MaxLength="5" />
+    <Property Name="nom_gerente" Type="nvarchar" MaxLength="50" />
+    <Property Name="apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="70" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="id_usuario_relacion" Type="int" />
+    <Property Name="id_empleado" Type="int" />
+  </EntityType>
+  <EntityType Name="grupo_clientes">
+    <Key>
+      <PropertyRef Name="id_grupo" />
+    </Key>
+    <Property Name="id_grupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave_grupo" Type="nvarchar" MaxLength="50" />
+    <Property Name="nom_grupo" Type="nvarchar" MaxLength="100" />
+    <Property Name="consecutivo" Type="int" />
+    <Property Name="ano" Type="int" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+  </EntityType>
+  <EntityType Name="historial_empleado">
+    <Key>
+      <PropertyRef Name="id_historial_empleado" />
+    </Key>
+    <Property Name="id_historial_empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empleado" Type="int" />
+    <Property Name="id_nivel" Type="int" />
+    <Property Name="id_departamento" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+  </EntityType>
+  <EntityType Name="hora_asignable">
+    <Key>
+      <PropertyRef Name="id_hora_asignable" />
+    </Key>
+    <Property Name="id_hora_asignable" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="proyecto" Type="int" />
+    <Property Name="tiempo" Type="int" />
+    <Property Name="uno" Type="int" />
+    <Property Name="dos" Type="int" />
+    <Property Name="tres" Type="int" />
+    <Property Name="cuatro" Type="int" />
+    <Property Name="cinco" Type="int" />
+    <Property Name="seis" Type="int" />
+    <Property Name="siete" Type="int" />
+    <Property Name="ocho" Type="int" />
+    <Property Name="nueve" Type="int" />
+    <Property Name="diez" Type="int" />
+    <Property Name="once" Type="int" />
+    <Property Name="doce" Type="int" />
+    <Property Name="trece" Type="int" />
+    <Property Name="catorce" Type="int" />
+    <Property Name="quince" Type="int" />
+    <Property Name="diez_y_seis" Type="int" />
+    <Property Name="total" Type="int" />
+    <Property Name="cuota" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="costo" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="total_cuota" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="total_costo" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+  </EntityType>
+  <EntityType Name="hora_no_asignable">
+    <Key>
+      <PropertyRef Name="id_hora_no_asignable" />
+    </Key>
+    <Property Name="id_hora_no_asignable" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="actividad" Type="int" />
+    <Property Name="tiempo" Type="int" />
+    <Property Name="uno" Type="int" />
+    <Property Name="dos" Type="int" />
+    <Property Name="tres" Type="int" />
+    <Property Name="cuatro" Type="int" />
+    <Property Name="cinco" Type="int" />
+    <Property Name="seis" Type="int" />
+    <Property Name="siete" Type="int" />
+    <Property Name="ocho" Type="int" />
+    <Property Name="nueve" Type="int" />
+    <Property Name="diez" Type="int" />
+    <Property Name="once" Type="int" />
+    <Property Name="doce" Type="int" />
+    <Property Name="trece" Type="int" />
+    <Property Name="catorce" Type="int" />
+    <Property Name="quince" Type="int" />
+    <Property Name="diez_y_seis" Type="int" />
+    <Property Name="total" Type="int" />
+    <Property Name="cuota" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="costo" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="total_cuota" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="total_costo" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+  </EntityType>
+  <EntityType Name="iva">
+    <Key>
+      <PropertyRef Name="id_iva" />
+    </Key>
+    <Property Name="id_iva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom_iva" Type="nvarchar" MaxLength="11" />
+    <Property Name="estatus" Type="int" />
+  </EntityType>
+  <EntityType Name="metodo_de_pago">
+    <Key>
+      <PropertyRef Name="id_metodo_pago" />
+    </Key>
+    <Property Name="id_metodo_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="100" />
+    <Property Name="metodo_pago" Type="varchar" MaxLength="100" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="stamp" Type="date" />
+  </EntityType>
+  <EntityType Name="moneda">
+    <Key>
+      <PropertyRef Name="id_moneda" />
+    </Key>
+    <Property Name="id_moneda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="moneda" Type="nvarchar" MaxLength="10" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="stamp" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="nivel">
+    <Key>
+      <PropertyRef Name="id_nivel" />
+    </Key>
+    <Property Name="id_nivel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave_nivel" Type="nchar" MaxLength="7" />
+    <Property Name="nom_nivel" Type="nvarchar" MaxLength="50" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+  </EntityType>
+  <EntityType Name="nota_de_credito">
+    <Key>
+      <PropertyRef Name="id_nota" />
+    </Key>
+    <Property Name="id_nota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="factura" Type="int" />
+    <Property Name="serie" Type="nchar" MaxLength="2" />
+    <Property Name="subtotal" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="iva" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="total" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="observaciones" Type="nvarchar" MaxLength="200" />
+    <Property Name="fecha_cancelacion" Type="nvarchar" MaxLength="10" />
+    <Property Name="motivo" Type="nvarchar" MaxLength="100" />
+    <Property Name="moneda" Type="nvarchar" MaxLength="20" />
+    <Property Name="tipo_cambio" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="saldo" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="maquina" Type="nvarchar" MaxLength="70" />
+  </EntityType>
+  <EntityType Name="partida">
+    <Key>
+      <PropertyRef Name="id_partida" />
+    </Key>
+    <Property Name="id_partida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="concepto" Type="nvarchar" MaxLength="400" />
+    <Property Name="monto" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="factura" Type="int" />
+    <Property Name="serie" Type="nchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="partida_nota">
+    <Key>
+      <PropertyRef Name="id_partida_nota" />
+    </Key>
+    <Property Name="id_partida_nota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="concepto" Type="nvarchar" MaxLength="255" />
+    <Property Name="monto" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="nota_credito" Type="int" />
+  </EntityType>
+  <EntityType Name="partida_solicitud">
+    <Key>
+      <PropertyRef Name="id_partida_solicitud" />
+    </Key>
+    <Property Name="id_partida_solicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="concepto" Type="varchar" MaxLength="2000" />
+    <Property Name="monto" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="id_solicitud_factura" Type="int" />
+    <Property Name="id_proyecto" Type="int" />
+    <Property Name="id_tipo_servicio" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+  </EntityType>
+  <EntityType Name="periodo_ano">
+    <Key>
+      <PropertyRef Name="id_periodo_ano" />
+    </Key>
+    <Property Name="id_periodo_ano" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ano" Type="int" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="estatus_tiempo" Type="int" />
+  </EntityType>
+  <EntityType Name="periodo_mes">
+    <Key>
+      <PropertyRef Name="id_periodo_mes" />
+    </Key>
+    <Property Name="id_periodo_mes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mes" Type="nvarchar" MaxLength="15" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="numero" Type="nchar" MaxLength="2" />
+    <Property Name="estatus_tiempo" Type="int" />
+  </EntityType>
+  <EntityType Name="presupuesto">
+    <Key>
+      <PropertyRef Name="id_presupuesto" />
+    </Key>
+    <Property Name="id_presupuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom_presupuesto" Type="nvarchar" MaxLength="300" />
+    <Property Name="cliente" Type="int" />
+    <Property Name="socio" Type="int" />
+    <Property Name="gerente" Type="int" />
+    <Property Name="area" Type="int" />
+    <Property Name="cotizacion" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="aceptado" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="descuento" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="utilidad" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="asignado" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+  </EntityType>
+  <EntityType Name="presupuesto_gasto">
+    <Key>
+      <PropertyRef Name="id_presupuesto_gasto" />
+    </Key>
+    <Property Name="id_presupuesto_gasto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="presupuesto" Type="int" />
+    <Property Name="gasto" Type="int" />
+    <Property Name="monto" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="area" Type="int" />
+  </EntityType>
+  <EntityType Name="presupuesto_nivel">
+    <Key>
+      <PropertyRef Name="id_presupuesto_nivel" />
+    </Key>
+    <Property Name="id_presupuesto_nivel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="presupuesto" Type="int" />
+    <Property Name="nivel" Type="int" />
+    <Property Name="horas" Type="int" />
+    <Property Name="area" Type="int" />
+    <Property Name="personal" Type="int" />
+    <Property Name="cuota" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="costo" Type="numeric" Precision="11" Scale="2" />
+  </EntityType>
+  <EntityType Name="proyecto">
+    <Key>
+      <PropertyRef Name="id_proyecto" />
+    </Key>
+    <Property Name="id_proyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave_proyecto" Type="nvarchar" MaxLength="20" />
+    <Property Name="cliente" Type="int" />
+    <Property Name="fecha_inicio" Type="date" />
+    <Property Name="socio" Type="int" />
+    <Property Name="gerente" Type="int" />
+    <Property Name="area" Type="int" />
+    <Property Name="fecha_final" Type="date" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="carga_tiempos" Type="int" />
+    <Property Name="fecha_cierre" Type="nvarchar" MaxLength="15" />
+    <Property Name="prorrateable" Type="int" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="255" />
+    <Property Name="presupuesto" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="clave_proy_old" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="proyecto_factura">
+    <Key>
+      <PropertyRef Name="id_proyecto_factura" />
+    </Key>
+    <Property Name="id_proyecto_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_proyecto" Type="int" />
+    <Property Name="id_factura" Type="int" />
+    <Property Name="serie" Type="nvarchar" MaxLength="2" />
+    <Property Name="importe" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="iva" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="total" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="saldo" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="datetime2" Precision="0" />
+    <Property Name="fecha_modificacion" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="rechazada">
+    <Key>
+      <PropertyRef Name="id_rechazada" />
+    </Key>
+    <Property Name="id_rechazada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="255" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+  </EntityType>
+  <EntityType Name="servidor_correo">
+    <Key>
+      <PropertyRef Name="id_servidor_correo" />
+    </Key>
+    <Property Name="id_servidor_correo" Type="int" Nullable="false" />
+    <Property Name="puerto" Type="int" />
+    <Property Name="host" Type="varchar" MaxLength="255" />
+    <Property Name="ssl" Type="varchar" MaxLength="15" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="displayname" Type="varchar" MaxLength="255" />
+    <Property Name="correo" Type="varchar" MaxLength="255" />
+    <Property Name="contrasenia" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="socio">
+    <Key>
+      <PropertyRef Name="id_socio" />
+    </Key>
+    <Property Name="id_socio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave_socio" Type="nvarchar" MaxLength="5" />
+    <Property Name="nom_socio" Type="nvarchar" MaxLength="50" />
+    <Property Name="apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="70" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="id_usuario_relacion" Type="int" />
+    <Property Name="id_empleado" Type="int" />
+  </EntityType>
+  <EntityType Name="solicitud_factura">
+    <Key>
+      <PropertyRef Name="id_solicitud" />
+    </Key>
+    <Property Name="id_solicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="datos" Type="int" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="importe" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="iva" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="total" Type="numeric" Precision="11" Scale="2" />
+    <Property Name="anio" Type="int" />
+    <Property Name="mes" Type="int" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="referencia" Type="int" />
+    <Property Name="tipo_cambio" Type="int" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="3000" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="datetime2" Precision="0" />
+    <Property Name="fecha_modificacion" Type="datetime2" Precision="0" />
+    <Property Name="cfdi" Type="int" />
+    <Property Name="metodo_pago" Type="int" />
+    <Property Name="forma_pago" Type="int" />
+    <Property Name="id_factura" Type="int" />
+    <Property Name="serie" Type="nvarchar" MaxLength="4" />
+    <Property Name="porcent_iva" Type="numeric" Precision="6" Scale="2" />
+    <Property Name="condicionada" Type="int" />
+    <Property Name="subestatus" Type="int" />
+    <Property Name="motivo_cancelacion" Type="nvarchar" MaxLength="500" />
+    <Property Name="id_rechazada" Type="int" />
+  </EntityType>
+  <EntityType Name="tiempo">
+    <Key>
+      <PropertyRef Name="id_tiempo" />
+    </Key>
+    <Property Name="id_tiempo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="quincena" Type="int" />
+    <Property Name="mes" Type="nvarchar" MaxLength="20" />
+    <Property Name="ano" Type="int" />
+    <Property Name="horas_asignables" Type="int" />
+    <Property Name="horas_no_asignables" Type="int" />
+    <Property Name="total" Type="int" />
+    <Property Name="empleado" Type="int" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="envio" Type="int" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="fecha_reporte" Type="date" />
+  </EntityType>
+  <EntityType Name="tipo_cambio">
+    <Key>
+      <PropertyRef Name="id_tipocambio" />
+    </Key>
+    <Property Name="id_tipocambio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_cambio" Type="numeric" Precision="8" Scale="4" />
+    <Property Name="moneda" Type="int" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="fecha_creacion" Type="datetime2" Precision="0" />
+    <Property Name="fecha_modificacion" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="tipo_servicio">
+    <Key>
+      <PropertyRef Name="id_tipo_servicio" />
+    </Key>
+    <Property Name="id_tipo_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" />
+    <Property Name="servicio" Type="varchar" MaxLength="255" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="fecha_creacion" Type="date" />
+    <Property Name="fecha_modificacion" Type="date" />
+    <Property Name="usuario" Type="int" />
+    <Property Name="userupd" Type="int" />
+  </EntityType>
+  <EntityType Name="tiposervicio_conceptosat">
+    <Key>
+      <PropertyRef Name="id_tiposervicio_conceptosat" />
+    </Key>
+    <Property Name="id_tiposervicio_conceptosat" Type="int" Nullable="false" />
+    <Property Name="id_tipo_servicio" Type="int" />
+    <Property Name="id_concepto_sat" Type="int" />
+  </EntityType>
+  <EntityType Name="uso_de_cfdi">
+    <Key>
+      <PropertyRef Name="id_cfdi" />
+    </Key>
+    <Property Name="id_cfdi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="100" />
+    <Property Name="cfdi" Type="varchar" MaxLength="100" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="stamp" Type="date" />
+    <Property Name="userupd" Type="int" />
+  </EntityType>
+  <EntityType Name="zona">
+    <Key>
+      <PropertyRef Name="id_zona" />
+    </Key>
+    <Property Name="id_zona" Type="int" Nullable="false" />
+    <Property Name="nom_zona" Type="varchar" MaxLength="100" />
+    <Property Name="serie" Type="varchar" MaxLength="5" />
+    <Property Name="userupd" Type="int" />
+    <Property Name="stamp" Type="date" />
+    <Property Name="estatus" Type="int" />
+  </EntityType>
+  <Association Name="asignacion_de_gastos$gasto_asignacion">
+    <End Role="gastos" Type="Self.gastos" Multiplicity="0..1" />
+    <End Role="asignacion_de_gastos" Type="Self.asignacion_de_gastos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gastos">
+        <PropertyRef Name="id_gastos" />
+      </Principal>
+      <Dependent Role="asignacion_de_gastos">
+        <PropertyRef Name="gasto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="asignacion_de_gastos$proyecto_asignacion">
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="0..1" />
+    <End Role="asignacion_de_gastos" Type="Self.asignacion_de_gastos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proyecto">
+        <PropertyRef Name="id_proyecto" />
+      </Principal>
+      <Dependent Role="asignacion_de_gastos">
+        <PropertyRef Name="proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cfdi_factura">
+    <End Role="uso_de_cfdi" Type="Self.uso_de_cfdi" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uso_de_cfdi">
+        <PropertyRef Name="id_cfdi" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="cfdi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cliente$grupo">
+    <End Role="grupo_clientes" Type="Self.grupo_clientes" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_clientes">
+        <PropertyRef Name="id_grupo" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="grupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cliente$iva">
+    <End Role="iva" Type="Self.iva" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="iva">
+        <PropertyRef Name="id_iva" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="tasa_iva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="clientepro">
+    <End Role="gerente" Type="Self.gerente" Multiplicity="0..1" />
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gerente">
+        <PropertyRef Name="id_gerente" />
+      </Principal>
+      <Dependent Role="proyecto">
+        <PropertyRef Name="gerente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cobranza$factura_cobranza">
+    <End Role="factura" Type="Self.factura" Multiplicity="0..1" />
+    <End Role="cobranza" Type="Self.cobranza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="factura">
+        <PropertyRef Name="id_factura" />
+        <PropertyRef Name="serie" />
+      </Principal>
+      <Dependent Role="cobranza">
+        <PropertyRef Name="factura" />
+        <PropertyRef Name="serie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cobranza_traspaso$idproyectofactura">
+    <End Role="proyecto_factura" Type="Self.proyecto_factura" Multiplicity="0..1" />
+    <End Role="cobranza_traspaso" Type="Self.cobranza_traspaso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proyecto_factura">
+        <PropertyRef Name="id_proyecto_factura" />
+      </Principal>
+      <Dependent Role="cobranza_traspaso">
+        <PropertyRef Name="id_proyecto_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="contacto$cliente">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="contacto">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="correo_factura$correo_datos">
+    <End Role="datos_factura" Type="Self.datos_factura" Multiplicity="0..1" />
+    <End Role="correo_factura" Type="Self.correo_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="datos_factura">
+        <PropertyRef Name="id_datos" />
+      </Principal>
+      <Dependent Role="correo_factura">
+        <PropertyRef Name="datos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cuota$area">
+    <End Role="departamento" Type="Self.departamento" Multiplicity="0..1" />
+    <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamento">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="cuota">
+        <PropertyRef Name="area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cuota$nivel">
+    <End Role="nivel" Type="Self.nivel" Multiplicity="0..1" />
+    <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nivel">
+        <PropertyRef Name="id_nivel" />
+      </Principal>
+      <Dependent Role="cuota">
+        <PropertyRef Name="nivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="documentodigital">
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="0..1" />
+    <End Role="archivo_documento_digital" Type="Self.archivo_documento_digital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="solicitud_factura">
+        <PropertyRef Name="id_solicitud" />
+      </Principal>
+      <Dependent Role="archivo_documento_digital">
+        <PropertyRef Name="id_solicitud_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="empleado$empleado_ibfk_1">
+    <End Role="departamento" Type="Self.departamento" Multiplicity="0..1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamento">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="num_departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="empleado$nivel_empleado">
+    <End Role="nivel" Type="Self.nivel" Multiplicity="0..1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nivel">
+        <PropertyRef Name="id_nivel" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="nivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="empleado_actividad$empleadoid">
+    <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
+    <End Role="empleado_actividad" Type="Self.empleado_actividad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="empleado_actividad">
+        <PropertyRef Name="id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="factura$proyecto_factura">
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="0..1" />
+    <End Role="factura" Type="Self.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proyecto">
+        <PropertyRef Name="id_proyecto" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="factura_detalles$id_factura">
+    <End Role="factura" Type="Self.factura" Multiplicity="0..1" />
+    <End Role="factura_detalles" Type="Self.factura_detalles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="factura">
+        <PropertyRef Name="id_factura" />
+        <PropertyRef Name="serie" />
+      </Principal>
+      <Dependent Role="factura_detalles">
+        <PropertyRef Name="id_factura" />
+        <PropertyRef Name="serie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="formapago_factura">
+    <End Role="forma_de_pago" Type="Self.forma_de_pago" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forma_de_pago">
+        <PropertyRef Name="id_forma_pago" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="forma_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="hora_asignable$proyecto">
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="0..1" />
+    <End Role="hora_asignable" Type="Self.hora_asignable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proyecto">
+        <PropertyRef Name="id_proyecto" />
+      </Principal>
+      <Dependent Role="hora_asignable">
+        <PropertyRef Name="proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="hora_no_asignable$actividad">
+    <End Role="actividad" Type="Self.actividad" Multiplicity="0..1" />
+    <End Role="hora_no_asignable" Type="Self.hora_no_asignable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="actividad">
+        <PropertyRef Name="id_actividad" />
+      </Principal>
+      <Dependent Role="hora_no_asignable">
+        <PropertyRef Name="actividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="hora_no_asignable_tiempo">
+    <End Role="tiempo" Type="Self.tiempo" Multiplicity="0..1" />
+    <End Role="hora_no_asignable" Type="Self.hora_no_asignable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tiempo">
+        <PropertyRef Name="id_tiempo" />
+      </Principal>
+      <Dependent Role="hora_no_asignable">
+        <PropertyRef Name="tiempo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="iddatos">
+    <End Role="datos_factura" Type="Self.datos_factura" Multiplicity="0..1" />
+    <End Role="archivo_factura" Type="Self.archivo_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="datos_factura">
+        <PropertyRef Name="id_datos" />
+      </Principal>
+      <Dependent Role="archivo_factura">
+        <PropertyRef Name="id_datos_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idsolicitudcorreo">
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="0..1" />
+    <End Role="envio_correo" Type="Self.envio_correo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="solicitud_factura">
+        <PropertyRef Name="id_solicitud" />
+      </Principal>
+      <Dependent Role="envio_correo">
+        <PropertyRef Name="id_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pago_factura">
+    <End Role="metodo_de_pago" Type="Self.metodo_de_pago" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="metodo_de_pago">
+        <PropertyRef Name="id_metodo_pago" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="metodo_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="partida_nota$nota">
+    <End Role="nota_de_credito" Type="Self.nota_de_credito" Multiplicity="0..1" />
+    <End Role="partida_nota" Type="Self.partida_nota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nota_de_credito">
+        <PropertyRef Name="id_nota" />
+      </Principal>
+      <Dependent Role="partida_nota">
+        <PropertyRef Name="nota_credito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="partidasolicitud">
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="0..1" />
+    <End Role="partida_solicitud" Type="Self.partida_solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="solicitud_factura">
+        <PropertyRef Name="id_solicitud" />
+      </Principal>
+      <Dependent Role="partida_solicitud">
+        <PropertyRef Name="id_solicitud_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="presupuesto$cliente_presupuesto">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="presupuesto" Type="Self.presupuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="presupuesto">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="presupuesto_gasto$gasto">
+    <End Role="gastos" Type="Self.gastos" Multiplicity="0..1" />
+    <End Role="presupuesto_gasto" Type="Self.presupuesto_gasto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gastos">
+        <PropertyRef Name="id_gastos" />
+      </Principal>
+      <Dependent Role="presupuesto_gasto">
+        <PropertyRef Name="gasto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="presupuesto_gasto$presupueso">
+    <End Role="presupuesto" Type="Self.presupuesto" Multiplicity="0..1" />
+    <End Role="presupuesto_gasto" Type="Self.presupuesto_gasto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="presupuesto">
+        <PropertyRef Name="id_presupuesto" />
+      </Principal>
+      <Dependent Role="presupuesto_gasto">
+        <PropertyRef Name="presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="presupuesto_nivel$nivel_presupuesto">
+    <End Role="nivel" Type="Self.nivel" Multiplicity="0..1" />
+    <End Role="presupuesto_nivel" Type="Self.presupuesto_nivel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nivel">
+        <PropertyRef Name="id_nivel" />
+      </Principal>
+      <Dependent Role="presupuesto_nivel">
+        <PropertyRef Name="nivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="presupuesto_nivel$presupuesto_nivel">
+    <End Role="presupuesto" Type="Self.presupuesto" Multiplicity="0..1" />
+    <End Role="presupuesto_nivel" Type="Self.presupuesto_nivel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="presupuesto">
+        <PropertyRef Name="id_presupuesto" />
+      </Principal>
+      <Dependent Role="presupuesto_nivel">
+        <PropertyRef Name="presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="proyecto$area_proyecto">
+    <End Role="departamento" Type="Self.departamento" Multiplicity="0..1" />
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamento">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="proyecto">
+        <PropertyRef Name="area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="proyecto$cliente_proyecto">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="proyecto">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rechazadafac">
+    <End Role="rechazada" Type="Self.rechazada" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rechazada">
+        <PropertyRef Name="id_rechazada" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="id_rechazada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="satservicio">
+    <End Role="conceptos_sat" Type="Self.conceptos_sat" Multiplicity="0..1" />
+    <End Role="tiposervicio_conceptosat" Type="Self.tiposervicio_conceptosat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos_sat">
+        <PropertyRef Name="id_conceptos_SAT" />
+      </Principal>
+      <Dependent Role="tiposervicio_conceptosat">
+        <PropertyRef Name="id_concepto_sat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="servivio">
+    <End Role="tipo_servicio" Type="Self.tipo_servicio" Multiplicity="0..1" />
+    <End Role="tiposervicio_conceptosat" Type="Self.tiposervicio_conceptosat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_servicio">
+        <PropertyRef Name="id_tipo_servicio" />
+      </Principal>
+      <Dependent Role="tiposervicio_conceptosat">
+        <PropertyRef Name="id_tipo_servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="sociopro">
+    <End Role="socio" Type="Self.socio" Multiplicity="0..1" />
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="socio">
+        <PropertyRef Name="id_socio" />
+      </Principal>
+      <Dependent Role="proyecto">
+        <PropertyRef Name="socio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="solicitud_factura$datos">
+    <End Role="datos_factura" Type="Self.datos_factura" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="datos_factura">
+        <PropertyRef Name="id_datos" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="datos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="solicitud_factura$estatus">
+    <End Role="estatus" Type="Self.estatus" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estatus">
+        <PropertyRef Name="id_estatus" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="estatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="solicitud_factura$id_tipocambio">
+    <End Role="tipo_cambio" Type="Self.tipo_cambio" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_cambio">
+        <PropertyRef Name="id_tipocambio" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="tipo_cambio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tipo_cambio$moneda_tc">
+    <End Role="moneda" Type="Self.moneda" Multiplicity="0..1" />
+    <End Role="tipo_cambio" Type="Self.tipo_cambio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="moneda">
+        <PropertyRef Name="id_moneda" />
+      </Principal>
+      <Dependent Role="tipo_cambio">
+        <PropertyRef Name="moneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tiposervicio">
+    <End Role="tipo_servicio" Type="Self.tipo_servicio" Multiplicity="0..1" />
+    <End Role="partida_solicitud" Type="Self.partida_solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_servicio">
+        <PropertyRef Name="id_tipo_servicio" />
+      </Principal>
+      <Dependent Role="partida_solicitud">
+        <PropertyRef Name="id_tipo_servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="actividadesPorEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpleado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AutoCompleteClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AutoCompleteProyectos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="buscar_factura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="buscar_facturapar" Type="varchar" Mode="In" />
+    <Parameter Name="id_fact" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CboClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="CboClientes_Parametro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CboCliente_parametro" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CboCtesTime_Par" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CboCteTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CboEmp_Parametro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CboEmp" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CboGtesTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="CboPtosTime_Par" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_gte" Type="varchar" Mode="In" />
+    <Parameter Name="id_cte" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Clientes_buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Cliente_buscar" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Clientes_load" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="clientesPorGerente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCliente" Type="int" Mode="In" />
+  </Function>
+  <Function Name="emp_rep_tiempo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="quincena_tmp" Type="int" Mode="In" />
+    <Parameter Name="mes_tmp" Type="varchar" Mode="In" />
+    <Parameter Name="anio_tmp" Type="int" Mode="In" />
+  </Function>
+  <Function Name="emp_rep_tiempo_buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="quincena_tmp" Type="int" Mode="In" />
+    <Parameter Name="mes_tmp" Type="varchar" Mode="In" />
+    <Parameter Name="anio_tmp" Type="int" Mode="In" />
+    <Parameter Name="Empleado_buscar" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Empleados_buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Empleado_buscar" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Empleados_load" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="factura_proc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Facturas_refrescar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="num_factura" Type="varchar" Mode="In" />
+    <Parameter Name="num_serie" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GerenteByEstatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="horasNoAsignables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTiempo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertaReporte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="NoAsignables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="repid_tiempo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="presupuesto_buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="presupuesto_buscar_par" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Presupuesto_load" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="proyectos_buscar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Proyecto_buscar" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proyectos_estatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Estatus_proyecto" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proyectos_load" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="proyectosPorClienteGerente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGerente" Type="int" Mode="In" />
+    <Parameter Name="IdCliente" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ReporteByIdTiempo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Tiempo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Reportes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Empleado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ReportesByIdEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpleado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ReporteTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="repid_tiempo" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="administracionModelStoreContainer">
+    <EntitySet Name="actividad" EntityType="Self.actividad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="archivo_documento_digital" EntityType="Self.archivo_documento_digital" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="archivo_factura" EntityType="Self.archivo_factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="asignacion_de_gastos" EntityType="Self.asignacion_de_gastos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cobranza" EntityType="Self.cobranza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cobranza_traspaso" EntityType="Self.cobranza_traspaso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="conceptos_factura" EntityType="Self.conceptos_factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="conceptos_sat" EntityType="Self.conceptos_sat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contacto" EntityType="Self.contacto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contrasena" EntityType="Self.contrasena" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contrasenia" EntityType="Self.contrasenia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="correo_factura" EntityType="Self.correo_factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="correo_time" EntityType="Self.correo_time" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cuota" EntityType="Self.cuota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="datos_factura" EntityType="Self.datos_factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="departamento" EntityType="Self.departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="departamento_gerente" EntityType="Self.departamento_gerente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empleado_actividad" EntityType="Self.empleado_actividad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="empleado_contrasenia" EntityType="Self.empleado_contrasenia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="envio_correo" EntityType="Self.envio_correo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estatus" EntityType="Self.estatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="factura" EntityType="Self.factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="factura_detalles" EntityType="Self.factura_detalles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="forma_de_pago" EntityType="Self.forma_de_pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gastos" EntityType="Self.gastos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gerente" EntityType="Self.gerente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="grupo_clientes" EntityType="Self.grupo_clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="historial_empleado" EntityType="Self.historial_empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hora_asignable" EntityType="Self.hora_asignable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hora_no_asignable" EntityType="Self.hora_no_asignable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="iva" EntityType="Self.iva" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="metodo_de_pago" EntityType="Self.metodo_de_pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="moneda" EntityType="Self.moneda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nivel" EntityType="Self.nivel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nota_de_credito" EntityType="Self.nota_de_credito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="partida" EntityType="Self.partida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="partida_nota" EntityType="Self.partida_nota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="partida_solicitud" EntityType="Self.partida_solicitud" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="periodo_ano" EntityType="Self.periodo_ano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="periodo_mes" EntityType="Self.periodo_mes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="presupuesto" EntityType="Self.presupuesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="presupuesto_gasto" EntityType="Self.presupuesto_gasto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="presupuesto_nivel" EntityType="Self.presupuesto_nivel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="proyecto" EntityType="Self.proyecto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="proyecto_factura" EntityType="Self.proyecto_factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rechazada" EntityType="Self.rechazada" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="servidor_correo" EntityType="Self.servidor_correo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="socio" EntityType="Self.socio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="solicitud_factura" EntityType="Self.solicitud_factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tiempo" EntityType="Self.tiempo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_cambio" EntityType="Self.tipo_cambio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_servicio" EntityType="Self.tipo_servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tiposervicio_conceptosat" EntityType="Self.tiposervicio_conceptosat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="uso_de_cfdi" EntityType="Self.uso_de_cfdi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="zona" EntityType="Self.zona" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="asignacion_de_gastos$gasto_asignacion" Association="Self.asignacion_de_gastos$gasto_asignacion">
+      <End Role="gastos" EntitySet="gastos" />
+      <End Role="asignacion_de_gastos" EntitySet="asignacion_de_gastos" />
+    </AssociationSet>
+    <AssociationSet Name="asignacion_de_gastos$proyecto_asignacion" Association="Self.asignacion_de_gastos$proyecto_asignacion">
+      <End Role="proyecto" EntitySet="proyecto" />
+      <End Role="asignacion_de_gastos" EntitySet="asignacion_de_gastos" />
+    </AssociationSet>
+    <AssociationSet Name="cfdi_factura" Association="Self.cfdi_factura">
+      <End Role="uso_de_cfdi" EntitySet="uso_de_cfdi" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="cliente$grupo" Association="Self.cliente$grupo">
+      <End Role="grupo_clientes" EntitySet="grupo_clientes" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="cliente$iva" Association="Self.cliente$iva">
+      <End Role="iva" EntitySet="iva" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="clientepro" Association="Self.clientepro">
+      <End Role="gerente" EntitySet="gerente" />
+      <End Role="proyecto" EntitySet="proyecto" />
+    </AssociationSet>
+    <AssociationSet Name="cobranza$factura_cobranza" Association="Self.cobranza$factura_cobranza">
+      <End Role="factura" EntitySet="factura" />
+      <End Role="cobranza" EntitySet="cobranza" />
+    </AssociationSet>
+    <AssociationSet Name="cobranza_traspaso$idproyectofactura" Association="Self.cobranza_traspaso$idproyectofactura">
+      <End Role="proyecto_factura" EntitySet="proyecto_factura" />
+      <End Role="cobranza_traspaso" EntitySet="cobranza_traspaso" />
+    </AssociationSet>
+    <AssociationSet Name="contacto$cliente" Association="Self.contacto$cliente">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="contacto" EntitySet="contacto" />
+    </AssociationSet>
+    <AssociationSet Name="correo_factura$correo_datos" Association="Self.correo_factura$correo_datos">
+      <End Role="datos_factura" EntitySet="datos_factura" />
+      <End Role="correo_factura" EntitySet="correo_factura" />
+    </AssociationSet>
+    <AssociationSet Name="cuota$area" Association="Self.cuota$area">
+      <End Role="departamento" EntitySet="departamento" />
+      <End Role="cuota" EntitySet="cuota" />
+    </AssociationSet>
+    <AssociationSet Name="cuota$nivel" Association="Self.cuota$nivel">
+      <End Role="nivel" EntitySet="nivel" />
+      <End Role="cuota" EntitySet="cuota" />
+    </AssociationSet>
+    <AssociationSet Name="documentodigital" Association="Self.documentodigital">
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+      <End Role="archivo_documento_digital" EntitySet="archivo_documento_digital" />
+    </AssociationSet>
+    <AssociationSet Name="empleado$empleado_ibfk_1" Association="Self.empleado$empleado_ibfk_1">
+      <End Role="departamento" EntitySet="departamento" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="empleado$nivel_empleado" Association="Self.empleado$nivel_empleado">
+      <End Role="nivel" EntitySet="nivel" />
+      <End Role="empleado" EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet Name="empleado_actividad$empleadoid" Association="Self.empleado_actividad$empleadoid">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="empleado_actividad" EntitySet="empleado_actividad" />
+    </AssociationSet>
+    <AssociationSet Name="factura$proyecto_factura" Association="Self.factura$proyecto_factura">
+      <End Role="proyecto" EntitySet="proyecto" />
+      <End Role="factura" EntitySet="factura" />
+    </AssociationSet>
+    <AssociationSet Name="factura_detalles$id_factura" Association="Self.factura_detalles$id_factura">
+      <End Role="factura" EntitySet="factura" />
+      <End Role="factura_detalles" EntitySet="factura_detalles" />
+    </AssociationSet>
+    <AssociationSet Name="formapago_factura" Association="Self.formapago_factura">
+      <End Role="forma_de_pago" EntitySet="forma_de_pago" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="hora_asignable$proyecto" Association="Self.hora_asignable$proyecto">
+      <End Role="proyecto" EntitySet="proyecto" />
+      <End Role="hora_asignable" EntitySet="hora_asignable" />
+    </AssociationSet>
+    <AssociationSet Name="hora_no_asignable$actividad" Association="Self.hora_no_asignable$actividad">
+      <End Role="actividad" EntitySet="actividad" />
+      <End Role="hora_no_asignable" EntitySet="hora_no_asignable" />
+    </AssociationSet>
+    <AssociationSet Name="hora_no_asignable_tiempo" Association="Self.hora_no_asignable_tiempo">
+      <End Role="tiempo" EntitySet="tiempo" />
+      <End Role="hora_no_asignable" EntitySet="hora_no_asignable" />
+    </AssociationSet>
+    <AssociationSet Name="iddatos" Association="Self.iddatos">
+      <End Role="datos_factura" EntitySet="datos_factura" />
+      <End Role="archivo_factura" EntitySet="archivo_factura" />
+    </AssociationSet>
+    <AssociationSet Name="idsolicitudcorreo" Association="Self.idsolicitudcorreo">
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+      <End Role="envio_correo" EntitySet="envio_correo" />
+    </AssociationSet>
+    <AssociationSet Name="pago_factura" Association="Self.pago_factura">
+      <End Role="metodo_de_pago" EntitySet="metodo_de_pago" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="partida_nota$nota" Association="Self.partida_nota$nota">
+      <End Role="nota_de_credito" EntitySet="nota_de_credito" />
+      <End Role="partida_nota" EntitySet="partida_nota" />
+    </AssociationSet>
+    <AssociationSet Name="partidasolicitud" Association="Self.partidasolicitud">
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+      <End Role="partida_solicitud" EntitySet="partida_solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="presupuesto$cliente_presupuesto" Association="Self.presupuesto$cliente_presupuesto">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="presupuesto" EntitySet="presupuesto" />
+    </AssociationSet>
+    <AssociationSet Name="presupuesto_gasto$gasto" Association="Self.presupuesto_gasto$gasto">
+      <End Role="gastos" EntitySet="gastos" />
+      <End Role="presupuesto_gasto" EntitySet="presupuesto_gasto" />
+    </AssociationSet>
+    <AssociationSet Name="presupuesto_gasto$presupueso" Association="Self.presupuesto_gasto$presupueso">
+      <End Role="presupuesto" EntitySet="presupuesto" />
+      <End Role="presupuesto_gasto" EntitySet="presupuesto_gasto" />
+    </AssociationSet>
+    <AssociationSet Name="presupuesto_nivel$nivel_presupuesto" Association="Self.presupuesto_nivel$nivel_presupuesto">
+      <End Role="nivel" EntitySet="nivel" />
+      <End Role="presupuesto_nivel" EntitySet="presupuesto_nivel" />
+    </AssociationSet>
+    <AssociationSet Name="presupuesto_nivel$presupuesto_nivel" Association="Self.presupuesto_nivel$presupuesto_nivel">
+      <End Role="presupuesto" EntitySet="presupuesto" />
+      <End Role="presupuesto_nivel" EntitySet="presupuesto_nivel" />
+    </AssociationSet>
+    <AssociationSet Name="proyecto$area_proyecto" Association="Self.proyecto$area_proyecto">
+      <End Role="departamento" EntitySet="departamento" />
+      <End Role="proyecto" EntitySet="proyecto" />
+    </AssociationSet>
+    <AssociationSet Name="proyecto$cliente_proyecto" Association="Self.proyecto$cliente_proyecto">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="proyecto" EntitySet="proyecto" />
+    </AssociationSet>
+    <AssociationSet Name="rechazadafac" Association="Self.rechazadafac">
+      <End Role="rechazada" EntitySet="rechazada" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="satservicio" Association="Self.satservicio">
+      <End Role="conceptos_sat" EntitySet="conceptos_sat" />
+      <End Role="tiposervicio_conceptosat" EntitySet="tiposervicio_conceptosat" />
+    </AssociationSet>
+    <AssociationSet Name="servivio" Association="Self.servivio">
+      <End Role="tipo_servicio" EntitySet="tipo_servicio" />
+      <End Role="tiposervicio_conceptosat" EntitySet="tiposervicio_conceptosat" />
+    </AssociationSet>
+    <AssociationSet Name="sociopro" Association="Self.sociopro">
+      <End Role="socio" EntitySet="socio" />
+      <End Role="proyecto" EntitySet="proyecto" />
+    </AssociationSet>
+    <AssociationSet Name="solicitud_factura$datos" Association="Self.solicitud_factura$datos">
+      <End Role="datos_factura" EntitySet="datos_factura" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="solicitud_factura$estatus" Association="Self.solicitud_factura$estatus">
+      <End Role="estatus" EntitySet="estatus" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="solicitud_factura$id_tipocambio" Association="Self.solicitud_factura$id_tipocambio">
+      <End Role="tipo_cambio" EntitySet="tipo_cambio" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="tipo_cambio$moneda_tc" Association="Self.tipo_cambio$moneda_tc">
+      <End Role="moneda" EntitySet="moneda" />
+      <End Role="tipo_cambio" EntitySet="tipo_cambio" />
+    </AssociationSet>
+    <AssociationSet Name="tiposervicio" Association="Self.tiposervicio">
+      <End Role="tipo_servicio" EntitySet="tipo_servicio" />
+      <End Role="partida_solicitud" EntitySet="partida_solicitud" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

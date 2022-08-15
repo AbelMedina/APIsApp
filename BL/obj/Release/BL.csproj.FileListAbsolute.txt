@@ -1,0 +1,17 @@
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\BL.dll.config
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\BL.dll
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\BL.pdb
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\DL.dll
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\EntityFramework.dll
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\ML.dll
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\DL.pdb
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\DL.dll.config
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\ML.pdb
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\EntityFramework.xml
+C:\Users\Abel\source\repos\Stuxnet\BL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Abel\source\repos\Stuxnet\BL\obj\Release\BL.csproj.AssemblyReference.cache
+C:\Users\Abel\source\repos\Stuxnet\BL\obj\Release\BL.csproj.CoreCompileInputs.cache
+C:\Users\Abel\source\repos\Stuxnet\BL\obj\Release\BL.csproj.CopyComplete
+C:\Users\Abel\source\repos\Stuxnet\BL\obj\Release\BL.dll
+C:\Users\Abel\source\repos\Stuxnet\BL\obj\Release\BL.pdb

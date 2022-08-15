@@ -1,0 +1,2028 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="administracionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="actividad">
+    <Key>
+      <PropertyRef Name="id_actividad" />
+    </Key>
+    <Property Name="id_actividad" Type="Int32" Nullable="false" />
+    <Property Name="clave_actividad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nom_actividad" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="horas" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="hora_no_asignable" Relationship="Self.hora_no_asignable_actividad" FromRole="actividad" ToRole="hora_no_asignable" />
+  </EntityType>
+  <EntityType Name="archivo_documento_digital">
+    <Key>
+      <PropertyRef Name="id_archivo_documento_digital" />
+    </Key>
+    <Property Name="id_archivo_documento_digital" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ruta" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="extension" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_solicitud_factura" Type="Int32" />
+    <Property Name="ruta_origen" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="usuario" Type="Int32" />
+    <NavigationProperty Name="solicitud_factura" Relationship="Self.documentodigital" FromRole="archivo_documento_digital" ToRole="solicitud_factura" />
+  </EntityType>
+  <EntityType Name="archivo_factura">
+    <Key>
+      <PropertyRef Name="id_archivo" />
+    </Key>
+    <Property Name="id_archivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ruta" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="extension" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_datos_factura" Type="Int32" />
+    <Property Name="tipo" Type="Int32" />
+    <NavigationProperty Name="datos_factura" Relationship="Self.iddatos" FromRole="archivo_factura" ToRole="datos_factura" />
+  </EntityType>
+  <EntityType Name="asignacion_de_gastos">
+    <Key>
+      <PropertyRef Name="id_asignacion" />
+    </Key>
+    <Property Name="id_asignacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="proyecto" Type="Int32" />
+    <Property Name="gasto" Type="Int32" />
+    <Property Name="mes" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ano" Type="Int32" />
+    <Property Name="acumulado" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="poliza" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_gasto" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="numero_gasto" Type="Int32" />
+    <Property Name="id_comprobacion_detalle" Type="Int32" />
+    <NavigationProperty Name="gasto1" Relationship="Self.asignacion_de_gastos_gasto_asignacion" FromRole="asignacion_de_gastos" ToRole="gastos" />
+    <NavigationProperty Name="proyecto1" Relationship="Self.asignacion_de_gastos_proyecto_asignacion" FromRole="asignacion_de_gastos" ToRole="proyecto" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom_cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="clave_cliente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="calle" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="colonia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cp" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="grupo" Type="Int32" />
+    <Property Name="rfc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="tasa_iva" Type="Int32" />
+    <Property Name="aplicar_iva" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="dias_credito" Type="Int32" />
+    <Property Name="horario_cobro" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="observaciones" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="giro_empresa" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="sector" Type="Int32" />
+    <Property Name="fecha_baja_alta" Type="DateTime" Precision="0" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="vulnerable" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="id_zona" Type="Int32" />
+    <Property Name="id_concepto" Type="Int32" />
+    <NavigationProperty Name="grupo_clientes" Relationship="Self.cliente_grupo" FromRole="cliente" ToRole="grupo_clientes" />
+    <NavigationProperty Name="iva" Relationship="Self.cliente_iva" FromRole="cliente" ToRole="iva" />
+    <NavigationProperty Name="contactoes" Relationship="Self.contacto_cliente" FromRole="cliente" ToRole="contacto" />
+    <NavigationProperty Name="presupuestoes" Relationship="Self.presupuesto_cliente_presupuesto" FromRole="cliente" ToRole="presupuesto" />
+    <NavigationProperty Name="proyectoes" Relationship="Self.proyecto_cliente_proyecto" FromRole="cliente" ToRole="proyecto" />
+  </EntityType>
+  <EntityType Name="cobranza">
+    <Key>
+      <PropertyRef Name="id_folio" />
+    </Key>
+    <Property Name="id_folio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cobranza1" Type="Int32" />
+    <Property Name="pago" Type="Int32" />
+    <Property Name="referencia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="abono" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="saldo" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="factura" Type="Int32" />
+    <Property Name="serie" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="observaciones" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="folio_contpaq" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_pago" Type="DateTime" Precision="0" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="maquina" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="tipo_registro" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="factura1" Relationship="Self.cobranza_factura_cobranza" FromRole="cobranza" ToRole="factura" />
+  </EntityType>
+  <EntityType Name="cobranza_traspaso">
+    <Key>
+      <PropertyRef Name="id_cobranza_traspaso" />
+    </Key>
+    <Property Name="id_cobranza_traspaso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_proyecto_factura" Type="Int32" />
+    <Property Name="abono" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="stamp" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="proyecto_factura" Relationship="Self.cobranza_traspaso_idproyectofactura" FromRole="cobranza_traspaso" ToRole="proyecto_factura" />
+  </EntityType>
+  <EntityType Name="conceptos_factura">
+    <Key>
+      <PropertyRef Name="id_concepto" />
+    </Key>
+    <Property Name="id_concepto" Type="Int32" Nullable="false" />
+    <Property Name="clave" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="serie" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="conceptos_sat">
+    <Key>
+      <PropertyRef Name="id_conceptos_SAT" />
+    </Key>
+    <Property Name="id_conceptos_SAT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="concepto" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tiposervicio_conceptosat" Relationship="Self.satservicio" FromRole="conceptos_sat" ToRole="tiposervicio_conceptosat" />
+  </EntityType>
+  <EntityType Name="contacto">
+    <Key>
+      <PropertyRef Name="id_contacto" />
+    </Key>
+    <Property Name="id_contacto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cliente" Type="Int32" />
+    <Property Name="nom_contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="puesto" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="cliente1" Relationship="Self.contacto_cliente" FromRole="contacto" ToRole="cliente" />
+  </EntityType>
+  <EntityType Name="contrasena">
+    <Key>
+      <PropertyRef Name="id_contrasenas" />
+    </Key>
+    <Property Name="id_contrasenas" Type="Int32" Nullable="false" />
+    <Property Name="proyectos" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="tiempos" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="cancelacion" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contrasena_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="estatus_tiempo" Type="Int32" />
+    <Property Name="correo_alter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contrasena_correo_alter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="clasificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="contrasenia">
+    <Key>
+      <PropertyRef Name="id_contrasenia" />
+    </Key>
+    <Property Name="id_contrasenia" Type="Int32" Nullable="false" />
+    <Property Name="para" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="contrasenia1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="correo_factura">
+    <Key>
+      <PropertyRef Name="id_correo" />
+    </Key>
+    <Property Name="id_correo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="datos" Type="Int32" />
+    <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="stamp" Type="DateTime" Precision="0" />
+    <Property Name="dirigido" Type="Int32" />
+    <NavigationProperty Name="datos_factura" Relationship="Self.correo_factura_correo_datos" FromRole="correo_factura" ToRole="datos_factura" />
+  </EntityType>
+  <EntityType Name="correo_time">
+    <Key>
+      <PropertyRef Name="id_correo" />
+    </Key>
+    <Property Name="id_correo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empleado" Type="Int32" />
+    <Property Name="quincena" Type="Int32" />
+    <Property Name="mes" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="anio" Type="Int32" />
+    <Property Name="de" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="para" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
+    <Property Name="copia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="asunto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cuerpo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="stamp" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="cuota">
+    <Key>
+      <PropertyRef Name="id_cuota" />
+    </Key>
+    <Property Name="id_cuota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cuota1" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="costo" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="area" Type="Int32" />
+    <Property Name="nivel" Type="Int32" />
+    <Property Name="ano" Type="Int32" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="departamento" Relationship="Self.cuota_area" FromRole="cuota" ToRole="departamento" />
+    <NavigationProperty Name="nivel1" Relationship="Self.cuota_nivel" FromRole="cuota" ToRole="nivel" />
+  </EntityType>
+  <EntityType Name="datos_factura">
+    <Key>
+      <PropertyRef Name="id_datos" />
+    </Key>
+    <Property Name="id_datos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="total" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="concepto" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="observaciones" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
+    <Property Name="recurrente" Type="Int32" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="trabajo_finalizado" Type="Int32" />
+    <NavigationProperty Name="archivo_factura" Relationship="Self.iddatos" FromRole="datos_factura" ToRole="archivo_factura" />
+    <NavigationProperty Name="correo_factura" Relationship="Self.correo_factura_correo_datos" FromRole="datos_factura" ToRole="correo_factura" />
+    <NavigationProperty Name="solicitud_factura" Relationship="Self.solicitud_factura_datos" FromRole="datos_factura" ToRole="solicitud_factura" />
+  </EntityType>
+  <EntityType Name="departamento">
+    <Key>
+      <PropertyRef Name="id_departamento" />
+    </Key>
+    <Property Name="id_departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave_departamento" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="nom_departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="estado" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <NavigationProperty Name="cuotas" Relationship="Self.cuota_area" FromRole="departamento" ToRole="cuota" />
+    <NavigationProperty Name="empleadoes" Relationship="Self.empleado_empleado_ibfk_1" FromRole="departamento" ToRole="empleado" />
+    <NavigationProperty Name="proyectoes" Relationship="Self.proyecto_area_proyecto" FromRole="departamento" ToRole="proyecto" />
+  </EntityType>
+  <EntityType Name="departamento_gerente">
+    <Key>
+      <PropertyRef Name="id_departamento_gerente" />
+    </Key>
+    <Property Name="id_departamento_gerente" Type="Int32" Nullable="false" />
+    <Property Name="id_departamento" Type="Int32" />
+    <Property Name="id_gerente" Type="Int32" />
+  </EntityType>
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="num_empleado" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="nom_empleado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nivel" Type="Int32" />
+    <Property Name="num_departamento" Type="Int32" />
+    <Property Name="email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="pwd" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="estado" Type="Int32" />
+    <Property Name="estatus_tiempo" Type="Int32" />
+    <Property Name="rfc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+    <Property Name="fecha_alta" Type="DateTime" Precision="0" />
+    <Property Name="fecha_baja" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="maquina" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="alias" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="actualizacontrasenia" Type="Int32" />
+    <Property Name="fecha_ultimo_dia" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="departamento" Relationship="Self.empleado_empleado_ibfk_1" FromRole="empleado" ToRole="departamento" />
+    <NavigationProperty Name="nivel1" Relationship="Self.empleado_nivel_empleado" FromRole="empleado" ToRole="nivel" />
+    <NavigationProperty Name="empleado_actividad" Relationship="Self.empleado_actividad_empleadoid" FromRole="empleado" ToRole="empleado_actividad" />
+  </EntityType>
+  <EntityType Name="empleado_actividad">
+    <Key>
+      <PropertyRef Name="id_empleado_actividad" />
+    </Key>
+    <Property Name="id_empleado_actividad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_empleado" Type="Int32" />
+    <Property Name="id_actividad" Type="Int32" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="horas" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="empleado" Relationship="Self.empleado_actividad_empleadoid" FromRole="empleado_actividad" ToRole="empleado" />
+  </EntityType>
+  <EntityType Name="empleado_contrasenia">
+    <Key>
+      <PropertyRef Name="id_empleado_contrasenia" />
+    </Key>
+    <Property Name="id_empleado_contrasenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_empleado" Type="Int32" />
+    <Property Name="contrasenia" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="envio_correo">
+    <Key>
+      <PropertyRef Name="id_envio" />
+    </Key>
+    <Property Name="id_envio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_solicitud" Type="Int32" />
+    <Property Name="de" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="para" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="solicitud_factura" Relationship="Self.idsolicitudcorreo" FromRole="envio_correo" ToRole="solicitud_factura" />
+  </EntityType>
+  <EntityType Name="estatu">
+    <Key>
+      <PropertyRef Name="id_estatus" />
+    </Key>
+    <Property Name="id_estatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom_estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="estado" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="stamp" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="solicitud_factura" Relationship="Self.solicitud_factura_estatus" FromRole="estatus" ToRole="solicitud_factura" />
+  </EntityType>
+  <EntityType Name="factura">
+    <Key>
+      <PropertyRef Name="id_factura" />
+      <PropertyRef Name="serie" />
+    </Key>
+    <Property Name="id_factura" Type="Int32" Nullable="false" />
+    <Property Name="serie" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="proyecto" Type="Int32" />
+    <Property Name="credito" Type="Int32" />
+    <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="subtotal" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="iva" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="total" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="saldo" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="observaciones" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_cancelacion" Type="DateTime" Precision="0" />
+    <Property Name="motivo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="moneda" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="tipo_cambio" Type="Decimal" Precision="7" Scale="4" />
+    <Property Name="total_dolar" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_credito" Type="DateTime" Precision="0" />
+    <Property Name="debe" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="estado" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="mes" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ano" Type="Int32" />
+    <Property Name="stamp" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="maquina" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="tipo_registro" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="tipo_cancelacion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="traspaso" Type="Int32" />
+    <NavigationProperty Name="cobranzas" Relationship="Self.cobranza_factura_cobranza" FromRole="factura" ToRole="cobranza" />
+    <NavigationProperty Name="proyecto1" Relationship="Self.factura_proyecto_factura" FromRole="factura" ToRole="proyecto" />
+    <NavigationProperty Name="factura_detalles" Relationship="Self.factura_detalles_id_factura" FromRole="factura" ToRole="factura_detalles" />
+  </EntityType>
+  <EntityType Name="factura_detalles">
+    <Key>
+      <PropertyRef Name="id_detalles" />
+    </Key>
+    <Property Name="id_detalles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_factura" Type="Int32" />
+    <Property Name="serie" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="detalles" Type="String" MaxLength="900" FixedLength="false" Unicode="true" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="factura" Relationship="Self.factura_detalles_id_factura" FromRole="factura_detalles" ToRole="factura" />
+  </EntityType>
+  <EntityType Name="forma_de_pago">
+    <Key>
+      <PropertyRef Name="id_forma_pago" />
+    </Key>
+    <Property Name="id_forma_pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="forma_pago" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="stamp" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="solicitud_factura" Relationship="Self.formapago_factura" FromRole="forma_de_pago" ToRole="solicitud_factura" />
+  </EntityType>
+  <EntityType Name="gasto">
+    <Key>
+      <PropertyRef Name="id_gastos" />
+    </Key>
+    <Property Name="id_gastos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave_gastos" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="nom_gasto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="asignacion_de_gastos" Relationship="Self.asignacion_de_gastos_gasto_asignacion" FromRole="gastos" ToRole="asignacion_de_gastos" />
+    <NavigationProperty Name="presupuesto_gasto" Relationship="Self.presupuesto_gasto_gasto" FromRole="gastos" ToRole="presupuesto_gasto" />
+  </EntityType>
+  <EntityType Name="gerente">
+    <Key>
+      <PropertyRef Name="id_gerente" />
+    </Key>
+    <Property Name="id_gerente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave_gerente" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="nom_gerente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="id_usuario_relacion" Type="Int32" />
+    <Property Name="id_empleado" Type="Int32" />
+    <NavigationProperty Name="proyectoes" Relationship="Self.clientepro" FromRole="gerente" ToRole="proyecto" />
+  </EntityType>
+  <EntityType Name="grupo_clientes">
+    <Key>
+      <PropertyRef Name="id_grupo" />
+    </Key>
+    <Property Name="id_grupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave_grupo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nom_grupo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="consecutivo" Type="Int32" />
+    <Property Name="ano" Type="Int32" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="clientes" Relationship="Self.cliente_grupo" FromRole="grupo_clientes" ToRole="cliente" />
+  </EntityType>
+  <EntityType Name="historial_empleado">
+    <Key>
+      <PropertyRef Name="id_historial_empleado" />
+    </Key>
+    <Property Name="id_historial_empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_empleado" Type="Int32" />
+    <Property Name="id_nivel" Type="Int32" />
+    <Property Name="id_departamento" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="hora_asignable">
+    <Key>
+      <PropertyRef Name="id_hora_asignable" />
+    </Key>
+    <Property Name="id_hora_asignable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="proyecto" Type="Int32" />
+    <Property Name="tiempo" Type="Int32" />
+    <Property Name="uno" Type="Int32" />
+    <Property Name="dos" Type="Int32" />
+    <Property Name="tres" Type="Int32" />
+    <Property Name="cuatro" Type="Int32" />
+    <Property Name="cinco" Type="Int32" />
+    <Property Name="seis" Type="Int32" />
+    <Property Name="siete" Type="Int32" />
+    <Property Name="ocho" Type="Int32" />
+    <Property Name="nueve" Type="Int32" />
+    <Property Name="diez" Type="Int32" />
+    <Property Name="once" Type="Int32" />
+    <Property Name="doce" Type="Int32" />
+    <Property Name="trece" Type="Int32" />
+    <Property Name="catorce" Type="Int32" />
+    <Property Name="quince" Type="Int32" />
+    <Property Name="diez_y_seis" Type="Int32" />
+    <Property Name="total" Type="Int32" />
+    <Property Name="cuota" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="costo" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="total_cuota" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="total_costo" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="proyecto1" Relationship="Self.hora_asignable_proyecto" FromRole="hora_asignable" ToRole="proyecto" />
+  </EntityType>
+  <EntityType Name="hora_no_asignable">
+    <Key>
+      <PropertyRef Name="id_hora_no_asignable" />
+    </Key>
+    <Property Name="id_hora_no_asignable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="actividad" Type="Int32" />
+    <Property Name="tiempo" Type="Int32" />
+    <Property Name="uno" Type="Int32" />
+    <Property Name="dos" Type="Int32" />
+    <Property Name="tres" Type="Int32" />
+    <Property Name="cuatro" Type="Int32" />
+    <Property Name="cinco" Type="Int32" />
+    <Property Name="seis" Type="Int32" />
+    <Property Name="siete" Type="Int32" />
+    <Property Name="ocho" Type="Int32" />
+    <Property Name="nueve" Type="Int32" />
+    <Property Name="diez" Type="Int32" />
+    <Property Name="once" Type="Int32" />
+    <Property Name="doce" Type="Int32" />
+    <Property Name="trece" Type="Int32" />
+    <Property Name="catorce" Type="Int32" />
+    <Property Name="quince" Type="Int32" />
+    <Property Name="diez_y_seis" Type="Int32" />
+    <Property Name="total" Type="Int32" />
+    <Property Name="cuota" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="costo" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="total_cuota" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="total_costo" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="actividad1" Relationship="Self.hora_no_asignable_actividad" FromRole="hora_no_asignable" ToRole="actividad" />
+    <NavigationProperty Name="tiempo1" Relationship="Self.hora_no_asignable_tiempo" FromRole="hora_no_asignable" ToRole="tiempo" />
+  </EntityType>
+  <EntityType Name="iva">
+    <Key>
+      <PropertyRef Name="id_iva" />
+    </Key>
+    <Property Name="id_iva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom_iva" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="estatus" Type="Int32" />
+    <NavigationProperty Name="clientes" Relationship="Self.cliente_iva" FromRole="iva" ToRole="cliente" />
+  </EntityType>
+  <EntityType Name="metodo_de_pago">
+    <Key>
+      <PropertyRef Name="id_metodo_pago" />
+    </Key>
+    <Property Name="id_metodo_pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="metodo_pago" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="stamp" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="solicitud_factura" Relationship="Self.pago_factura" FromRole="metodo_de_pago" ToRole="solicitud_factura" />
+  </EntityType>
+  <EntityType Name="moneda">
+    <Key>
+      <PropertyRef Name="id_moneda" />
+    </Key>
+    <Property Name="id_moneda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="moneda1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="stamp" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tipo_cambio" Relationship="Self.tipo_cambio_moneda_tc" FromRole="moneda" ToRole="tipo_cambio" />
+  </EntityType>
+  <EntityType Name="nivel">
+    <Key>
+      <PropertyRef Name="id_nivel" />
+    </Key>
+    <Property Name="id_nivel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave_nivel" Type="String" MaxLength="7" FixedLength="true" Unicode="true" />
+    <Property Name="nom_nivel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="cuotas" Relationship="Self.cuota_nivel" FromRole="nivel" ToRole="cuota" />
+    <NavigationProperty Name="empleadoes" Relationship="Self.empleado_nivel_empleado" FromRole="nivel" ToRole="empleado" />
+    <NavigationProperty Name="presupuesto_nivel" Relationship="Self.presupuesto_nivel_nivel_presupuesto" FromRole="nivel" ToRole="presupuesto_nivel" />
+  </EntityType>
+  <EntityType Name="nota_de_credito">
+    <Key>
+      <PropertyRef Name="id_nota" />
+    </Key>
+    <Property Name="id_nota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="factura" Type="Int32" />
+    <Property Name="serie" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="subtotal" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="iva" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="total" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_cancelacion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="motivo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="moneda" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="tipo_cambio" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="saldo" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="maquina" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="partida_nota" Relationship="Self.partida_nota_nota" FromRole="nota_de_credito" ToRole="partida_nota" />
+  </EntityType>
+  <EntityType Name="partida">
+    <Key>
+      <PropertyRef Name="id_partida" />
+    </Key>
+    <Property Name="id_partida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="concepto" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="monto" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="factura" Type="Int32" />
+    <Property Name="serie" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="partida_nota">
+    <Key>
+      <PropertyRef Name="id_partida_nota" />
+    </Key>
+    <Property Name="id_partida_nota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="concepto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="monto" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="nota_credito" Type="Int32" />
+    <NavigationProperty Name="nota_de_credito" Relationship="Self.partida_nota_nota" FromRole="partida_nota" ToRole="nota_de_credito" />
+  </EntityType>
+  <EntityType Name="partida_solicitud">
+    <Key>
+      <PropertyRef Name="id_partida_solicitud" />
+    </Key>
+    <Property Name="id_partida_solicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="concepto" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="monto" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="id_solicitud_factura" Type="Int32" />
+    <Property Name="id_proyecto" Type="Int32" />
+    <Property Name="id_tipo_servicio" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <NavigationProperty Name="solicitud_factura" Relationship="Self.partidasolicitud" FromRole="partida_solicitud" ToRole="solicitud_factura" />
+    <NavigationProperty Name="tipo_servicio" Relationship="Self.tiposervicio" FromRole="partida_solicitud" ToRole="tipo_servicio" />
+  </EntityType>
+  <EntityType Name="periodo_ano">
+    <Key>
+      <PropertyRef Name="id_periodo_ano" />
+    </Key>
+    <Property Name="id_periodo_ano" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ano" Type="Int32" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="estatus_tiempo" Type="Int32" />
+  </EntityType>
+  <EntityType Name="periodo_mes">
+    <Key>
+      <PropertyRef Name="id_periodo_mes" />
+    </Key>
+    <Property Name="id_periodo_mes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mes" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="numero" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="estatus_tiempo" Type="Int32" />
+  </EntityType>
+  <EntityType Name="presupuesto">
+    <Key>
+      <PropertyRef Name="id_presupuesto" />
+    </Key>
+    <Property Name="id_presupuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom_presupuesto" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="cliente" Type="Int32" />
+    <Property Name="socio" Type="Int32" />
+    <Property Name="gerente" Type="Int32" />
+    <Property Name="area" Type="Int32" />
+    <Property Name="cotizacion" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="aceptado" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="descuento" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="utilidad" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="asignado" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="cliente1" Relationship="Self.presupuesto_cliente_presupuesto" FromRole="presupuesto" ToRole="cliente" />
+    <NavigationProperty Name="presupuesto_gasto" Relationship="Self.presupuesto_gasto_presupueso" FromRole="presupuesto" ToRole="presupuesto_gasto" />
+    <NavigationProperty Name="presupuesto_nivel" Relationship="Self.presupuesto_nivel_presupuesto_nivel" FromRole="presupuesto" ToRole="presupuesto_nivel" />
+  </EntityType>
+  <EntityType Name="presupuesto_gasto">
+    <Key>
+      <PropertyRef Name="id_presupuesto_gasto" />
+    </Key>
+    <Property Name="id_presupuesto_gasto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="presupuesto" Type="Int32" />
+    <Property Name="gasto" Type="Int32" />
+    <Property Name="monto" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="area" Type="Int32" />
+    <NavigationProperty Name="gasto1" Relationship="Self.presupuesto_gasto_gasto" FromRole="presupuesto_gasto" ToRole="gastos" />
+    <NavigationProperty Name="presupuesto1" Relationship="Self.presupuesto_gasto_presupueso" FromRole="presupuesto_gasto" ToRole="presupuesto" />
+  </EntityType>
+  <EntityType Name="presupuesto_nivel">
+    <Key>
+      <PropertyRef Name="id_presupuesto_nivel" />
+    </Key>
+    <Property Name="id_presupuesto_nivel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="presupuesto" Type="Int32" />
+    <Property Name="nivel" Type="Int32" />
+    <Property Name="horas" Type="Int32" />
+    <Property Name="area" Type="Int32" />
+    <Property Name="personal" Type="Int32" />
+    <Property Name="cuota" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="costo" Type="Decimal" Precision="11" Scale="2" />
+    <NavigationProperty Name="nivel1" Relationship="Self.presupuesto_nivel_nivel_presupuesto" FromRole="presupuesto_nivel" ToRole="nivel" />
+    <NavigationProperty Name="presupuesto1" Relationship="Self.presupuesto_nivel_presupuesto_nivel" FromRole="presupuesto_nivel" ToRole="presupuesto" />
+  </EntityType>
+  <EntityType Name="proyecto">
+    <Key>
+      <PropertyRef Name="id_proyecto" />
+    </Key>
+    <Property Name="id_proyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave_proyecto" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cliente" Type="Int32" />
+    <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+    <Property Name="socio" Type="Int32" />
+    <Property Name="gerente" Type="Int32" />
+    <Property Name="area" Type="Int32" />
+    <Property Name="fecha_final" Type="DateTime" Precision="0" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="carga_tiempos" Type="Int32" />
+    <Property Name="fecha_cierre" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="prorrateable" Type="Int32" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="presupuesto" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="clave_proy_old" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="asignacion_de_gastos" Relationship="Self.asignacion_de_gastos_proyecto_asignacion" FromRole="proyecto" ToRole="asignacion_de_gastos" />
+    <NavigationProperty Name="cliente1" Relationship="Self.proyecto_cliente_proyecto" FromRole="proyecto" ToRole="cliente" />
+    <NavigationProperty Name="departamento" Relationship="Self.proyecto_area_proyecto" FromRole="proyecto" ToRole="departamento" />
+    <NavigationProperty Name="facturas" Relationship="Self.factura_proyecto_factura" FromRole="proyecto" ToRole="factura" />
+    <NavigationProperty Name="gerente1" Relationship="Self.clientepro" FromRole="proyecto" ToRole="gerente" />
+    <NavigationProperty Name="hora_asignable" Relationship="Self.hora_asignable_proyecto" FromRole="proyecto" ToRole="hora_asignable" />
+    <NavigationProperty Name="socio1" Relationship="Self.sociopro" FromRole="proyecto" ToRole="socio" />
+  </EntityType>
+  <EntityType Name="proyecto_factura">
+    <Key>
+      <PropertyRef Name="id_proyecto_factura" />
+    </Key>
+    <Property Name="id_proyecto_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_proyecto" Type="Int32" />
+    <Property Name="id_factura" Type="Int32" />
+    <Property Name="serie" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="importe" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="iva" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="total" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="saldo" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="cobranza_traspaso" Relationship="Self.cobranza_traspaso_idproyectofactura" FromRole="proyecto_factura" ToRole="cobranza_traspaso" />
+  </EntityType>
+  <EntityType Name="rechazada">
+    <Key>
+      <PropertyRef Name="id_rechazada" />
+    </Key>
+    <Property Name="id_rechazada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="solicitud_factura" Relationship="Self.rechazadafac" FromRole="rechazada" ToRole="solicitud_factura" />
+  </EntityType>
+  <EntityType Name="servidor_correo">
+    <Key>
+      <PropertyRef Name="id_servidor_correo" />
+    </Key>
+    <Property Name="id_servidor_correo" Type="Int32" Nullable="false" />
+    <Property Name="puerto" Type="Int32" />
+    <Property Name="host" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ssl" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="displayname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="contrasenia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="socio">
+    <Key>
+      <PropertyRef Name="id_socio" />
+    </Key>
+    <Property Name="id_socio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave_socio" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="nom_socio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="id_usuario_relacion" Type="Int32" />
+    <Property Name="id_empleado" Type="Int32" />
+    <NavigationProperty Name="proyectoes" Relationship="Self.sociopro" FromRole="socio" ToRole="proyecto" />
+  </EntityType>
+  <EntityType Name="solicitud_factura">
+    <Key>
+      <PropertyRef Name="id_solicitud" />
+    </Key>
+    <Property Name="id_solicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="datos" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="importe" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="iva" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="total" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="anio" Type="Int32" />
+    <Property Name="mes" Type="Int32" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="referencia" Type="Int32" />
+    <Property Name="tipo_cambio" Type="Int32" />
+    <Property Name="descripcion" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="cfdi" Type="Int32" />
+    <Property Name="metodo_pago" Type="Int32" />
+    <Property Name="forma_pago" Type="Int32" />
+    <Property Name="id_factura" Type="Int32" />
+    <Property Name="serie" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="porcent_iva" Type="Decimal" Precision="6" Scale="2" />
+    <Property Name="condicionada" Type="Int32" />
+    <Property Name="subestatus" Type="Int32" />
+    <Property Name="motivo_cancelacion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="id_rechazada" Type="Int32" />
+    <NavigationProperty Name="archivo_documento_digital" Relationship="Self.documentodigital" FromRole="solicitud_factura" ToRole="archivo_documento_digital" />
+    <NavigationProperty Name="datos_factura" Relationship="Self.solicitud_factura_datos" FromRole="solicitud_factura" ToRole="datos_factura" />
+    <NavigationProperty Name="envio_correo" Relationship="Self.idsolicitudcorreo" FromRole="solicitud_factura" ToRole="envio_correo" />
+    <NavigationProperty Name="estatu" Relationship="Self.solicitud_factura_estatus" FromRole="solicitud_factura" ToRole="estatus" />
+    <NavigationProperty Name="forma_de_pago" Relationship="Self.formapago_factura" FromRole="solicitud_factura" ToRole="forma_de_pago" />
+    <NavigationProperty Name="metodo_de_pago" Relationship="Self.pago_factura" FromRole="solicitud_factura" ToRole="metodo_de_pago" />
+    <NavigationProperty Name="partida_solicitud" Relationship="Self.partidasolicitud" FromRole="solicitud_factura" ToRole="partida_solicitud" />
+    <NavigationProperty Name="rechazada" Relationship="Self.rechazadafac" FromRole="solicitud_factura" ToRole="rechazada" />
+    <NavigationProperty Name="uso_de_cfdi" Relationship="Self.cfdi_factura" FromRole="solicitud_factura" ToRole="uso_de_cfdi" />
+    <NavigationProperty Name="tipo_cambio1" Relationship="Self.solicitud_factura_id_tipocambio" FromRole="solicitud_factura" ToRole="tipo_cambio" />
+  </EntityType>
+  <EntityType Name="tiempo">
+    <Key>
+      <PropertyRef Name="id_tiempo" />
+    </Key>
+    <Property Name="id_tiempo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="quincena" Type="Int32" />
+    <Property Name="mes" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ano" Type="Int32" />
+    <Property Name="horas_asignables" Type="Int32" />
+    <Property Name="horas_no_asignables" Type="Int32" />
+    <Property Name="total" Type="Int32" />
+    <Property Name="empleado" Type="Int32" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="envio" Type="Int32" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_reporte" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="hora_no_asignable" Relationship="Self.hora_no_asignable_tiempo" FromRole="tiempo" ToRole="hora_no_asignable" />
+  </EntityType>
+  <EntityType Name="tipo_cambio">
+    <Key>
+      <PropertyRef Name="id_tipocambio" />
+    </Key>
+    <Property Name="id_tipocambio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_cambio1" Type="Decimal" Precision="8" Scale="4" />
+    <Property Name="moneda" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="moneda1" Relationship="Self.tipo_cambio_moneda_tc" FromRole="tipo_cambio" ToRole="moneda" />
+    <NavigationProperty Name="solicitud_factura" Relationship="Self.solicitud_factura_id_tipocambio" FromRole="tipo_cambio" ToRole="solicitud_factura" />
+  </EntityType>
+  <EntityType Name="tipo_servicio">
+    <Key>
+      <PropertyRef Name="id_tipo_servicio" />
+    </Key>
+    <Property Name="id_tipo_servicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="servicio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="0" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="userupd" Type="Int32" />
+    <NavigationProperty Name="partida_solicitud" Relationship="Self.tiposervicio" FromRole="tipo_servicio" ToRole="partida_solicitud" />
+    <NavigationProperty Name="tiposervicio_conceptosat" Relationship="Self.servivio" FromRole="tipo_servicio" ToRole="tiposervicio_conceptosat" />
+  </EntityType>
+  <EntityType Name="tiposervicio_conceptosat">
+    <Key>
+      <PropertyRef Name="id_tiposervicio_conceptosat" />
+    </Key>
+    <Property Name="id_tiposervicio_conceptosat" Type="Int32" Nullable="false" />
+    <Property Name="id_tipo_servicio" Type="Int32" />
+    <Property Name="id_concepto_sat" Type="Int32" />
+    <NavigationProperty Name="conceptos_sat" Relationship="Self.satservicio" FromRole="tiposervicio_conceptosat" ToRole="conceptos_sat" />
+    <NavigationProperty Name="tipo_servicio" Relationship="Self.servivio" FromRole="tiposervicio_conceptosat" ToRole="tipo_servicio" />
+  </EntityType>
+  <EntityType Name="uso_de_cfdi">
+    <Key>
+      <PropertyRef Name="id_cfdi" />
+    </Key>
+    <Property Name="id_cfdi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cfdi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="stamp" Type="DateTime" Precision="0" />
+    <Property Name="userupd" Type="Int32" />
+    <NavigationProperty Name="solicitud_factura" Relationship="Self.cfdi_factura" FromRole="uso_de_cfdi" ToRole="solicitud_factura" />
+  </EntityType>
+  <EntityType Name="zona">
+    <Key>
+      <PropertyRef Name="id_zona" />
+    </Key>
+    <Property Name="id_zona" Type="Int32" Nullable="false" />
+    <Property Name="nom_zona" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="serie" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="userupd" Type="Int32" />
+    <Property Name="stamp" Type="DateTime" Precision="0" />
+    <Property Name="estatus" Type="Int32" />
+  </EntityType>
+  <Association Name="hora_no_asignable_actividad">
+    <End Role="actividad" Type="Self.actividad" Multiplicity="0..1" />
+    <End Role="hora_no_asignable" Type="Self.hora_no_asignable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="actividad">
+        <PropertyRef Name="id_actividad" />
+      </Principal>
+      <Dependent Role="hora_no_asignable">
+        <PropertyRef Name="actividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="documentodigital">
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="0..1" />
+    <End Role="archivo_documento_digital" Type="Self.archivo_documento_digital" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="solicitud_factura">
+        <PropertyRef Name="id_solicitud" />
+      </Principal>
+      <Dependent Role="archivo_documento_digital">
+        <PropertyRef Name="id_solicitud_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="iddatos">
+    <End Role="datos_factura" Type="Self.datos_factura" Multiplicity="0..1" />
+    <End Role="archivo_factura" Type="Self.archivo_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="datos_factura">
+        <PropertyRef Name="id_datos" />
+      </Principal>
+      <Dependent Role="archivo_factura">
+        <PropertyRef Name="id_datos_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="asignacion_de_gastos_gasto_asignacion">
+    <End Role="gastos" Type="Self.gasto" Multiplicity="0..1" />
+    <End Role="asignacion_de_gastos" Type="Self.asignacion_de_gastos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gastos">
+        <PropertyRef Name="id_gastos" />
+      </Principal>
+      <Dependent Role="asignacion_de_gastos">
+        <PropertyRef Name="gasto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="asignacion_de_gastos_proyecto_asignacion">
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="0..1" />
+    <End Role="asignacion_de_gastos" Type="Self.asignacion_de_gastos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proyecto">
+        <PropertyRef Name="id_proyecto" />
+      </Principal>
+      <Dependent Role="asignacion_de_gastos">
+        <PropertyRef Name="proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cliente_grupo">
+    <End Role="grupo_clientes" Type="Self.grupo_clientes" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo_clientes">
+        <PropertyRef Name="id_grupo" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="grupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cliente_iva">
+    <End Role="iva" Type="Self.iva" Multiplicity="0..1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="iva">
+        <PropertyRef Name="id_iva" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="tasa_iva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="contacto_cliente">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="contacto">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="presupuesto_cliente_presupuesto">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="presupuesto" Type="Self.presupuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="presupuesto">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="proyecto_cliente_proyecto">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="proyecto">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cobranza_factura_cobranza">
+    <End Role="factura" Type="Self.factura" Multiplicity="0..1" />
+    <End Role="cobranza" Type="Self.cobranza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="factura">
+        <PropertyRef Name="id_factura" />
+        <PropertyRef Name="serie" />
+      </Principal>
+      <Dependent Role="cobranza">
+        <PropertyRef Name="factura" />
+        <PropertyRef Name="serie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cobranza_traspaso_idproyectofactura">
+    <End Role="proyecto_factura" Type="Self.proyecto_factura" Multiplicity="0..1" />
+    <End Role="cobranza_traspaso" Type="Self.cobranza_traspaso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proyecto_factura">
+        <PropertyRef Name="id_proyecto_factura" />
+      </Principal>
+      <Dependent Role="cobranza_traspaso">
+        <PropertyRef Name="id_proyecto_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="satservicio">
+    <End Role="conceptos_sat" Type="Self.conceptos_sat" Multiplicity="0..1" />
+    <End Role="tiposervicio_conceptosat" Type="Self.tiposervicio_conceptosat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos_sat">
+        <PropertyRef Name="id_conceptos_SAT" />
+      </Principal>
+      <Dependent Role="tiposervicio_conceptosat">
+        <PropertyRef Name="id_concepto_sat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="correo_factura_correo_datos">
+    <End Role="datos_factura" Type="Self.datos_factura" Multiplicity="0..1" />
+    <End Role="correo_factura" Type="Self.correo_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="datos_factura">
+        <PropertyRef Name="id_datos" />
+      </Principal>
+      <Dependent Role="correo_factura">
+        <PropertyRef Name="datos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cuota_area">
+    <End Role="departamento" Type="Self.departamento" Multiplicity="0..1" />
+    <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamento">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="cuota">
+        <PropertyRef Name="area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cuota_nivel">
+    <End Role="nivel" Type="Self.nivel" Multiplicity="0..1" />
+    <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nivel">
+        <PropertyRef Name="id_nivel" />
+      </Principal>
+      <Dependent Role="cuota">
+        <PropertyRef Name="nivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="solicitud_factura_datos">
+    <End Role="datos_factura" Type="Self.datos_factura" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="datos_factura">
+        <PropertyRef Name="id_datos" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="datos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="empleado_empleado_ibfk_1">
+    <End Role="departamento" Type="Self.departamento" Multiplicity="0..1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamento">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="num_departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="proyecto_area_proyecto">
+    <End Role="departamento" Type="Self.departamento" Multiplicity="0..1" />
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamento">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="proyecto">
+        <PropertyRef Name="area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="empleado_nivel_empleado">
+    <End Role="nivel" Type="Self.nivel" Multiplicity="0..1" />
+    <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nivel">
+        <PropertyRef Name="id_nivel" />
+      </Principal>
+      <Dependent Role="empleado">
+        <PropertyRef Name="nivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="empleado_actividad_empleadoid">
+    <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
+    <End Role="empleado_actividad" Type="Self.empleado_actividad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="empleado_actividad">
+        <PropertyRef Name="id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idsolicitudcorreo">
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="0..1" />
+    <End Role="envio_correo" Type="Self.envio_correo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="solicitud_factura">
+        <PropertyRef Name="id_solicitud" />
+      </Principal>
+      <Dependent Role="envio_correo">
+        <PropertyRef Name="id_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="solicitud_factura_estatus">
+    <End Role="estatus" Type="Self.estatu" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estatus">
+        <PropertyRef Name="id_estatus" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="estatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="factura_proyecto_factura">
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="0..1" />
+    <End Role="factura" Type="Self.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proyecto">
+        <PropertyRef Name="id_proyecto" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="factura_detalles_id_factura">
+    <End Role="factura" Type="Self.factura" Multiplicity="0..1" />
+    <End Role="factura_detalles" Type="Self.factura_detalles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="factura">
+        <PropertyRef Name="id_factura" />
+        <PropertyRef Name="serie" />
+      </Principal>
+      <Dependent Role="factura_detalles">
+        <PropertyRef Name="id_factura" />
+        <PropertyRef Name="serie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="formapago_factura">
+    <End Role="forma_de_pago" Type="Self.forma_de_pago" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="forma_de_pago">
+        <PropertyRef Name="id_forma_pago" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="forma_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="presupuesto_gasto_gasto">
+    <End Role="gastos" Type="Self.gasto" Multiplicity="0..1" />
+    <End Role="presupuesto_gasto" Type="Self.presupuesto_gasto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gastos">
+        <PropertyRef Name="id_gastos" />
+      </Principal>
+      <Dependent Role="presupuesto_gasto">
+        <PropertyRef Name="gasto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="clientepro">
+    <End Role="gerente" Type="Self.gerente" Multiplicity="0..1" />
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gerente">
+        <PropertyRef Name="id_gerente" />
+      </Principal>
+      <Dependent Role="proyecto">
+        <PropertyRef Name="gerente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="hora_asignable_proyecto">
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="0..1" />
+    <End Role="hora_asignable" Type="Self.hora_asignable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proyecto">
+        <PropertyRef Name="id_proyecto" />
+      </Principal>
+      <Dependent Role="hora_asignable">
+        <PropertyRef Name="proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="hora_no_asignable_tiempo">
+    <End Role="tiempo" Type="Self.tiempo" Multiplicity="0..1" />
+    <End Role="hora_no_asignable" Type="Self.hora_no_asignable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tiempo">
+        <PropertyRef Name="id_tiempo" />
+      </Principal>
+      <Dependent Role="hora_no_asignable">
+        <PropertyRef Name="tiempo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pago_factura">
+    <End Role="metodo_de_pago" Type="Self.metodo_de_pago" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="metodo_de_pago">
+        <PropertyRef Name="id_metodo_pago" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="metodo_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tipo_cambio_moneda_tc">
+    <End Role="moneda" Type="Self.moneda" Multiplicity="0..1" />
+    <End Role="tipo_cambio" Type="Self.tipo_cambio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="moneda">
+        <PropertyRef Name="id_moneda" />
+      </Principal>
+      <Dependent Role="tipo_cambio">
+        <PropertyRef Name="moneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="presupuesto_nivel_nivel_presupuesto">
+    <End Role="nivel" Type="Self.nivel" Multiplicity="0..1" />
+    <End Role="presupuesto_nivel" Type="Self.presupuesto_nivel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nivel">
+        <PropertyRef Name="id_nivel" />
+      </Principal>
+      <Dependent Role="presupuesto_nivel">
+        <PropertyRef Name="nivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="partida_nota_nota">
+    <End Role="nota_de_credito" Type="Self.nota_de_credito" Multiplicity="0..1" />
+    <End Role="partida_nota" Type="Self.partida_nota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nota_de_credito">
+        <PropertyRef Name="id_nota" />
+      </Principal>
+      <Dependent Role="partida_nota">
+        <PropertyRef Name="nota_credito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="partidasolicitud">
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="0..1" />
+    <End Role="partida_solicitud" Type="Self.partida_solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="solicitud_factura">
+        <PropertyRef Name="id_solicitud" />
+      </Principal>
+      <Dependent Role="partida_solicitud">
+        <PropertyRef Name="id_solicitud_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tiposervicio">
+    <End Role="tipo_servicio" Type="Self.tipo_servicio" Multiplicity="0..1" />
+    <End Role="partida_solicitud" Type="Self.partida_solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_servicio">
+        <PropertyRef Name="id_tipo_servicio" />
+      </Principal>
+      <Dependent Role="partida_solicitud">
+        <PropertyRef Name="id_tipo_servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="presupuesto_gasto_presupueso">
+    <End Role="presupuesto" Type="Self.presupuesto" Multiplicity="0..1" />
+    <End Role="presupuesto_gasto" Type="Self.presupuesto_gasto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="presupuesto">
+        <PropertyRef Name="id_presupuesto" />
+      </Principal>
+      <Dependent Role="presupuesto_gasto">
+        <PropertyRef Name="presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="presupuesto_nivel_presupuesto_nivel">
+    <End Role="presupuesto" Type="Self.presupuesto" Multiplicity="0..1" />
+    <End Role="presupuesto_nivel" Type="Self.presupuesto_nivel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="presupuesto">
+        <PropertyRef Name="id_presupuesto" />
+      </Principal>
+      <Dependent Role="presupuesto_nivel">
+        <PropertyRef Name="presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="sociopro">
+    <End Role="socio" Type="Self.socio" Multiplicity="0..1" />
+    <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="socio">
+        <PropertyRef Name="id_socio" />
+      </Principal>
+      <Dependent Role="proyecto">
+        <PropertyRef Name="socio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rechazadafac">
+    <End Role="rechazada" Type="Self.rechazada" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rechazada">
+        <PropertyRef Name="id_rechazada" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="id_rechazada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cfdi_factura">
+    <End Role="uso_de_cfdi" Type="Self.uso_de_cfdi" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uso_de_cfdi">
+        <PropertyRef Name="id_cfdi" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="cfdi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="solicitud_factura_id_tipocambio">
+    <End Role="tipo_cambio" Type="Self.tipo_cambio" Multiplicity="0..1" />
+    <End Role="solicitud_factura" Type="Self.solicitud_factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_cambio">
+        <PropertyRef Name="id_tipocambio" />
+      </Principal>
+      <Dependent Role="solicitud_factura">
+        <PropertyRef Name="tipo_cambio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="servivio">
+    <End Role="tipo_servicio" Type="Self.tipo_servicio" Multiplicity="0..1" />
+    <End Role="tiposervicio_conceptosat" Type="Self.tiposervicio_conceptosat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_servicio">
+        <PropertyRef Name="id_tipo_servicio" />
+      </Principal>
+      <Dependent Role="tiposervicio_conceptosat">
+        <PropertyRef Name="id_tipo_servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="administracionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="actividads" EntityType="Self.actividad" />
+    <EntitySet Name="archivo_documento_digital" EntityType="Self.archivo_documento_digital" />
+    <EntitySet Name="archivo_factura" EntityType="Self.archivo_factura" />
+    <EntitySet Name="asignacion_de_gastos" EntityType="Self.asignacion_de_gastos" />
+    <EntitySet Name="clientes" EntityType="Self.cliente" />
+    <EntitySet Name="cobranzas" EntityType="Self.cobranza" />
+    <EntitySet Name="cobranza_traspaso" EntityType="Self.cobranza_traspaso" />
+    <EntitySet Name="conceptos_factura" EntityType="Self.conceptos_factura" />
+    <EntitySet Name="conceptos_sat" EntityType="Self.conceptos_sat" />
+    <EntitySet Name="contactoes" EntityType="Self.contacto" />
+    <EntitySet Name="contrasenas" EntityType="Self.contrasena" />
+    <EntitySet Name="contrasenias" EntityType="Self.contrasenia" />
+    <EntitySet Name="correo_factura" EntityType="Self.correo_factura" />
+    <EntitySet Name="correo_time" EntityType="Self.correo_time" />
+    <EntitySet Name="cuotas" EntityType="Self.cuota" />
+    <EntitySet Name="datos_factura" EntityType="Self.datos_factura" />
+    <EntitySet Name="departamentoes" EntityType="Self.departamento" />
+    <EntitySet Name="departamento_gerente" EntityType="Self.departamento_gerente" />
+    <EntitySet Name="empleadoes" EntityType="Self.empleado" />
+    <EntitySet Name="empleado_actividad" EntityType="Self.empleado_actividad" />
+    <EntitySet Name="empleado_contrasenia" EntityType="Self.empleado_contrasenia" />
+    <EntitySet Name="envio_correo" EntityType="Self.envio_correo" />
+    <EntitySet Name="estatus" EntityType="Self.estatu" />
+    <EntitySet Name="facturas" EntityType="Self.factura" />
+    <EntitySet Name="factura_detalles" EntityType="Self.factura_detalles" />
+    <EntitySet Name="forma_de_pago" EntityType="Self.forma_de_pago" />
+    <EntitySet Name="gastos" EntityType="Self.gasto" />
+    <EntitySet Name="gerentes" EntityType="Self.gerente" />
+    <EntitySet Name="grupo_clientes" EntityType="Self.grupo_clientes" />
+    <EntitySet Name="historial_empleado" EntityType="Self.historial_empleado" />
+    <EntitySet Name="hora_asignable" EntityType="Self.hora_asignable" />
+    <EntitySet Name="hora_no_asignable" EntityType="Self.hora_no_asignable" />
+    <EntitySet Name="ivas" EntityType="Self.iva" />
+    <EntitySet Name="metodo_de_pago" EntityType="Self.metodo_de_pago" />
+    <EntitySet Name="monedas" EntityType="Self.moneda" />
+    <EntitySet Name="nivels" EntityType="Self.nivel" />
+    <EntitySet Name="nota_de_credito" EntityType="Self.nota_de_credito" />
+    <EntitySet Name="partidas" EntityType="Self.partida" />
+    <EntitySet Name="partida_nota" EntityType="Self.partida_nota" />
+    <EntitySet Name="partida_solicitud" EntityType="Self.partida_solicitud" />
+    <EntitySet Name="periodo_ano" EntityType="Self.periodo_ano" />
+    <EntitySet Name="periodo_mes" EntityType="Self.periodo_mes" />
+    <EntitySet Name="presupuestoes" EntityType="Self.presupuesto" />
+    <EntitySet Name="presupuesto_gasto" EntityType="Self.presupuesto_gasto" />
+    <EntitySet Name="presupuesto_nivel" EntityType="Self.presupuesto_nivel" />
+    <EntitySet Name="proyectoes" EntityType="Self.proyecto" />
+    <EntitySet Name="proyecto_factura" EntityType="Self.proyecto_factura" />
+    <EntitySet Name="rechazadas" EntityType="Self.rechazada" />
+    <EntitySet Name="servidor_correo" EntityType="Self.servidor_correo" />
+    <EntitySet Name="socios" EntityType="Self.socio" />
+    <EntitySet Name="solicitud_factura" EntityType="Self.solicitud_factura" />
+    <EntitySet Name="tiempoes" EntityType="Self.tiempo" />
+    <EntitySet Name="tipo_cambio" EntityType="Self.tipo_cambio" />
+    <EntitySet Name="tipo_servicio" EntityType="Self.tipo_servicio" />
+    <EntitySet Name="tiposervicio_conceptosat" EntityType="Self.tiposervicio_conceptosat" />
+    <EntitySet Name="uso_de_cfdi" EntityType="Self.uso_de_cfdi" />
+    <EntitySet Name="zonas" EntityType="Self.zona" />
+    <AssociationSet Name="hora_no_asignable_actividad" Association="Self.hora_no_asignable_actividad">
+      <End Role="actividad" EntitySet="actividads" />
+      <End Role="hora_no_asignable" EntitySet="hora_no_asignable" />
+    </AssociationSet>
+    <AssociationSet Name="documentodigital" Association="Self.documentodigital">
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+      <End Role="archivo_documento_digital" EntitySet="archivo_documento_digital" />
+    </AssociationSet>
+    <AssociationSet Name="iddatos" Association="Self.iddatos">
+      <End Role="datos_factura" EntitySet="datos_factura" />
+      <End Role="archivo_factura" EntitySet="archivo_factura" />
+    </AssociationSet>
+    <AssociationSet Name="asignacion_de_gastos_gasto_asignacion" Association="Self.asignacion_de_gastos_gasto_asignacion">
+      <End Role="gastos" EntitySet="gastos" />
+      <End Role="asignacion_de_gastos" EntitySet="asignacion_de_gastos" />
+    </AssociationSet>
+    <AssociationSet Name="asignacion_de_gastos_proyecto_asignacion" Association="Self.asignacion_de_gastos_proyecto_asignacion">
+      <End Role="proyecto" EntitySet="proyectoes" />
+      <End Role="asignacion_de_gastos" EntitySet="asignacion_de_gastos" />
+    </AssociationSet>
+    <AssociationSet Name="cliente_grupo" Association="Self.cliente_grupo">
+      <End Role="grupo_clientes" EntitySet="grupo_clientes" />
+      <End Role="cliente" EntitySet="clientes" />
+    </AssociationSet>
+    <AssociationSet Name="cliente_iva" Association="Self.cliente_iva">
+      <End Role="iva" EntitySet="ivas" />
+      <End Role="cliente" EntitySet="clientes" />
+    </AssociationSet>
+    <AssociationSet Name="contacto_cliente" Association="Self.contacto_cliente">
+      <End Role="cliente" EntitySet="clientes" />
+      <End Role="contacto" EntitySet="contactoes" />
+    </AssociationSet>
+    <AssociationSet Name="presupuesto_cliente_presupuesto" Association="Self.presupuesto_cliente_presupuesto">
+      <End Role="cliente" EntitySet="clientes" />
+      <End Role="presupuesto" EntitySet="presupuestoes" />
+    </AssociationSet>
+    <AssociationSet Name="proyecto_cliente_proyecto" Association="Self.proyecto_cliente_proyecto">
+      <End Role="cliente" EntitySet="clientes" />
+      <End Role="proyecto" EntitySet="proyectoes" />
+    </AssociationSet>
+    <AssociationSet Name="cobranza_factura_cobranza" Association="Self.cobranza_factura_cobranza">
+      <End Role="factura" EntitySet="facturas" />
+      <End Role="cobranza" EntitySet="cobranzas" />
+    </AssociationSet>
+    <AssociationSet Name="cobranza_traspaso_idproyectofactura" Association="Self.cobranza_traspaso_idproyectofactura">
+      <End Role="proyecto_factura" EntitySet="proyecto_factura" />
+      <End Role="cobranza_traspaso" EntitySet="cobranza_traspaso" />
+    </AssociationSet>
+    <AssociationSet Name="satservicio" Association="Self.satservicio">
+      <End Role="conceptos_sat" EntitySet="conceptos_sat" />
+      <End Role="tiposervicio_conceptosat" EntitySet="tiposervicio_conceptosat" />
+    </AssociationSet>
+    <AssociationSet Name="correo_factura_correo_datos" Association="Self.correo_factura_correo_datos">
+      <End Role="datos_factura" EntitySet="datos_factura" />
+      <End Role="correo_factura" EntitySet="correo_factura" />
+    </AssociationSet>
+    <AssociationSet Name="cuota_area" Association="Self.cuota_area">
+      <End Role="departamento" EntitySet="departamentoes" />
+      <End Role="cuota" EntitySet="cuotas" />
+    </AssociationSet>
+    <AssociationSet Name="cuota_nivel" Association="Self.cuota_nivel">
+      <End Role="nivel" EntitySet="nivels" />
+      <End Role="cuota" EntitySet="cuotas" />
+    </AssociationSet>
+    <AssociationSet Name="solicitud_factura_datos" Association="Self.solicitud_factura_datos">
+      <End Role="datos_factura" EntitySet="datos_factura" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="empleado_empleado_ibfk_1" Association="Self.empleado_empleado_ibfk_1">
+      <End Role="departamento" EntitySet="departamentoes" />
+      <End Role="empleado" EntitySet="empleadoes" />
+    </AssociationSet>
+    <AssociationSet Name="proyecto_area_proyecto" Association="Self.proyecto_area_proyecto">
+      <End Role="departamento" EntitySet="departamentoes" />
+      <End Role="proyecto" EntitySet="proyectoes" />
+    </AssociationSet>
+    <AssociationSet Name="empleado_nivel_empleado" Association="Self.empleado_nivel_empleado">
+      <End Role="nivel" EntitySet="nivels" />
+      <End Role="empleado" EntitySet="empleadoes" />
+    </AssociationSet>
+    <AssociationSet Name="empleado_actividad_empleadoid" Association="Self.empleado_actividad_empleadoid">
+      <End Role="empleado" EntitySet="empleadoes" />
+      <End Role="empleado_actividad" EntitySet="empleado_actividad" />
+    </AssociationSet>
+    <AssociationSet Name="idsolicitudcorreo" Association="Self.idsolicitudcorreo">
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+      <End Role="envio_correo" EntitySet="envio_correo" />
+    </AssociationSet>
+    <AssociationSet Name="solicitud_factura_estatus" Association="Self.solicitud_factura_estatus">
+      <End Role="estatus" EntitySet="estatus" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="factura_proyecto_factura" Association="Self.factura_proyecto_factura">
+      <End Role="proyecto" EntitySet="proyectoes" />
+      <End Role="factura" EntitySet="facturas" />
+    </AssociationSet>
+    <AssociationSet Name="factura_detalles_id_factura" Association="Self.factura_detalles_id_factura">
+      <End Role="factura" EntitySet="facturas" />
+      <End Role="factura_detalles" EntitySet="factura_detalles" />
+    </AssociationSet>
+    <AssociationSet Name="formapago_factura" Association="Self.formapago_factura">
+      <End Role="forma_de_pago" EntitySet="forma_de_pago" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="presupuesto_gasto_gasto" Association="Self.presupuesto_gasto_gasto">
+      <End Role="gastos" EntitySet="gastos" />
+      <End Role="presupuesto_gasto" EntitySet="presupuesto_gasto" />
+    </AssociationSet>
+    <AssociationSet Name="clientepro" Association="Self.clientepro">
+      <End Role="gerente" EntitySet="gerentes" />
+      <End Role="proyecto" EntitySet="proyectoes" />
+    </AssociationSet>
+    <AssociationSet Name="hora_asignable_proyecto" Association="Self.hora_asignable_proyecto">
+      <End Role="proyecto" EntitySet="proyectoes" />
+      <End Role="hora_asignable" EntitySet="hora_asignable" />
+    </AssociationSet>
+    <AssociationSet Name="hora_no_asignable_tiempo" Association="Self.hora_no_asignable_tiempo">
+      <End Role="tiempo" EntitySet="tiempoes" />
+      <End Role="hora_no_asignable" EntitySet="hora_no_asignable" />
+    </AssociationSet>
+    <AssociationSet Name="pago_factura" Association="Self.pago_factura">
+      <End Role="metodo_de_pago" EntitySet="metodo_de_pago" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="tipo_cambio_moneda_tc" Association="Self.tipo_cambio_moneda_tc">
+      <End Role="moneda" EntitySet="monedas" />
+      <End Role="tipo_cambio" EntitySet="tipo_cambio" />
+    </AssociationSet>
+    <AssociationSet Name="presupuesto_nivel_nivel_presupuesto" Association="Self.presupuesto_nivel_nivel_presupuesto">
+      <End Role="nivel" EntitySet="nivels" />
+      <End Role="presupuesto_nivel" EntitySet="presupuesto_nivel" />
+    </AssociationSet>
+    <AssociationSet Name="partida_nota_nota" Association="Self.partida_nota_nota">
+      <End Role="nota_de_credito" EntitySet="nota_de_credito" />
+      <End Role="partida_nota" EntitySet="partida_nota" />
+    </AssociationSet>
+    <AssociationSet Name="partidasolicitud" Association="Self.partidasolicitud">
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+      <End Role="partida_solicitud" EntitySet="partida_solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="tiposervicio" Association="Self.tiposervicio">
+      <End Role="tipo_servicio" EntitySet="tipo_servicio" />
+      <End Role="partida_solicitud" EntitySet="partida_solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="presupuesto_gasto_presupueso" Association="Self.presupuesto_gasto_presupueso">
+      <End Role="presupuesto" EntitySet="presupuestoes" />
+      <End Role="presupuesto_gasto" EntitySet="presupuesto_gasto" />
+    </AssociationSet>
+    <AssociationSet Name="presupuesto_nivel_presupuesto_nivel" Association="Self.presupuesto_nivel_presupuesto_nivel">
+      <End Role="presupuesto" EntitySet="presupuestoes" />
+      <End Role="presupuesto_nivel" EntitySet="presupuesto_nivel" />
+    </AssociationSet>
+    <AssociationSet Name="sociopro" Association="Self.sociopro">
+      <End Role="socio" EntitySet="socios" />
+      <End Role="proyecto" EntitySet="proyectoes" />
+    </AssociationSet>
+    <AssociationSet Name="rechazadafac" Association="Self.rechazadafac">
+      <End Role="rechazada" EntitySet="rechazadas" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="cfdi_factura" Association="Self.cfdi_factura">
+      <End Role="uso_de_cfdi" EntitySet="uso_de_cfdi" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="solicitud_factura_id_tipocambio" Association="Self.solicitud_factura_id_tipocambio">
+      <End Role="tipo_cambio" EntitySet="tipo_cambio" />
+      <End Role="solicitud_factura" EntitySet="solicitud_factura" />
+    </AssociationSet>
+    <AssociationSet Name="servivio" Association="Self.servivio">
+      <End Role="tipo_servicio" EntitySet="tipo_servicio" />
+      <End Role="tiposervicio_conceptosat" EntitySet="tiposervicio_conceptosat" />
+    </AssociationSet>
+    <FunctionImport Name="AutoCompleteClientes" />
+    <FunctionImport Name="AutoCompleteProyectos" ReturnType="Collection(administracionModel.AutoCompleteProyectos_Result)" />
+    <FunctionImport Name="buscar_factura" ReturnType="Collection(administracionModel.buscar_factura_Result)">
+      <Parameter Name="buscar_facturapar" Mode="In" Type="String" />
+      <Parameter Name="id_fact" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CboClientes" />
+    <FunctionImport Name="CboClientes_Parametro" ReturnType="Collection(administracionModel.CboClientes_Parametro_Result)">
+      <Parameter Name="CboCliente_parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CboCtesTime_Par" ReturnType="Collection(administracionModel.CboCtesTime_Par_Result)">
+      <Parameter Name="CboCteTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CboEmp_Parametro" ReturnType="Collection(administracionModel.CboEmp_Parametro_Result)">
+      <Parameter Name="CboEmp" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CboGtesTime" ReturnType="Collection(administracionModel.CboGtesTime_Result)" />
+    <FunctionImport Name="CboPtosTime_Par" ReturnType="Collection(administracionModel.CboPtosTime_Par_Result)">
+      <Parameter Name="id_gte" Mode="In" Type="String" />
+      <Parameter Name="id_cte" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Clientes_buscar">
+      <Parameter Name="Cliente_buscar" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Clientes_load" />
+    <FunctionImport Name="emp_rep_tiempo" ReturnType="Collection(administracionModel.emp_rep_tiempo_Result)">
+      <Parameter Name="quincena_tmp" Mode="In" Type="Int32" />
+      <Parameter Name="mes_tmp" Mode="In" Type="String" />
+      <Parameter Name="anio_tmp" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="emp_rep_tiempo_buscar" ReturnType="Collection(administracionModel.emp_rep_tiempo_buscar_Result)">
+      <Parameter Name="quincena_tmp" Mode="In" Type="Int32" />
+      <Parameter Name="mes_tmp" Mode="In" Type="String" />
+      <Parameter Name="anio_tmp" Mode="In" Type="Int32" />
+      <Parameter Name="Empleado_buscar" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Empleados_buscar" ReturnType="Collection(administracionModel.Empleados_buscar_Result)">
+      <Parameter Name="Empleado_buscar" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Empleados_load" ReturnType="Collection(administracionModel.Empleados_load_Result)" />
+    <FunctionImport Name="factura_proc" ReturnType="Collection(administracionModel.factura_proc_Result)" />
+    <FunctionImport Name="Facturas_refrescar" ReturnType="Collection(administracionModel.Facturas_refrescar_Result)">
+      <Parameter Name="num_factura" Mode="In" Type="String" />
+      <Parameter Name="num_serie" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertaReporte" />
+    <FunctionImport Name="NoAsignables" ReturnType="Collection(administracionModel.NoAsignables_Result)">
+      <Parameter Name="repid_tiempo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="presupuesto_buscar" ReturnType="Collection(administracionModel.presupuesto_buscar_Result)">
+      <Parameter Name="presupuesto_buscar_par" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Presupuesto_load" ReturnType="Collection(administracionModel.Presupuesto_load_Result)" />
+    <FunctionImport Name="proyectos_buscar" ReturnType="Collection(administracionModel.proyectos_buscar_Result)">
+      <Parameter Name="Proyecto_buscar" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proyectos_estatus" ReturnType="Collection(administracionModel.Proyectos_estatus_Result)">
+      <Parameter Name="Estatus_proyecto" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proyectos_load" ReturnType="Collection(administracionModel.Proyectos_load_Result)" />
+    <FunctionImport Name="Reportes" ReturnType="Collection(administracionModel.Reportes_Result)">
+      <Parameter Name="Empleado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ReportesByIdEmpleado" ReturnType="Collection(administracionModel.ReportesByIdEmpleado_Result)">
+      <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ReporteTime" ReturnType="Collection(administracionModel.ReporteTime_Result)">
+      <Parameter Name="repid_tiempo" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="AutoCompleteProyectos_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Clave_Proyecto" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Nombre_Cliente" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Socio" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Gerente" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Área" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="buscar_factura_Result">
+    <Property Type="Int32" Name="Factura" Nullable="false" />
+    <Property Type="String" Name="Serie" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Cliente" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Proyecto" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="Subtotal" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="I_V_A_" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" />
+    <Property Type="String" Name="Estatus" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Socio" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="Gerente" Nullable="false" MaxLength="101" />
+  </ComplexType>
+  <ComplexType Name="CboClientes_Parametro_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="CboCtesTime_Par_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Cliente" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Abierto" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CboEmp_Parametro_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="101" />
+  </ComplexType>
+  <ComplexType Name="CboGtesTime_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="Abierto" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CboPtosTime_Par_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="emp_rep_tiempo_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NUMERO" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ÁREA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="ASIGNABLES" Nullable="true" />
+    <Property Type="Int32" Name="NO_ASIGNABLES" Nullable="true" />
+    <Property Type="Int32" Name="TOTAL" Nullable="true" />
+    <Property Type="DateTime" Name="CREACIÓN" Nullable="true" />
+    <Property Type="DateTime" Name="MODIFICACIÓN" Nullable="true" />
+    <Property Type="DateTime" Name="ALTA_DE_EMPLEADO" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="emp_rep_tiempo_buscar_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NUMERO" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="ÁREA" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="ASIGNABLES" Nullable="true" />
+    <Property Type="Int32" Name="NO_ASIGNABLES" Nullable="true" />
+    <Property Type="Int32" Name="TOTAL" Nullable="true" />
+    <Property Type="DateTime" Name="CREACIÓN" Nullable="true" />
+    <Property Type="DateTime" Name="MODIFICACIÓN" Nullable="true" />
+    <Property Type="DateTime" Name="ALTA_DE_EMPLEADO" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Empleados_buscar_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="No__Empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Apellido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Nivel" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Correo_Electrónico" Nullable="true" MaxLength="254" />
+    <Property Type="String" Name="Estatus" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="RFC" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Fecha_Alta" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Baja" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Empleados_load_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="No__Empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Apellido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Nivel" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Correo_Electrónico" Nullable="true" MaxLength="254" />
+    <Property Type="String" Name="Estatus" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="RFC" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Fecha_Alta" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Baja" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="factura_proc_Result">
+    <Property Type="Int32" Name="Factura" Nullable="false" />
+    <Property Type="String" Name="Serie" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Cliente" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Proyecto" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="Subtotal" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="I_V_A_" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" />
+    <Property Type="String" Name="Estatus" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Socio" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="Gerente" Nullable="false" MaxLength="101" />
+  </ComplexType>
+  <ComplexType Name="Facturas_refrescar_Result">
+    <Property Type="Int32" Name="Factura" Nullable="false" />
+    <Property Type="String" Name="Serie" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Cliente" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Proyecto" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="Subtotal" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="I_V_A_" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" />
+    <Property Type="String" Name="Estatus" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Socio" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="Gerente" Nullable="false" MaxLength="101" />
+  </ComplexType>
+  <ComplexType Name="NoAsignables_Result">
+    <Property Type="Int32" Name="ID_Hora_No_Asignable" Nullable="true" />
+    <Property Type="Int32" Name="ID_Actividad" Nullable="true" />
+    <Property Type="String" Name="Actividad" Nullable="true" MaxLength="70" />
+    <Property Type="Int32" Name="uno" Nullable="true" />
+    <Property Type="Int32" Name="dos" Nullable="true" />
+    <Property Type="Int32" Name="tres" Nullable="true" />
+    <Property Type="Int32" Name="cuatro" Nullable="true" />
+    <Property Type="Int32" Name="cinco" Nullable="true" />
+    <Property Type="Int32" Name="seis" Nullable="true" />
+    <Property Type="Int32" Name="siete" Nullable="true" />
+    <Property Type="Int32" Name="ocho" Nullable="true" />
+    <Property Type="Int32" Name="nueve" Nullable="true" />
+    <Property Type="Int32" Name="diez" Nullable="true" />
+    <Property Type="Int32" Name="once" Nullable="true" />
+    <Property Type="Int32" Name="doce" Nullable="true" />
+    <Property Type="Int32" Name="trece" Nullable="true" />
+    <Property Type="Int32" Name="catorce" Nullable="true" />
+    <Property Type="Int32" Name="quince" Nullable="true" />
+    <Property Type="Int32" Name="diez_y_seis" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Decimal" Name="cuota" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="costo" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="total_cuota" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="total_costo" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="String" Name="descripcion" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="presupuesto_buscar_Result">
+    <Property Type="Int32" Name="Presupuesto" Nullable="false" />
+    <Property Type="String" Name="Cliente" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Clave" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="Utilidad" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" />
+    <Property Type="String" Name="Estatus" Nullable="false" MaxLength="11" />
+  </ComplexType>
+  <ComplexType Name="Presupuesto_load_Result">
+    <Property Type="Int32" Name="Presupuesto" Nullable="false" />
+    <Property Type="String" Name="Cliente" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Clave" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="Utilidad" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="DateTime" Name="Fecha" Nullable="true" />
+    <Property Type="String" Name="Estatus" Nullable="false" MaxLength="11" />
+  </ComplexType>
+  <ComplexType Name="proyectos_buscar_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Clave_Proyecto" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="ID_Cliente" Nullable="false" />
+    <Property Type="String" Name="Nombre_Cliente" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="Fecha_Inicio" Nullable="true" />
+    <Property Type="Int32" Name="ID_Socio" Nullable="false" />
+    <Property Type="String" Name="Socio" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="ID_Gerente" Nullable="false" />
+    <Property Type="String" Name="Gerente" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="ID_Área" Nullable="true" />
+    <Property Type="String" Name="Área" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Fecha_Final_Estimada" Nullable="true" />
+    <Property Type="String" Name="Carga_de_Tiempo" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="Estatus" Nullable="false" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="Proyectos_estatus_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Clave_Proyecto" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="ID_Cliente" Nullable="false" />
+    <Property Type="String" Name="Nombre_Cliente" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="Fecha_Inicio" Nullable="true" />
+    <Property Type="Int32" Name="ID_Socio" Nullable="false" />
+    <Property Type="String" Name="Socio" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="ID_Gerente" Nullable="false" />
+    <Property Type="String" Name="Gerente" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="ID_Área" Nullable="true" />
+    <Property Type="String" Name="Área" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Fecha_Final_Estimada" Nullable="true" />
+    <Property Type="String" Name="Carga_de_Tiempo" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="Estatus" Nullable="false" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="Proyectos_load_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Clave_Proyecto" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="ID_Cliente" Nullable="false" />
+    <Property Type="String" Name="Nombre_Cliente" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="Fecha_Inicio" Nullable="true" />
+    <Property Type="Int32" Name="ID_Socio" Nullable="false" />
+    <Property Type="String" Name="Socio" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="ID_Gerente" Nullable="false" />
+    <Property Type="String" Name="Gerente" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="ID_Área" Nullable="true" />
+    <Property Type="String" Name="Área" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Fecha_Final_Estimada" Nullable="true" />
+    <Property Type="String" Name="Carga_de_Tiempo" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="Estatus" Nullable="false" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="Reportes_Result">
+    <Property Type="Int32" Name="ID" Nullable="true" />
+    <Property Type="Int32" Name="Quincena" Nullable="true" />
+    <Property Type="String" Name="Mes" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="Año" Nullable="true" />
+    <Property Type="Int32" Name="Hrs__Asignables" Nullable="true" />
+    <Property Type="Int32" Name="Hrs__no_Asignables" Nullable="true" />
+    <Property Type="Int32" Name="Total_Hrs_" Nullable="true" />
+    <Property Type="String" Name="Estatus" Nullable="false" MaxLength="8" />
+    <Property Type="Int32" Name="ID_Mes" Nullable="true" />
+    <Property Type="Int32" Name="Estatus2" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ReportesByIdEmpleado_Result">
+    <Property Type="Int32" Name="id_tiempo" Nullable="true" />
+    <Property Type="Int32" Name="quincena" Nullable="true" />
+    <Property Type="String" Name="mes" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="ano" Nullable="true" />
+    <Property Type="Int32" Name="horas_asignables" Nullable="true" />
+    <Property Type="Int32" Name="horas_no_asignables" Nullable="true" />
+    <Property Type="Int32" Name="total" Nullable="true" />
+    <Property Type="Int32" Name="envio" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ReporteTime_Result">
+    <Property Type="Int32" Name="ID_Hora_Asignable" Nullable="true" />
+    <Property Type="Int32" Name="ID_Proyecto" Nullable="true" />
+    <Property Type="String" Name="Clave" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="uno" Nullable="true" />
+    <Property Type="Int32" Name="dos" Nullable="true" />
+    <Property Type="Int32" Name="tres" Nullable="true" />
+    <Property Type="Int32" Name="cuatro" Nullable="true" />
+    <Property Type="Int32" Name="cinco" Nullable="true" />
+    <Property Type="Int32" Name="seis" Nullable="true" />
+    <Property Type="Int32" Name="siete" Nullable="true" />
+    <Property Type="Int32" Name="ocho" Nullable="true" />
+    <Property Type="Int32" Name="nueve" Nullable="true" />
+    <Property Type="Int32" Name="diez" Nullable="true" />
+    <Property Type="Int32" Name="once" Nullable="true" />
+    <Property Type="Int32" Name="doce" Nullable="true" />
+    <Property Type="Int32" Name="trece" Nullable="true" />
+    <Property Type="Int32" Name="catorce" Nullable="true" />
+    <Property Type="Int32" Name="quince" Nullable="true" />
+    <Property Type="Int32" Name="diez_y_seis" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="String" Name="Cliente" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Gerente" Nullable="false" MaxLength="101" />
+    <Property Type="Decimal" Name="cuota" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="costo" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="total_cuota" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Decimal" Name="total_costo" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="Int32" Name="id_cliente" Nullable="true" />
+    <Property Type="Int32" Name="id_gerente" Nullable="true" />
+  </ComplexType>
+</Schema>

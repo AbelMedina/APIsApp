@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="63863979ccf44baea895942ddf6058c0" Name="Diagram1" ZoomLevel="174">
+        <EntityTypeShape EntityType="administracionModel.actividad" Width="1.5" PointX="13.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.archivo_documento_digital" Width="1.5" PointX="8.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.archivo_factura" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.asignacion_de_gastos" Width="1.5" PointX="20.25" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.cliente" Width="1.5" PointX="10.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.cobranza" Width="1.5" PointX="17.5" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.cobranza_traspaso" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.conceptos_factura" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.conceptos_sat" Width="1.5" PointX="9" PointY="41.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.contacto" Width="1.5" PointX="13" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.contrasena" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.contrasenia" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.correo_factura" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.correo_time" Width="1.5" PointX="5.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.cuota" Width="1.5" PointX="13" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.datos_factura" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.departamento" Width="1.5" PointX="10.75" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.departamento_gerente" Width="1.5" PointX="15.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.empleado" Width="1.5" PointX="16" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.empleado_actividad" Width="1.5" PointX="18.25" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.empleado_contrasenia" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.envio_correo" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.estatu" Width="1.5" PointX="3.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.factura" Width="1.5" PointX="15.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.factura_detalles" Width="1.5" PointX="17.5" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.forma_de_pago" Width="1.5" PointX="3.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.gasto" Width="1.5" PointX="18" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.gerente" Width="1.5" PointX="10.75" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.grupo_clientes" Width="1.5" PointX="8.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.historial_empleado" Width="1.5" PointX="17.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.hora_asignable" Width="1.5" PointX="15.25" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.hora_no_asignable" Width="1.5" PointX="16" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.iva" Width="1.5" PointX="8.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.metodo_de_pago" Width="1.5" PointX="3.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.moneda" Width="1.5" PointX="1.5" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.nivel" Width="1.5" PointX="10.75" PointY="37.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.nota_de_credito" Width="1.5" PointX="18.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.partida" Width="1.5" PointX="5.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.partida_nota" Width="1.5" PointX="21" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.partida_solicitud" Width="1.5" PointX="11.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.periodo_ano" Width="1.5" PointX="19.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.periodo_mes" Width="1.5" PointX="19.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.presupuesto" Width="1.5" PointX="13" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.presupuesto_gasto" Width="1.5" PointX="21.25" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.presupuesto_nivel" Width="1.5" PointX="18.25" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.proyecto" Width="1.5" PointX="13" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.proyecto_factura" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.rechazada" Width="1.5" PointX="3.75" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.servidor_correo" Width="1.5" PointX="19.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.socio" Width="1.5" PointX="10.75" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.solicitud_factura" Width="1.5" PointX="6" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.tiempo" Width="1.5" PointX="13.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.tipo_cambio" Width="1.5" PointX="3.75" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.tipo_servicio" Width="1.5" PointX="9" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.tiposervicio_conceptosat" Width="1.5" PointX="11.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.uso_de_cfdi" Width="1.5" PointX="3.75" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="administracionModel.zona" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
+        <AssociationConnector Association="administracionModel.hora_no_asignable_actividad" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.documentodigital" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.iddatos" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.asignacion_de_gastos_gasto_asignacion" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.asignacion_de_gastos_proyecto_asignacion" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.cliente_grupo" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.cliente_iva" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.contacto_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.presupuesto_cliente_presupuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.proyecto_cliente_proyecto" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.cobranza_factura_cobranza" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.cobranza_traspaso_idproyectofactura" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.satservicio" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.correo_factura_correo_datos" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.cuota_area" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.cuota_nivel" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.solicitud_factura_datos" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.empleado_empleado_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.proyecto_area_proyecto" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.empleado_nivel_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.empleado_actividad_empleadoid" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.idsolicitudcorreo" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.solicitud_factura_estatus" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.factura_proyecto_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.factura_detalles_id_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.formapago_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.presupuesto_gasto_gasto" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.clientepro" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.hora_asignable_proyecto" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.hora_no_asignable_tiempo" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.pago_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.tipo_cambio_moneda_tc" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.presupuesto_nivel_nivel_presupuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.partida_nota_nota" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.partidasolicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.tiposervicio" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.presupuesto_gasto_presupueso" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.presupuesto_nivel_presupuesto_nivel" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.sociopro" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.rechazadafac" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.cfdi_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.solicitud_factura_id_tipocambio" ManuallyRouted="false" />
+        <AssociationConnector Association="administracionModel.servivio" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

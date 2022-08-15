@@ -1,0 +1,6 @@
+C:\Users\Abel\source\repos\Stuxnet\ML\bin\Release\ML.dll
+C:\Users\Abel\source\repos\Stuxnet\ML\bin\Release\ML.pdb
+C:\Users\Abel\source\repos\Stuxnet\ML\obj\Release\ML.csproj.AssemblyReference.cache
+C:\Users\Abel\source\repos\Stuxnet\ML\obj\Release\ML.csproj.CoreCompileInputs.cache
+C:\Users\Abel\source\repos\Stuxnet\ML\obj\Release\ML.dll
+C:\Users\Abel\source\repos\Stuxnet\ML\obj\Release\ML.pdb
