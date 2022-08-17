@@ -373,5 +373,10 @@ namespace DL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<actividadesPorEmpleado_Result>("actividadesPorEmpleado", idEmpleadoParameter);
         }
+    
+        public virtual ObjectResult<Nullable<int>> Anios()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Anios");
+        }
     }
 }

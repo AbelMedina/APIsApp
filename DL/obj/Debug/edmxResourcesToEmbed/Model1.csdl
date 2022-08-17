@@ -1776,6 +1776,7 @@
     <FunctionImport Name="actividadesPorEmpleado" ReturnType="Collection(administracionModel.actividadesPorEmpleado_Result)">
       <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="Anios" ReturnType="Collection(Int32)" />
   </EntityContainer>
   <ComplexType Name="AutoCompleteProyectos_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />

@@ -1382,6 +1382,7 @@
         <Function Name="actividadesPorEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idEmpleado" Type="int" Mode="In" />
         </Function>
+        <Function Name="Anios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="AutoCompleteClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="AutoCompleteProyectos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="buscar_factura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -3474,8 +3475,9 @@
           <Parameter Name="IdTiempo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="actividadesPorEmpleado" ReturnType="Collection(administracionModel.actividadesPorEmpleado_Result)">
-            <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
+          <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="Anios" ReturnType="Collection(Int32)" />
         </EntityContainer>
         <ComplexType Name="AutoCompleteProyectos_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -5192,6 +5194,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Anios" FunctionName="administracionModel.Store.Anios" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

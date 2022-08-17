@@ -1369,5 +1369,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Anios" FunctionName="administracionModel.Store.Anios" />
   </EntityContainerMapping>
 </Mapping>
