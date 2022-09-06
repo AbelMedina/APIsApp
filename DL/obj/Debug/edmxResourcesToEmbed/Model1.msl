@@ -1370,5 +1370,33 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="Anios" FunctionName="administracionModel.Store.Anios" />
+    <FunctionImportMapping FunctionImportName="Meses" FunctionName="administracionModel.Store.Meses">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="administracionModel.Meses_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Loginuser" FunctionName="administracionModel.Store.Loginuser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="administracionModel.Loginuser_Result5">
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="num_empleado" ColumnName="num_empleado" />
+          <ScalarProperty Name="nom_empleado" ColumnName="nom_empleado" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="nom_departamento" ColumnName="nom_departamento" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="existePeriodo" FunctionName="administracionModel.Store.existePeriodo" />
+    <FunctionImportMapping FunctionImportName="Registranuevoreporte" FunctionName="administracionModel.Store.Registranuevoreporte" />
+    <FunctionImportMapping FunctionImportName="Registrarhorasasignables" FunctionName="administracionModel.Store.Registrarhorasasignables" />
+    <FunctionImportMapping FunctionImportName="Registrarhorasnoasignables" FunctionName="administracionModel.Store.Registrarhorasnoasignables" />
+    <FunctionImportMapping FunctionImportName="EliminarHoraAsignable" FunctionName="administracionModel.Store.EliminarHoraAsignable" />
+    <FunctionImportMapping FunctionImportName="EliminarHoraNoAsignable" FunctionName="administracionModel.Store.EliminarHoraNoAsignable" />
+    <FunctionImportMapping FunctionImportName="EliminarTiempo" FunctionName="administracionModel.Store.EliminarTiempo" />
   </EntityContainerMapping>
 </Mapping>

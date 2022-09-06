@@ -1777,6 +1777,88 @@
       <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Anios" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="Meses" ReturnType="Collection(administracionModel.Meses_Result)" />
+    <FunctionImport Name="Loginuser" ReturnType="Collection(administracionModel.Loginuser_Result5)">
+      <Parameter Name="num_empleado" Mode="In" Type="Int32" />
+      <Parameter Name="pwd" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="existePeriodo" ReturnType="Collection(Int32)">
+      <Parameter Name="quincena" Mode="In" Type="String" />
+      <Parameter Name="mes" Mode="In" Type="String" />
+      <Parameter Name="anio" Mode="In" Type="Int32" />
+      <Parameter Name="empleado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Registranuevoreporte" ReturnType="Collection(Decimal)">
+      <Parameter Name="quincena" Mode="In" Type="Int32" />
+      <Parameter Name="mes" Mode="In" Type="String" />
+      <Parameter Name="anio" Mode="In" Type="Int32" />
+      <Parameter Name="totalhorasasignables" Mode="In" Type="Int32" />
+      <Parameter Name="totalhorasnoasignables" Mode="In" Type="Int32" />
+      <Parameter Name="total" Mode="In" Type="Int32" />
+      <Parameter Name="idempleado" Mode="In" Type="Int32" />
+      <Parameter Name="estatus" Mode="In" Type="Boolean" />
+      <Parameter Name="envio" Mode="In" Type="Boolean" />
+      <Parameter Name="fechareporte" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Registrarhorasasignables">
+      <Parameter Name="idproyecto" Mode="In" Type="Int32" />
+      <Parameter Name="idtiempo" Mode="In" Type="Int32" />
+      <Parameter Name="uno" Mode="In" Type="Int32" />
+      <Parameter Name="dos" Mode="In" Type="Int32" />
+      <Parameter Name="tres" Mode="In" Type="Int32" />
+      <Parameter Name="cuatro" Mode="In" Type="Int32" />
+      <Parameter Name="cinco" Mode="In" Type="Int32" />
+      <Parameter Name="seis" Mode="In" Type="Int32" />
+      <Parameter Name="siete" Mode="In" Type="Int32" />
+      <Parameter Name="ocho" Mode="In" Type="Int32" />
+      <Parameter Name="nueve" Mode="In" Type="Int32" />
+      <Parameter Name="diez" Mode="In" Type="Int32" />
+      <Parameter Name="once" Mode="In" Type="Int32" />
+      <Parameter Name="doce" Mode="In" Type="Int32" />
+      <Parameter Name="trece" Mode="In" Type="Int32" />
+      <Parameter Name="catorce" Mode="In" Type="Int32" />
+      <Parameter Name="quince" Mode="In" Type="Int32" />
+      <Parameter Name="diezyseis" Mode="In" Type="Int32" />
+      <Parameter Name="total" Mode="In" Type="Int32" />
+      <Parameter Name="cuota" Mode="In" Type="Decimal" />
+      <Parameter Name="costo" Mode="In" Type="Decimal" />
+      <Parameter Name="totalcuota" Mode="In" Type="Decimal" />
+      <Parameter Name="totalcosto" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Registrarhorasnoasignables">
+      <Parameter Name="id_actividad" Mode="In" Type="Int32" />
+      <Parameter Name="idtiempo" Mode="In" Type="Int32" />
+      <Parameter Name="uno" Mode="In" Type="Int32" />
+      <Parameter Name="dos" Mode="In" Type="Int32" />
+      <Parameter Name="tres" Mode="In" Type="Int32" />
+      <Parameter Name="cuatro" Mode="In" Type="Int32" />
+      <Parameter Name="cinco" Mode="In" Type="Int32" />
+      <Parameter Name="seis" Mode="In" Type="Int32" />
+      <Parameter Name="siete" Mode="In" Type="Int32" />
+      <Parameter Name="ocho" Mode="In" Type="Int32" />
+      <Parameter Name="nueve" Mode="In" Type="Int32" />
+      <Parameter Name="diez" Mode="In" Type="Int32" />
+      <Parameter Name="once" Mode="In" Type="Int32" />
+      <Parameter Name="doce" Mode="In" Type="Int32" />
+      <Parameter Name="trece" Mode="In" Type="Int32" />
+      <Parameter Name="catorce" Mode="In" Type="Int32" />
+      <Parameter Name="quince" Mode="In" Type="Int32" />
+      <Parameter Name="diezyseis" Mode="In" Type="Int32" />
+      <Parameter Name="total" Mode="In" Type="Int32" />
+      <Parameter Name="cuota" Mode="In" Type="Decimal" />
+      <Parameter Name="costo" Mode="In" Type="Decimal" />
+      <Parameter Name="totalcuota" Mode="In" Type="Decimal" />
+      <Parameter Name="totalcosto" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="EliminarHoraAsignable">
+      <Parameter Name="Id_Tiempo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EliminarHoraNoAsignable">
+      <Parameter Name="Id_Tiempo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EliminarTiempo">
+      <Parameter Name="IdTiempo" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="AutoCompleteProyectos_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2118,5 +2200,52 @@
     <Property Type="Int32" Name="id_actividad" Nullable="false" />
     <Property Type="String" Name="nom_actividad" Nullable="true" MaxLength="70" />
     <Property Type="String" Name="descripcion" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="Meses_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Mes" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="LoginUser_Result">
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="num_departamento" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+  </ComplexType>
+  <ComplexType Name="LoginUser_Result1">
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="num_departamento" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="LoginUser_Result2">
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="num_departamento" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result3">
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="num_departamento" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result4">
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result5">
+    <Property Type="Int32" Name="id_empleado" Nullable="false" />
+    <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
   </ComplexType>
 </Schema>

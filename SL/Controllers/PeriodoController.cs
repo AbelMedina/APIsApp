@@ -23,5 +23,65 @@ namespace SL.Controllers
                 return Content(HttpStatusCode.NotFound, result);
             }
         }
+
+        [Route("api/periodo/meses")]
+        [HttpGet]
+        public IHttpActionResult Meses()
+        {
+            ML.Result result = BL.Periodo.Meses();
+            if (result.Correct)
+            {
+                return Content(HttpStatusCode.OK, result);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, result);
+            }
+        }
+
+        [Route("api/periodo/existePeriodo")]
+        [HttpPost]
+        public IHttpActionResult existePeriodo([FromBody] ML.EntradaExistePeriodo entrada)
+        {
+            ML.Result result = BL.Periodo.ExistePeriodo(entrada);
+            if (result.Correct)
+            {
+                return Content(HttpStatusCode.OK, result);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, result);
+            }
+        }
+
+        [Route("api/periodo/registraNuevoReporte")]
+        [HttpPost]
+        public IHttpActionResult registraNuevoReporte([FromBody] ML.RegistrarNuevoReporte registrarNuevoReporte)
+        {
+            ML.Result result = BL.Tiempo.RegistrarNuevoReporte(registrarNuevoReporte);
+            if (result.Correct)
+            {
+                return Content(HttpStatusCode.OK, result);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, result);
+            }
+        }
+
+        [Route("api/periodo/EliminarReporte")]
+        [HttpPost]
+        public IHttpActionResult EliminarReporte([FromBody] ML.EliminarReporte eliminarReporte)
+        {
+            ML.Result result = BL.Tiempo.EliminarReporte(eliminarReporte);
+            if (result.Correct)
+            {
+                return Content(HttpStatusCode.OK, result);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, result);
+            }
+        }
     }
 }
