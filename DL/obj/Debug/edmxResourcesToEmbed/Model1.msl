@@ -1398,5 +1398,6 @@
     <FunctionImportMapping FunctionImportName="EliminarHoraAsignable" FunctionName="administracionModel.Store.EliminarHoraAsignable" />
     <FunctionImportMapping FunctionImportName="EliminarHoraNoAsignable" FunctionName="administracionModel.Store.EliminarHoraNoAsignable" />
     <FunctionImportMapping FunctionImportName="EliminarTiempo" FunctionName="administracionModel.Store.EliminarTiempo" />
+    <FunctionImportMapping FunctionImportName="EliminarReporteTiempo" FunctionName="administracionModel.Store.EliminarReporteTiempo" />
   </EntityContainerMapping>
 </Mapping>

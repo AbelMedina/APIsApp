@@ -1417,6 +1417,9 @@
         <Function Name="EliminarHoraNoAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id_Tiempo" Type="int" Mode="In" />
         </Function>
+        <Function Name="EliminarReporteTiempo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdTiempo" Type="int" Mode="In" />
+        </Function>
         <Function Name="EliminarTiempo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdTiempo" Type="int" Mode="In" />
         </Function>
@@ -3634,12 +3637,15 @@
             <Parameter Name="totalcosto" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="EliminarHoraAsignable">
-            <Parameter Name="Id_Tiempo" Mode="In" Type="Int32" />
+          <Parameter Name="Id_Tiempo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="EliminarHoraNoAsignable">
-            <Parameter Name="Id_Tiempo" Mode="In" Type="Int32" />
+          <Parameter Name="Id_Tiempo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="EliminarTiempo">
+          <Parameter Name="IdTiempo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EliminarReporteTiempo">
             <Parameter Name="IdTiempo" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -5434,6 +5440,7 @@
           <FunctionImportMapping FunctionImportName="EliminarHoraAsignable" FunctionName="administracionModel.Store.EliminarHoraAsignable" />
           <FunctionImportMapping FunctionImportName="EliminarHoraNoAsignable" FunctionName="administracionModel.Store.EliminarHoraNoAsignable" />
           <FunctionImportMapping FunctionImportName="EliminarTiempo" FunctionName="administracionModel.Store.EliminarTiempo" />
+          <FunctionImportMapping FunctionImportName="EliminarReporteTiempo" FunctionName="administracionModel.Store.EliminarReporteTiempo" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

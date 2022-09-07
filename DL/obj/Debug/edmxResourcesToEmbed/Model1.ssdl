@@ -1412,6 +1412,9 @@
   <Function Name="EliminarHoraNoAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id_Tiempo" Type="int" Mode="In" />
   </Function>
+  <Function Name="EliminarReporteTiempo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTiempo" Type="int" Mode="In" />
+  </Function>
   <Function Name="EliminarTiempo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdTiempo" Type="int" Mode="In" />
   </Function>

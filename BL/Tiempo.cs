@@ -233,7 +233,7 @@ namespace BL
             {
                 using (DL.administracionEntities context = new DL.administracionEntities())
                 {
-                    var query = context.Registranuevoreporte(registrarNuevoReporte.quincena, registrarNuevoReporte.mes, registrarNuevoReporte.anio, registrarNuevoReporte.totalhorasasignables, registrarNuevoReporte.totalhorasnoasignables, registrarNuevoReporte.total, registrarNuevoReporte.idempleado, registrarNuevoReporte.estatus, registrarNuevoReporte.envio, registrarNuevoReporte.fechareporte.Replace("/","").Replace("-","")).FirstOrDefault();
+                    var query = context.Registranuevoreporte(registrarNuevoReporte.quincena, registrarNuevoReporte.mes, registrarNuevoReporte.anio, registrarNuevoReporte.totalhorasasignables, registrarNuevoReporte.totalhorasnoasignables, registrarNuevoReporte.total, registrarNuevoReporte.idempleado, registrarNuevoReporte.estatus, registrarNuevoReporte.envio, registrarNuevoReporte.fechareporte.Replace("/", "").Replace("-", "")).FirstOrDefault();
                     if (query.HasValue)
                     {
                         idTiempo = query.Value;
@@ -298,28 +298,28 @@ namespace BL
             {
                 using (DL.administracionEntities context = new DL.administracionEntities())
                 {
-                    var query = context.EliminarHoraAsignable(eliminarReporte.idTiempo);
+                    var query = context.EliminarReporteTiempo(eliminarReporte.idTiempo);
                     if (query >= 1)
                     {
-                        var query2 = context.EliminarHoraNoAsignable(eliminarReporte.idTiempo);
-                        if (query2 >= 1)
-                        {
-                            var query3 = context.EliminarTiempo(eliminarReporte.idTiempo);
-                            if (query3 >=1)
-                            {
-                                result.Correct = true;
-                            }
-                            else
-                            {
-                                result.Correct = false;
-                                result.ErrorMessage = "Ha ocurrido un error en la eliminacion en cascada";
-                            }
-                        }
-                        else
-                        {
-                            result.Correct = false;
-                            result.ErrorMessage = "Ha ocurrido un error en la eliminacion en cascada";
-                        }
+                        //var query2 = context.EliminarHoraNoAsignable(eliminarReporte.idTiempo);
+                        //if (query2 >= 1)
+                        //{
+                       //var query3 = context.EliminarTiempo(eliminarReporte.idTiempo);
+                        // if (query3 >=1)
+                        //{
+                        result.Correct = true;
+                        //}
+                        //else
+                        //{
+                        // result.Correct = false;
+                        //result.ErrorMessage = "Ha ocurrido un error en la eliminacion en cascada";
+                        //}
+                        //}
+                        //else
+                        //{
+                        //    result.Correct = false;
+                        //    result.ErrorMessage = "Ha ocurrido un error en la eliminacion en cascada";
+                        //}
                     }
                     else
                     {

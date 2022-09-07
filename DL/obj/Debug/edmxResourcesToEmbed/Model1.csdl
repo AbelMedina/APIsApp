@@ -1859,6 +1859,9 @@
     <FunctionImport Name="EliminarTiempo">
       <Parameter Name="IdTiempo" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="EliminarReporteTiempo">
+      <Parameter Name="IdTiempo" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="AutoCompleteProyectos_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />

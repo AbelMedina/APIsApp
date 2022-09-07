@@ -683,5 +683,14 @@ namespace DL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminarTiempo", idTiempoParameter);
         }
+    
+        public virtual int EliminarReporteTiempo(Nullable<int> idTiempo)
+        {
+            var idTiempoParameter = idTiempo.HasValue ?
+                new ObjectParameter("IdTiempo", idTiempo) :
+                new ObjectParameter("IdTiempo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminarReporteTiempo", idTiempoParameter);
+        }
     }
 }
