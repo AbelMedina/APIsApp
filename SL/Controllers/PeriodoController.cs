@@ -83,5 +83,20 @@ namespace SL.Controllers
                 return Content(HttpStatusCode.NotFound, result);
             }
         }
+
+        [Route("api/periodo/ActualizarReporte")]
+        [HttpPost]
+        public IHttpActionResult ActualizarReporte([FromBody] ML.ActualizarReporte actualizarReporte)
+        {
+            ML.Result result = BL.Tiempo.ActualizarReporte(actualizarReporte);
+            if (result.Correct)
+            {
+                return Content(HttpStatusCode.OK, result);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, result);
+            }
+        }
     }
 }

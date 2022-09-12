@@ -1377,6 +1377,66 @@
   <Function Name="actividadesPorEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idEmpleado" Type="int" Mode="In" />
   </Function>
+  <Function Name="ActualizaHoraAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Hora_Asignable" Type="int" Mode="In" />
+    <Parameter Name="IdTiempo" Type="int" Mode="In" />
+    <Parameter Name="proyecto" Type="int" Mode="In" />
+    <Parameter Name="uno" Type="int" Mode="In" />
+    <Parameter Name="dos" Type="int" Mode="In" />
+    <Parameter Name="tres" Type="int" Mode="In" />
+    <Parameter Name="cuatro" Type="int" Mode="In" />
+    <Parameter Name="cinco" Type="int" Mode="In" />
+    <Parameter Name="seis" Type="int" Mode="In" />
+    <Parameter Name="siete" Type="int" Mode="In" />
+    <Parameter Name="ocho" Type="int" Mode="In" />
+    <Parameter Name="nueve" Type="int" Mode="In" />
+    <Parameter Name="diez" Type="int" Mode="In" />
+    <Parameter Name="once" Type="int" Mode="In" />
+    <Parameter Name="doce" Type="int" Mode="In" />
+    <Parameter Name="trece" Type="int" Mode="In" />
+    <Parameter Name="catorce" Type="int" Mode="In" />
+    <Parameter Name="quince" Type="int" Mode="In" />
+    <Parameter Name="diez_y_seis" Type="int" Mode="In" />
+    <Parameter Name="total" Type="int" Mode="In" />
+    <Parameter Name="cuota" Type="money" Mode="In" />
+    <Parameter Name="costo" Type="money" Mode="In" />
+    <Parameter Name="total_cuota" Type="money" Mode="In" />
+    <Parameter Name="total_costo" Type="money" Mode="In" />
+  </Function>
+  <Function Name="ActualizaHoraNoAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_hora_no_asignable" Type="int" Mode="In" />
+    <Parameter Name="tiempo" Type="int" Mode="In" />
+    <Parameter Name="actividad" Type="int" Mode="In" />
+    <Parameter Name="uno" Type="int" Mode="In" />
+    <Parameter Name="dos" Type="int" Mode="In" />
+    <Parameter Name="tres" Type="int" Mode="In" />
+    <Parameter Name="cuatro" Type="int" Mode="In" />
+    <Parameter Name="cinco" Type="int" Mode="In" />
+    <Parameter Name="seis" Type="int" Mode="In" />
+    <Parameter Name="siete" Type="int" Mode="In" />
+    <Parameter Name="ocho" Type="int" Mode="In" />
+    <Parameter Name="nueve" Type="int" Mode="In" />
+    <Parameter Name="diez" Type="int" Mode="In" />
+    <Parameter Name="once" Type="int" Mode="In" />
+    <Parameter Name="doce" Type="int" Mode="In" />
+    <Parameter Name="trece" Type="int" Mode="In" />
+    <Parameter Name="catorce" Type="int" Mode="In" />
+    <Parameter Name="quince" Type="int" Mode="In" />
+    <Parameter Name="diez_y_seis" Type="int" Mode="In" />
+    <Parameter Name="total" Type="int" Mode="In" />
+    <Parameter Name="cuota" Type="money" Mode="In" />
+    <Parameter Name="costo" Type="money" Mode="In" />
+    <Parameter Name="total_cuota" Type="money" Mode="In" />
+    <Parameter Name="total_costo" Type="money" Mode="In" />
+  </Function>
+  <Function Name="ActualizaTiempo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="horas_asignables" Type="int" Mode="In" />
+    <Parameter Name="horas_no_asignables" Type="int" Mode="In" />
+    <Parameter Name="total" Type="int" Mode="In" />
+    <Parameter Name="estatus" Type="int" Mode="In" />
+    <Parameter Name="envio" Type="int" Mode="In" />
+    <Parameter Name="id_tiempo" Type="int" Mode="In" />
+  </Function>
   <Function Name="Anios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="AutoCompleteClientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="AutoCompleteProyectos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />

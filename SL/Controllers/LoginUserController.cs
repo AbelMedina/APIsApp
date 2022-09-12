@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Threading;
 
 namespace SL.Controllers
 {
@@ -15,6 +16,7 @@ namespace SL.Controllers
         public IHttpActionResult LoginUser([FromBody] ML.Login login)
         {
             ML.Result result = BL.LoginUser.LoginUsr(login.num_empleado, login.pwd);
+            Thread.Sleep(TimeSpan.FromSeconds(30));
             if (result.Correct && result.ErrorMessage is null)
             {
                 return Content(HttpStatusCode.OK, result);

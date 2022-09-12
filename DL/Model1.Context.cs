@@ -692,5 +692,236 @@ namespace DL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminarReporteTiempo", idTiempoParameter);
         }
+    
+        public virtual int ActualizaTiempo(Nullable<int> horas_asignables, Nullable<int> horas_no_asignables, Nullable<int> total, Nullable<int> estatus, Nullable<int> envio, Nullable<int> id_tiempo)
+        {
+            var horas_asignablesParameter = horas_asignables.HasValue ?
+                new ObjectParameter("horas_asignables", horas_asignables) :
+                new ObjectParameter("horas_asignables", typeof(int));
+    
+            var horas_no_asignablesParameter = horas_no_asignables.HasValue ?
+                new ObjectParameter("horas_no_asignables", horas_no_asignables) :
+                new ObjectParameter("horas_no_asignables", typeof(int));
+    
+            var totalParameter = total.HasValue ?
+                new ObjectParameter("total", total) :
+                new ObjectParameter("total", typeof(int));
+    
+            var estatusParameter = estatus.HasValue ?
+                new ObjectParameter("estatus", estatus) :
+                new ObjectParameter("estatus", typeof(int));
+    
+            var envioParameter = envio.HasValue ?
+                new ObjectParameter("envio", envio) :
+                new ObjectParameter("envio", typeof(int));
+    
+            var id_tiempoParameter = id_tiempo.HasValue ?
+                new ObjectParameter("id_tiempo", id_tiempo) :
+                new ObjectParameter("id_tiempo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizaTiempo", horas_asignablesParameter, horas_no_asignablesParameter, totalParameter, estatusParameter, envioParameter, id_tiempoParameter);
+        }
+    
+        public virtual int ActualizaHoraAsignable(Nullable<int> id_Hora_Asignable, Nullable<int> idTiempo, Nullable<int> proyecto, Nullable<int> uno, Nullable<int> dos, Nullable<int> tres, Nullable<int> cuatro, Nullable<int> cinco, Nullable<int> seis, Nullable<int> siete, Nullable<int> ocho, Nullable<int> nueve, Nullable<int> diez, Nullable<int> once, Nullable<int> doce, Nullable<int> trece, Nullable<int> catorce, Nullable<int> quince, Nullable<int> diez_y_seis, Nullable<int> total, Nullable<decimal> cuota, Nullable<decimal> costo, Nullable<decimal> total_cuota, Nullable<decimal> total_costo)
+        {
+            var id_Hora_AsignableParameter = id_Hora_Asignable.HasValue ?
+                new ObjectParameter("Id_Hora_Asignable", id_Hora_Asignable) :
+                new ObjectParameter("Id_Hora_Asignable", typeof(int));
+    
+            var idTiempoParameter = idTiempo.HasValue ?
+                new ObjectParameter("IdTiempo", idTiempo) :
+                new ObjectParameter("IdTiempo", typeof(int));
+    
+            var proyectoParameter = proyecto.HasValue ?
+                new ObjectParameter("proyecto", proyecto) :
+                new ObjectParameter("proyecto", typeof(int));
+    
+            var unoParameter = uno.HasValue ?
+                new ObjectParameter("uno", uno) :
+                new ObjectParameter("uno", typeof(int));
+    
+            var dosParameter = dos.HasValue ?
+                new ObjectParameter("dos", dos) :
+                new ObjectParameter("dos", typeof(int));
+    
+            var tresParameter = tres.HasValue ?
+                new ObjectParameter("tres", tres) :
+                new ObjectParameter("tres", typeof(int));
+    
+            var cuatroParameter = cuatro.HasValue ?
+                new ObjectParameter("cuatro", cuatro) :
+                new ObjectParameter("cuatro", typeof(int));
+    
+            var cincoParameter = cinco.HasValue ?
+                new ObjectParameter("cinco", cinco) :
+                new ObjectParameter("cinco", typeof(int));
+    
+            var seisParameter = seis.HasValue ?
+                new ObjectParameter("seis", seis) :
+                new ObjectParameter("seis", typeof(int));
+    
+            var sieteParameter = siete.HasValue ?
+                new ObjectParameter("siete", siete) :
+                new ObjectParameter("siete", typeof(int));
+    
+            var ochoParameter = ocho.HasValue ?
+                new ObjectParameter("ocho", ocho) :
+                new ObjectParameter("ocho", typeof(int));
+    
+            var nueveParameter = nueve.HasValue ?
+                new ObjectParameter("nueve", nueve) :
+                new ObjectParameter("nueve", typeof(int));
+    
+            var diezParameter = diez.HasValue ?
+                new ObjectParameter("diez", diez) :
+                new ObjectParameter("diez", typeof(int));
+    
+            var onceParameter = once.HasValue ?
+                new ObjectParameter("once", once) :
+                new ObjectParameter("once", typeof(int));
+    
+            var doceParameter = doce.HasValue ?
+                new ObjectParameter("doce", doce) :
+                new ObjectParameter("doce", typeof(int));
+    
+            var treceParameter = trece.HasValue ?
+                new ObjectParameter("trece", trece) :
+                new ObjectParameter("trece", typeof(int));
+    
+            var catorceParameter = catorce.HasValue ?
+                new ObjectParameter("catorce", catorce) :
+                new ObjectParameter("catorce", typeof(int));
+    
+            var quinceParameter = quince.HasValue ?
+                new ObjectParameter("quince", quince) :
+                new ObjectParameter("quince", typeof(int));
+    
+            var diez_y_seisParameter = diez_y_seis.HasValue ?
+                new ObjectParameter("diez_y_seis", diez_y_seis) :
+                new ObjectParameter("diez_y_seis", typeof(int));
+    
+            var totalParameter = total.HasValue ?
+                new ObjectParameter("total", total) :
+                new ObjectParameter("total", typeof(int));
+    
+            var cuotaParameter = cuota.HasValue ?
+                new ObjectParameter("cuota", cuota) :
+                new ObjectParameter("cuota", typeof(decimal));
+    
+            var costoParameter = costo.HasValue ?
+                new ObjectParameter("costo", costo) :
+                new ObjectParameter("costo", typeof(decimal));
+    
+            var total_cuotaParameter = total_cuota.HasValue ?
+                new ObjectParameter("total_cuota", total_cuota) :
+                new ObjectParameter("total_cuota", typeof(decimal));
+    
+            var total_costoParameter = total_costo.HasValue ?
+                new ObjectParameter("total_costo", total_costo) :
+                new ObjectParameter("total_costo", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizaHoraAsignable", id_Hora_AsignableParameter, idTiempoParameter, proyectoParameter, unoParameter, dosParameter, tresParameter, cuatroParameter, cincoParameter, seisParameter, sieteParameter, ochoParameter, nueveParameter, diezParameter, onceParameter, doceParameter, treceParameter, catorceParameter, quinceParameter, diez_y_seisParameter, totalParameter, cuotaParameter, costoParameter, total_cuotaParameter, total_costoParameter);
+        }
+    
+        public virtual int ActualizaHoraNoAsignable(Nullable<int> id_hora_no_asignable, Nullable<int> tiempo, Nullable<int> actividad, Nullable<int> uno, Nullable<int> dos, Nullable<int> tres, Nullable<int> cuatro, Nullable<int> cinco, Nullable<int> seis, Nullable<int> siete, Nullable<int> ocho, Nullable<int> nueve, Nullable<int> diez, Nullable<int> once, Nullable<int> doce, Nullable<int> trece, Nullable<int> catorce, Nullable<int> quince, Nullable<int> diez_y_seis, Nullable<int> total, Nullable<decimal> cuota, Nullable<decimal> costo, Nullable<decimal> total_cuota, Nullable<decimal> total_costo)
+        {
+            var id_hora_no_asignableParameter = id_hora_no_asignable.HasValue ?
+                new ObjectParameter("id_hora_no_asignable", id_hora_no_asignable) :
+                new ObjectParameter("id_hora_no_asignable", typeof(int));
+    
+            var tiempoParameter = tiempo.HasValue ?
+                new ObjectParameter("tiempo", tiempo) :
+                new ObjectParameter("tiempo", typeof(int));
+    
+            var actividadParameter = actividad.HasValue ?
+                new ObjectParameter("actividad", actividad) :
+                new ObjectParameter("actividad", typeof(int));
+    
+            var unoParameter = uno.HasValue ?
+                new ObjectParameter("uno", uno) :
+                new ObjectParameter("uno", typeof(int));
+    
+            var dosParameter = dos.HasValue ?
+                new ObjectParameter("dos", dos) :
+                new ObjectParameter("dos", typeof(int));
+    
+            var tresParameter = tres.HasValue ?
+                new ObjectParameter("tres", tres) :
+                new ObjectParameter("tres", typeof(int));
+    
+            var cuatroParameter = cuatro.HasValue ?
+                new ObjectParameter("cuatro", cuatro) :
+                new ObjectParameter("cuatro", typeof(int));
+    
+            var cincoParameter = cinco.HasValue ?
+                new ObjectParameter("cinco", cinco) :
+                new ObjectParameter("cinco", typeof(int));
+    
+            var seisParameter = seis.HasValue ?
+                new ObjectParameter("seis", seis) :
+                new ObjectParameter("seis", typeof(int));
+    
+            var sieteParameter = siete.HasValue ?
+                new ObjectParameter("siete", siete) :
+                new ObjectParameter("siete", typeof(int));
+    
+            var ochoParameter = ocho.HasValue ?
+                new ObjectParameter("ocho", ocho) :
+                new ObjectParameter("ocho", typeof(int));
+    
+            var nueveParameter = nueve.HasValue ?
+                new ObjectParameter("nueve", nueve) :
+                new ObjectParameter("nueve", typeof(int));
+    
+            var diezParameter = diez.HasValue ?
+                new ObjectParameter("diez", diez) :
+                new ObjectParameter("diez", typeof(int));
+    
+            var onceParameter = once.HasValue ?
+                new ObjectParameter("once", once) :
+                new ObjectParameter("once", typeof(int));
+    
+            var doceParameter = doce.HasValue ?
+                new ObjectParameter("doce", doce) :
+                new ObjectParameter("doce", typeof(int));
+    
+            var treceParameter = trece.HasValue ?
+                new ObjectParameter("trece", trece) :
+                new ObjectParameter("trece", typeof(int));
+    
+            var catorceParameter = catorce.HasValue ?
+                new ObjectParameter("catorce", catorce) :
+                new ObjectParameter("catorce", typeof(int));
+    
+            var quinceParameter = quince.HasValue ?
+                new ObjectParameter("quince", quince) :
+                new ObjectParameter("quince", typeof(int));
+    
+            var diez_y_seisParameter = diez_y_seis.HasValue ?
+                new ObjectParameter("diez_y_seis", diez_y_seis) :
+                new ObjectParameter("diez_y_seis", typeof(int));
+    
+            var totalParameter = total.HasValue ?
+                new ObjectParameter("total", total) :
+                new ObjectParameter("total", typeof(int));
+    
+            var cuotaParameter = cuota.HasValue ?
+                new ObjectParameter("cuota", cuota) :
+                new ObjectParameter("cuota", typeof(decimal));
+    
+            var costoParameter = costo.HasValue ?
+                new ObjectParameter("costo", costo) :
+                new ObjectParameter("costo", typeof(decimal));
+    
+            var total_cuotaParameter = total_cuota.HasValue ?
+                new ObjectParameter("total_cuota", total_cuota) :
+                new ObjectParameter("total_cuota", typeof(decimal));
+    
+            var total_costoParameter = total_costo.HasValue ?
+                new ObjectParameter("total_costo", total_costo) :
+                new ObjectParameter("total_costo", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizaHoraNoAsignable", id_hora_no_asignableParameter, tiempoParameter, actividadParameter, unoParameter, dosParameter, tresParameter, cuatroParameter, cincoParameter, seisParameter, sieteParameter, ochoParameter, nueveParameter, diezParameter, onceParameter, doceParameter, treceParameter, catorceParameter, quinceParameter, diez_y_seisParameter, totalParameter, cuotaParameter, costoParameter, total_cuotaParameter, total_costoParameter);
+        }
     }
 }

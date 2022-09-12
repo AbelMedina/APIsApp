@@ -1862,6 +1862,66 @@
     <FunctionImport Name="EliminarReporteTiempo">
       <Parameter Name="IdTiempo" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="ActualizaTiempo">
+      <Parameter Name="horas_asignables" Mode="In" Type="Int32" />
+      <Parameter Name="horas_no_asignables" Mode="In" Type="Int32" />
+      <Parameter Name="total" Mode="In" Type="Int32" />
+      <Parameter Name="estatus" Mode="In" Type="Int32" />
+      <Parameter Name="envio" Mode="In" Type="Int32" />
+      <Parameter Name="id_tiempo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ActualizaHoraAsignable">
+      <Parameter Name="Id_Hora_Asignable" Mode="In" Type="Int32" />
+      <Parameter Name="IdTiempo" Mode="In" Type="Int32" />
+      <Parameter Name="proyecto" Mode="In" Type="Int32" />
+      <Parameter Name="uno" Mode="In" Type="Int32" />
+      <Parameter Name="dos" Mode="In" Type="Int32" />
+      <Parameter Name="tres" Mode="In" Type="Int32" />
+      <Parameter Name="cuatro" Mode="In" Type="Int32" />
+      <Parameter Name="cinco" Mode="In" Type="Int32" />
+      <Parameter Name="seis" Mode="In" Type="Int32" />
+      <Parameter Name="siete" Mode="In" Type="Int32" />
+      <Parameter Name="ocho" Mode="In" Type="Int32" />
+      <Parameter Name="nueve" Mode="In" Type="Int32" />
+      <Parameter Name="diez" Mode="In" Type="Int32" />
+      <Parameter Name="once" Mode="In" Type="Int32" />
+      <Parameter Name="doce" Mode="In" Type="Int32" />
+      <Parameter Name="trece" Mode="In" Type="Int32" />
+      <Parameter Name="catorce" Mode="In" Type="Int32" />
+      <Parameter Name="quince" Mode="In" Type="Int32" />
+      <Parameter Name="diez_y_seis" Mode="In" Type="Int32" />
+      <Parameter Name="total" Mode="In" Type="Int32" />
+      <Parameter Name="cuota" Mode="In" Type="Decimal" />
+      <Parameter Name="costo" Mode="In" Type="Decimal" />
+      <Parameter Name="total_cuota" Mode="In" Type="Decimal" />
+      <Parameter Name="total_costo" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ActualizaHoraNoAsignable">
+      <Parameter Name="id_hora_no_asignable" Mode="In" Type="Int32" />
+      <Parameter Name="tiempo" Mode="In" Type="Int32" />
+      <Parameter Name="actividad" Mode="In" Type="Int32" />
+      <Parameter Name="uno" Mode="In" Type="Int32" />
+      <Parameter Name="dos" Mode="In" Type="Int32" />
+      <Parameter Name="tres" Mode="In" Type="Int32" />
+      <Parameter Name="cuatro" Mode="In" Type="Int32" />
+      <Parameter Name="cinco" Mode="In" Type="Int32" />
+      <Parameter Name="seis" Mode="In" Type="Int32" />
+      <Parameter Name="siete" Mode="In" Type="Int32" />
+      <Parameter Name="ocho" Mode="In" Type="Int32" />
+      <Parameter Name="nueve" Mode="In" Type="Int32" />
+      <Parameter Name="diez" Mode="In" Type="Int32" />
+      <Parameter Name="once" Mode="In" Type="Int32" />
+      <Parameter Name="doce" Mode="In" Type="Int32" />
+      <Parameter Name="trece" Mode="In" Type="Int32" />
+      <Parameter Name="catorce" Mode="In" Type="Int32" />
+      <Parameter Name="quince" Mode="In" Type="Int32" />
+      <Parameter Name="diez_y_seis" Mode="In" Type="Int32" />
+      <Parameter Name="total" Mode="In" Type="Int32" />
+      <Parameter Name="cuota" Mode="In" Type="Decimal" />
+      <Parameter Name="costo" Mode="In" Type="Decimal" />
+      <Parameter Name="total_cuota" Mode="In" Type="Decimal" />
+      <Parameter Name="total_costo" Mode="In" Type="Decimal" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="AutoCompleteProyectos_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />

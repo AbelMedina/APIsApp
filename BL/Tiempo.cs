@@ -304,7 +304,7 @@ namespace BL
                         //var query2 = context.EliminarHoraNoAsignable(eliminarReporte.idTiempo);
                         //if (query2 >= 1)
                         //{
-                       //var query3 = context.EliminarTiempo(eliminarReporte.idTiempo);
+                        //var query3 = context.EliminarTiempo(eliminarReporte.idTiempo);
                         // if (query3 >=1)
                         //{
                         result.Correct = true;
@@ -333,6 +333,72 @@ namespace BL
                 result.Correct = false;
                 result.ErrorMessage = ex.Message;
                 result.Ex = ex;
+            }
+            return result;
+        }
+
+        public static ML.Result ActualizarReporte(ML.ActualizarReporte actualizarReporte)
+        {
+            ML.Result result = new ML.Result();
+            bool flag = false;
+            bool flag2 = false;
+            try
+            {
+                using (DL.administracionEntities context = new DL.administracionEntities())
+                {
+                    var query = context.ActualizaTiempo(actualizarReporte.horas_asignables, actualizarReporte.horas_no_asignables, actualizarReporte.total, actualizarReporte.estatus, actualizarReporte.envio, actualizarReporte.id_tiempo);
+                    if (query >= 1)
+                    {
+                        foreach (var item in actualizarReporte.detalleHorasAsignables)
+                        {
+                            var query2 = context.ActualizaHoraAsignable(item.IDHoraAsignable, actualizarReporte.id_tiempo, item.IDProyecto, item.uno, item.dos, item.tres, item.cuatro, item.cinco, item.seis, item.siete, item.ocho, item.nueve, item.diez, item.once, item.doce, item.trece, item.catorce, item.quince, item.diezyseis, item.Total, item.cuota, item.costo, item.totalCuota, item.totalCosto);
+                            if (query2 >= 1)
+                            {
+                                flag = true;
+                                continue;
+                            }
+                            else
+                            {
+                                flag = false;
+                                result.Correct = false;
+                                break;
+                            }
+                        }
+                        if (flag)
+                        {
+                            foreach (var item in actualizarReporte.detalleHorasNoAsignables)
+                            {
+                                var query3 = context.ActualizaHoraNoAsignable(item.IDHoraNoAsignable, actualizarReporte.id_tiempo, item.IDActividad, item.uno, item.dos, item.tres, item.cuatro, item.cinco, item.seis, item.siete, item.ocho, item.nueve, item.diez, item.once, item.doce, item.trece, item.catorce, item.quince, item.diezyseis, item.Total, item.cuota, item.costo, item.totalCuota, item.totalCosto);
+                                if (query3 >= 1)
+                                {
+                                    flag2 = true;
+                                    continue;
+                                }
+                                else
+                                {
+                                    flag2 = false;
+                                    result.Correct = false;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        result.Correct = true;
+                        result.ErrorMessage = "Error al actualizar";
+                    }
+                    if (flag && flag2)
+                    {
+                        result.Correct = true;
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                result.Correct = false;
+                result.ErrorMessage = Ex.Message;
+                result.Ex = Ex;
             }
             return result;
         }

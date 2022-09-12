@@ -156,4 +156,16 @@ namespace ML
     {
         public int idTiempo { get; set; }
     }
+
+    public class ActualizarReporte
+    {
+        public int id_tiempo { get; set; }
+        public int horas_asignables { get; set; }
+        public int horas_no_asignables { get; set; }
+        public int total { get; set; }
+        public int estatus { get; set; }
+        public int envio { get; set; }
+        public List<ML.RegistroTiempo> detalleHorasAsignables { get; set; }
+        public List<ML.RegistroTiempoNoAsignable> detalleHorasNoAsignables { get; set; }
+    }
 }
