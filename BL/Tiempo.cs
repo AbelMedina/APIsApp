@@ -142,37 +142,39 @@ namespace BL
                     {
                         foreach (var obj in query)
                         {
-
-                            ML.Tiempo tiempo = new ML.Tiempo();
-                            tiempo.IDHoraAsignable = obj.ID_Hora_Asignable.Value;
-                            tiempo.IDProyecto = obj.ID_Proyecto.Value;
-                            tiempo.Clave = obj.Clave;
-                            tiempo.uno = obj.uno.Value;
-                            tiempo.dos = obj.dos.Value;
-                            tiempo.tres = obj.tres.Value;
-                            tiempo.cuatro = obj.cuatro.Value;
-                            tiempo.cinco = obj.cinco.Value;
-                            tiempo.seis = obj.seis.Value;
-                            tiempo.siete = obj.siete.Value;
-                            tiempo.ocho = obj.ocho.Value;
-                            tiempo.nueve = obj.nueve.Value;
-                            tiempo.diez = obj.diez.Value;
-                            tiempo.once = obj.once.Value;
-                            tiempo.doce = obj.doce.Value;
-                            tiempo.trece = obj.trece.Value;
-                            tiempo.catorce = obj.catorce.Value;
-                            tiempo.quince = obj.quince.Value;
-                            tiempo.diezyseis = obj.diez_y_seis.Value;
-                            tiempo.Total = obj.Total.Value;
-                            tiempo.Cliente = obj.Cliente;
-                            tiempo.Gerente = obj.Gerente;
-                            tiempo.cuota = obj.cuota.Value;
-                            tiempo.costo = obj.costo.Value;
-                            tiempo.totalCuota = obj.total_cuota.Value;
-                            tiempo.totalCosto = obj.total_costo.Value;
-                            tiempo.idCliente = obj.id_cliente.Value;
-                            tiempo.idGerente = obj.id_gerente.Value;
-                            union.HorasAsignables.Add(tiempo);
+                            if (obj.ID_Hora_Asignable.HasValue)
+                            {
+                                ML.Tiempo tiempo = new ML.Tiempo();
+                                tiempo.IDHoraAsignable = obj.ID_Hora_Asignable.Value;
+                                tiempo.IDProyecto = obj.ID_Proyecto.Value;
+                                tiempo.Clave = obj.Clave;
+                                tiempo.uno = obj.uno.Value;
+                                tiempo.dos = obj.dos.Value;
+                                tiempo.tres = obj.tres.Value;
+                                tiempo.cuatro = obj.cuatro.Value;
+                                tiempo.cinco = obj.cinco.Value;
+                                tiempo.seis = obj.seis.Value;
+                                tiempo.siete = obj.siete.Value;
+                                tiempo.ocho = obj.ocho.Value;
+                                tiempo.nueve = obj.nueve.Value;
+                                tiempo.diez = obj.diez.Value;
+                                tiempo.once = obj.once.Value;
+                                tiempo.doce = obj.doce.Value;
+                                tiempo.trece = obj.trece.Value;
+                                tiempo.catorce = obj.catorce.Value;
+                                tiempo.quince = obj.quince.Value;
+                                tiempo.diezyseis = obj.diez_y_seis.Value;
+                                tiempo.Total = obj.Total.Value;
+                                tiempo.Cliente = obj.Cliente;
+                                tiempo.Gerente = obj.Gerente;
+                                tiempo.cuota = obj.cuota.Value;
+                                tiempo.costo = obj.costo.Value;
+                                tiempo.totalCuota = obj.total_cuota.Value;
+                                tiempo.totalCosto = obj.total_costo.Value;
+                                tiempo.idCliente = obj.id_cliente.Value;
+                                tiempo.idGerente = obj.id_gerente.Value;
+                                union.HorasAsignables.Add(tiempo);
+                            }
                         }
                     }
                     var query2 = context.horasNoAsignables(IdTiempo).ToList();
@@ -181,33 +183,36 @@ namespace BL
                     {
                         foreach (var obj in query2)
                         {
-                            ML.TiempoNoAsignable tiempo = new ML.TiempoNoAsignable();
-                            tiempo.IDHoraNoAsignable = obj.id_hora_no_asignable;
-                            tiempo.IDActividad = obj.id_actividad;
-                            tiempo.NomActividad = obj.nom_actividad;
-                            tiempo.uno = obj.uno.Value;
-                            tiempo.dos = obj.dos.Value;
-                            tiempo.tres = obj.tres.Value;
-                            tiempo.cuatro = obj.cuatro.Value;
-                            tiempo.cinco = obj.cinco.Value;
-                            tiempo.seis = obj.seis.Value;
-                            tiempo.siete = obj.siete.Value;
-                            tiempo.ocho = obj.ocho.Value;
-                            tiempo.nueve = obj.nueve.Value;
-                            tiempo.diez = obj.diez.Value;
-                            tiempo.once = obj.once.Value;
-                            tiempo.doce = obj.doce.Value;
-                            tiempo.trece = obj.trece.Value;
-                            tiempo.catorce = obj.catorce.Value;
-                            tiempo.quince = obj.quince.Value;
-                            tiempo.diezyseis = obj.diez_y_seis.Value;
-                            tiempo.Total = obj.total.Value;
-                            tiempo.cuota = obj.cuota.Value;
-                            tiempo.costo = obj.costo.Value;
-                            tiempo.totalCuota = obj.total_cuota.Value;
-                            tiempo.totalCosto = obj.total_costo.Value;
-                            tiempo.descripcion = obj.descripcion;
-                            union.HorasNoAsignables.Add(tiempo);
+                            if (obj.id_hora_no_asignable != 0)
+                            {
+                                ML.TiempoNoAsignable tiempo = new ML.TiempoNoAsignable();
+                                tiempo.IDHoraNoAsignable = obj.id_hora_no_asignable;
+                                tiempo.IDActividad = obj.id_actividad;
+                                tiempo.NomActividad = obj.nom_actividad;
+                                tiempo.uno = obj.uno.Value;
+                                tiempo.dos = obj.dos.Value;
+                                tiempo.tres = obj.tres.Value;
+                                tiempo.cuatro = obj.cuatro.Value;
+                                tiempo.cinco = obj.cinco.Value;
+                                tiempo.seis = obj.seis.Value;
+                                tiempo.siete = obj.siete.Value;
+                                tiempo.ocho = obj.ocho.Value;
+                                tiempo.nueve = obj.nueve.Value;
+                                tiempo.diez = obj.diez.Value;
+                                tiempo.once = obj.once.Value;
+                                tiempo.doce = obj.doce.Value;
+                                tiempo.trece = obj.trece.Value;
+                                tiempo.catorce = obj.catorce.Value;
+                                tiempo.quince = obj.quince.Value;
+                                tiempo.diezyseis = obj.diez_y_seis.Value;
+                                tiempo.Total = obj.total.Value;
+                                tiempo.cuota = obj.cuota.Value;
+                                tiempo.costo = obj.costo.Value;
+                                tiempo.totalCuota = obj.total_cuota.Value;
+                                tiempo.totalCosto = obj.total_costo.Value;
+                                tiempo.descripcion = obj.descripcion;
+                                union.HorasNoAsignables.Add(tiempo);
+                            }
                         }
                     }
                     result.Objects.Add(union);
@@ -239,34 +244,48 @@ namespace BL
                         idTiempo = query.Value;
                         foreach (var item in registrarNuevoReporte.detalleHorasAsignables)
                         {
-                            var query2 = context.Registrarhorasasignables(item.IDProyecto, Convert.ToInt32(idTiempo), item.uno, item.dos, item.tres, item.cuatro, item.cinco, item.seis, item.siete, item.ocho, item.nueve, item.diez, item.once, item.doce, item.trece, item.catorce, item.quince, item.diezyseis, item.Total, item.cuota, item.costo, item.totalCuota, item.totalCosto);
-                            if (query2 >= 1)
+                            if (item.IDProyecto != 0 /*|| item.IDProyecto != null*/)
                             {
-                                flag = true;
-                                continue;
+                                var query2 = context.Registrarhorasasignables(item.IDProyecto, Convert.ToInt32(idTiempo), item.uno, item.dos, item.tres, item.cuatro, item.cinco, item.seis, item.siete, item.ocho, item.nueve, item.diez, item.once, item.doce, item.trece, item.catorce, item.quince, item.diezyseis, item.Total, item.cuota, item.costo, item.totalCuota, item.totalCosto);
+                                if (query2 >= 1)
+                                {
+                                    flag = true;
+                                    continue;
+                                }
+                                else
+                                {
+                                    flag = false;
+                                    result.Correct = false;
+                                    break;
+                                }
                             }
                             else
                             {
-                                flag = false;
-                                result.Correct = false;
-                                break;
+                                flag = true;
                             }
                         }
                         if (flag)
                         {
                             foreach (var item in registrarNuevoReporte.detalleHorasNoAsignables)
                             {
-                                var query3 = context.Registrarhorasnoasignables(item.IDActividad, Convert.ToInt32(idTiempo), item.uno, item.dos, item.tres, item.cuatro, item.cinco, item.seis, item.siete, item.ocho, item.nueve, item.diez, item.once, item.doce, item.trece, item.catorce, item.quince, item.diezyseis, item.Total, item.cuota, item.costo, item.totalCuota, item.totalCosto);
-                                if (query3 >= 1)
+                                if (item.IDActividad != 0 /*|| item.IDActividad != null*/)
                                 {
-                                    flag2 = true;
-                                    continue;
+                                    var query3 = context.Registrarhorasnoasignables(item.IDActividad, Convert.ToInt32(idTiempo), item.uno, item.dos, item.tres, item.cuatro, item.cinco, item.seis, item.siete, item.ocho, item.nueve, item.diez, item.once, item.doce, item.trece, item.catorce, item.quince, item.diezyseis, item.Total, item.cuota, item.costo, item.totalCuota, item.totalCosto);
+                                    if (query3 >= 1)
+                                    {
+                                        flag2 = true;
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        flag2 = false;
+                                        result.Correct = false;
+                                        break;
+                                    }
                                 }
                                 else
                                 {
-                                    flag2 = false;
-                                    result.Correct = false;
-                                    break;
+                                    flag2 = true;
                                 }
                             }
                         }
@@ -351,34 +370,48 @@ namespace BL
                     {
                         foreach (var item in actualizarReporte.detalleHorasAsignables)
                         {
-                            var query2 = context.ActualizaHoraAsignable(item.IDHoraAsignable, actualizarReporte.id_tiempo, item.IDProyecto, item.uno, item.dos, item.tres, item.cuatro, item.cinco, item.seis, item.siete, item.ocho, item.nueve, item.diez, item.once, item.doce, item.trece, item.catorce, item.quince, item.diezyseis, item.Total, item.cuota, item.costo, item.totalCuota, item.totalCosto);
-                            if (query2 >= 1)
+                            if (item.IDProyecto != 0)
                             {
-                                flag = true;
-                                continue;
+                                var query2 = context.ActualizaHoraAsignable(item.IDHoraAsignable, actualizarReporte.id_tiempo, item.IDProyecto, item.uno, item.dos, item.tres, item.cuatro, item.cinco, item.seis, item.siete, item.ocho, item.nueve, item.diez, item.once, item.doce, item.trece, item.catorce, item.quince, item.diezyseis, item.Total, item.cuota, item.costo, item.totalCuota, item.totalCosto);
+                                if (query2 >= 1)
+                                {
+                                    flag = true;
+                                    continue;
+                                }
+                                else
+                                {
+                                    flag = false;
+                                    result.Correct = false;
+                                    break;
+                                }
                             }
                             else
                             {
-                                flag = false;
-                                result.Correct = false;
-                                break;
+                                flag = true;
                             }
                         }
                         if (flag)
                         {
                             foreach (var item in actualizarReporte.detalleHorasNoAsignables)
                             {
-                                var query3 = context.ActualizaHoraNoAsignable(item.IDHoraNoAsignable, actualizarReporte.id_tiempo, item.IDActividad, item.uno, item.dos, item.tres, item.cuatro, item.cinco, item.seis, item.siete, item.ocho, item.nueve, item.diez, item.once, item.doce, item.trece, item.catorce, item.quince, item.diezyseis, item.Total, item.cuota, item.costo, item.totalCuota, item.totalCosto);
-                                if (query3 >= 1)
+                                if (item.IDActividad != 0)
                                 {
-                                    flag2 = true;
-                                    continue;
+                                    var query3 = context.ActualizaHoraNoAsignable(item.IDHoraNoAsignable, actualizarReporte.id_tiempo, item.IDActividad, item.uno, item.dos, item.tres, item.cuatro, item.cinco, item.seis, item.siete, item.ocho, item.nueve, item.diez, item.once, item.doce, item.trece, item.catorce, item.quince, item.diezyseis, item.Total, item.cuota, item.costo, item.totalCuota, item.totalCosto);
+                                    if (query3 >= 1)
+                                    {
+                                        flag2 = true;
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        flag2 = false;
+                                        result.Correct = false;
+                                        break;
+                                    }
                                 }
                                 else
                                 {
-                                    flag2 = false;
-                                    result.Correct = false;
-                                    break;
+                                    flag2 = true;
                                 }
                             }
                         }

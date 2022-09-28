@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Web.Http;
 
 namespace SL.Controllers
@@ -14,6 +15,7 @@ namespace SL.Controllers
         public IHttpActionResult gerentesConProyecto()
         {
             ML.Result result = BL.Cliente.GerenteByEstatus();
+            //Thread.Sleep(TimeSpan.FromSeconds(10));
             if (result.Correct)
             {
                 return Content(HttpStatusCode.OK, result);
@@ -28,6 +30,7 @@ namespace SL.Controllers
         public IHttpActionResult clientesPorGerente([FromBody] ML.CliGenCons cliGenCons)
         {
             ML.Result result = BL.Cliente.clientesPorGerente(cliGenCons.id_gerente);
+            //Thread.Sleep(TimeSpan.FromSeconds(10));
             if (result.Correct)
             {
                 return Content(HttpStatusCode.OK, result);
@@ -43,6 +46,7 @@ namespace SL.Controllers
         public IHttpActionResult proyectosPorClienteGerente([FromBody] ML.Proporcli proporcli)
         {
             ML.Result result = BL.Cliente.proyectosPorClienteGerente(proporcli.id_gerente, proporcli.id_cliente);
+            //Thread.Sleep(TimeSpan.FromSeconds(10));
             if (result.Correct)
             {
                 return Content(HttpStatusCode.OK, result);

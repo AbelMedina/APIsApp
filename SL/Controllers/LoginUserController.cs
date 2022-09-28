@@ -16,7 +16,7 @@ namespace SL.Controllers
         public IHttpActionResult LoginUser([FromBody] ML.Login login)
         {
             ML.Result result = BL.LoginUser.LoginUsr(login.num_empleado, login.pwd);
-            Thread.Sleep(TimeSpan.FromSeconds(30));
+            Thread.Sleep(TimeSpan.FromSeconds(10));
             if (result.Correct && result.ErrorMessage is null)
             {
                 return Content(HttpStatusCode.OK, result);

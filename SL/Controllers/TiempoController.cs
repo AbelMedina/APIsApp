@@ -47,6 +47,7 @@ namespace SL.Controllers
             {
                 return Content(HttpStatusCode.OK, result);
             }
+            else
             {
                 return Content(HttpStatusCode.NotFound, result);
             }
