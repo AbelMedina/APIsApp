@@ -23,11 +23,14 @@ namespace BL
                             result.Object = new List<object>();
                             ML.LoginData loginData = new ML.LoginData();
                             loginData.id_empleado = query.id_empleado;
-                            loginData.num_empleado = int.Parse(query.num_empleado);
+                            loginData.num_empleado = query.num_empleado;
                             loginData.nom_empleado = query.nom_empleado;
                             loginData.apellido = query.apellido;
-                            loginData.nom_departamento = query.nom_departamento;
+                            loginData.NombreCompleto = query.NombreCompleto;
                             loginData.email = query.email;
+                            loginData.nom_departamento = query.nom_departamento;
+                            loginData.cuota = query.cuota.Value;
+                            loginData.costo = query.costo.Value;
                             result.Object = loginData;
                             result.Correct = true;
                         }

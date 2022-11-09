@@ -1778,10 +1778,6 @@
     </FunctionImport>
     <FunctionImport Name="Anios" ReturnType="Collection(Int32)" />
     <FunctionImport Name="Meses" ReturnType="Collection(administracionModel.Meses_Result)" />
-    <FunctionImport Name="Loginuser" ReturnType="Collection(administracionModel.Loginuser_Result5)">
-      <Parameter Name="num_empleado" Mode="In" Type="Int32" />
-      <Parameter Name="pwd" Mode="In" Type="String" />
-    </FunctionImport>
     <FunctionImport Name="existePeriodo" ReturnType="Collection(Int32)">
       <Parameter Name="quincena" Mode="In" Type="String" />
       <Parameter Name="mes" Mode="In" Type="String" />
@@ -1921,6 +1917,10 @@
       <Parameter Name="costo" Mode="In" Type="Decimal" />
       <Parameter Name="total_cuota" Mode="In" Type="Decimal" />
       <Parameter Name="total_costo" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Loginuser" ReturnType="Collection(administracionModel.Loginuser_Result9)">
+      <Parameter Name="num_empleado" Mode="In" Type="Int32" />
+      <Parameter Name="pwd" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="AutoCompleteProyectos_Result">
@@ -2310,5 +2310,59 @@
     <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
     <Property Type="Int32" Name="estado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result6">
+    <Property Type="Int32" Name="id_empleado" Nullable="false" />
+    <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="Column1" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="id_nivel" Nullable="false" />
+    <Property Type="Int32" Name="id_departamento" Nullable="false" />
+    <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+    <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result7">
+    <Property Type="Int32" Name="id_empleado" Nullable="false" />
+    <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="id_nivel" Nullable="false" />
+    <Property Type="Int32" Name="id_departamento" Nullable="false" />
+    <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+    <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result8">
+    <Property Type="Int32" Name="id_empleado" Nullable="false" />
+    <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="id_nivel" Nullable="false" />
+    <Property Type="Int32" Name="id_departamento" Nullable="false" />
+    <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+    <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+    <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result9">
+    <Property Type="Int32" Name="id_empleado" Nullable="false" />
+    <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="id_nivel" Nullable="false" />
+    <Property Type="Int32" Name="id_departamento" Nullable="false" />
+    <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+    <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+    <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
   </ComplexType>
 </Schema>

@@ -384,19 +384,6 @@ namespace DL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Meses_Result>("Meses");
         }
     
-        public virtual ObjectResult<Loginuser_Result5> Loginuser(Nullable<int> num_empleado, string pwd)
-        {
-            var num_empleadoParameter = num_empleado.HasValue ?
-                new ObjectParameter("num_empleado", num_empleado) :
-                new ObjectParameter("num_empleado", typeof(int));
-    
-            var pwdParameter = pwd != null ?
-                new ObjectParameter("pwd", pwd) :
-                new ObjectParameter("pwd", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Loginuser_Result5>("Loginuser", num_empleadoParameter, pwdParameter);
-        }
-    
         public virtual ObjectResult<Nullable<int>> existePeriodo(string quincena, string mes, Nullable<int> anio, Nullable<int> empleado)
         {
             var quincenaParameter = quincena != null ?
@@ -922,6 +909,19 @@ namespace DL
                 new ObjectParameter("total_costo", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizaHoraNoAsignable", id_hora_no_asignableParameter, tiempoParameter, actividadParameter, unoParameter, dosParameter, tresParameter, cuatroParameter, cincoParameter, seisParameter, sieteParameter, ochoParameter, nueveParameter, diezParameter, onceParameter, doceParameter, treceParameter, catorceParameter, quinceParameter, diez_y_seisParameter, totalParameter, cuotaParameter, costoParameter, total_cuotaParameter, total_costoParameter);
+        }
+    
+        public virtual ObjectResult<Loginuser_Result9> Loginuser(Nullable<int> num_empleado, string pwd)
+        {
+            var num_empleadoParameter = num_empleado.HasValue ?
+                new ObjectParameter("num_empleado", num_empleado) :
+                new ObjectParameter("num_empleado", typeof(int));
+    
+            var pwdParameter = pwd != null ?
+                new ObjectParameter("pwd", pwd) :
+                new ObjectParameter("pwd", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Loginuser_Result9>("Loginuser", num_empleadoParameter, pwdParameter);
         }
     }
 }

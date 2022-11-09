@@ -3624,10 +3624,6 @@
           </FunctionImport>
           <FunctionImport Name="Anios" ReturnType="Collection(Int32)" />
           <FunctionImport Name="Meses" ReturnType="Collection(administracionModel.Meses_Result)" />
-          <FunctionImport Name="Loginuser" ReturnType="Collection(administracionModel.Loginuser_Result5)">
-            <Parameter Name="num_empleado" Mode="In" Type="Int32" />
-            <Parameter Name="pwd" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="existePeriodo" ReturnType="Collection(Int32)">
             <Parameter Name="quincena" Mode="In" Type="String" />
             <Parameter Name="mes" Mode="In" Type="String" />
@@ -3767,6 +3763,10 @@
             <Parameter Name="costo" Mode="In" Type="Decimal" />
             <Parameter Name="total_cuota" Mode="In" Type="Decimal" />
             <Parameter Name="total_costo" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="Loginuser" ReturnType="Collection(administracionModel.Loginuser_Result9)">
+            <Parameter Name="num_empleado" Mode="In" Type="Int32" />
+            <Parameter Name="pwd" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="AutoCompleteProyectos_Result">
@@ -4156,6 +4156,60 @@
           <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
           <Property Type="Int32" Name="estado" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Loginuser_Result6">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="Column1" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+          <Property Type="Int32" Name="id_nivel" Nullable="false" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="Loginuser_Result7">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+          <Property Type="Int32" Name="id_nivel" Nullable="false" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="Loginuser_Result8">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+          <Property Type="Int32" Name="id_nivel" Nullable="false" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+          <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="Loginuser_Result9">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+          <Property Type="Int32" Name="id_nivel" Nullable="false" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+          <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -5540,19 +5594,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Loginuser" FunctionName="administracionModel.Store.Loginuser">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="administracionModel.Loginuser_Result5">
-                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
-                <ScalarProperty Name="num_empleado" ColumnName="num_empleado" />
-                <ScalarProperty Name="nom_empleado" ColumnName="nom_empleado" />
-                <ScalarProperty Name="apellido" ColumnName="apellido" />
-                <ScalarProperty Name="nom_departamento" ColumnName="nom_departamento" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="existePeriodo" FunctionName="administracionModel.Store.existePeriodo" />
           <FunctionImportMapping FunctionImportName="Registranuevoreporte" FunctionName="administracionModel.Store.Registranuevoreporte" />
           <FunctionImportMapping FunctionImportName="Registrarhorasasignables" FunctionName="administracionModel.Store.Registrarhorasasignables" />
@@ -5564,6 +5605,26 @@
           <FunctionImportMapping FunctionImportName="ActualizaTiempo" FunctionName="administracionModel.Store.ActualizaTiempo" />
           <FunctionImportMapping FunctionImportName="ActualizaHoraAsignable" FunctionName="administracionModel.Store.ActualizaHoraAsignable" />
           <FunctionImportMapping FunctionImportName="ActualizaHoraNoAsignable" FunctionName="administracionModel.Store.ActualizaHoraNoAsignable" />
+          <FunctionImportMapping FunctionImportName="Loginuser" FunctionName="administracionModel.Store.Loginuser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="administracionModel.Loginuser_Result9">
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+                <ScalarProperty Name="num_empleado" ColumnName="num_empleado" />
+                <ScalarProperty Name="nom_empleado" ColumnName="nom_empleado" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_nivel" ColumnName="id_nivel" />
+                <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+                <ScalarProperty Name="nom_departamento" ColumnName="nom_departamento" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="estatus_tiempo" ColumnName="estatus_tiempo" />
+                <ScalarProperty Name="clave_nivel" ColumnName="clave_nivel" />
+                <ScalarProperty Name="cuota" ColumnName="cuota" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

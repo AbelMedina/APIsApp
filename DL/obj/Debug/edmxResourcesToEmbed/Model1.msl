@@ -1378,19 +1378,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="Loginuser" FunctionName="administracionModel.Store.Loginuser">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="administracionModel.Loginuser_Result5">
-          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
-          <ScalarProperty Name="num_empleado" ColumnName="num_empleado" />
-          <ScalarProperty Name="nom_empleado" ColumnName="nom_empleado" />
-          <ScalarProperty Name="apellido" ColumnName="apellido" />
-          <ScalarProperty Name="nom_departamento" ColumnName="nom_departamento" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="existePeriodo" FunctionName="administracionModel.Store.existePeriodo" />
     <FunctionImportMapping FunctionImportName="Registranuevoreporte" FunctionName="administracionModel.Store.Registranuevoreporte" />
     <FunctionImportMapping FunctionImportName="Registrarhorasasignables" FunctionName="administracionModel.Store.Registrarhorasasignables" />
@@ -1402,5 +1389,25 @@
     <FunctionImportMapping FunctionImportName="ActualizaTiempo" FunctionName="administracionModel.Store.ActualizaTiempo" />
     <FunctionImportMapping FunctionImportName="ActualizaHoraAsignable" FunctionName="administracionModel.Store.ActualizaHoraAsignable" />
     <FunctionImportMapping FunctionImportName="ActualizaHoraNoAsignable" FunctionName="administracionModel.Store.ActualizaHoraNoAsignable" />
+    <FunctionImportMapping FunctionImportName="Loginuser" FunctionName="administracionModel.Store.Loginuser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="administracionModel.Loginuser_Result9">
+          <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+          <ScalarProperty Name="num_empleado" ColumnName="num_empleado" />
+          <ScalarProperty Name="nom_empleado" ColumnName="nom_empleado" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id_nivel" ColumnName="id_nivel" />
+          <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+          <ScalarProperty Name="nom_departamento" ColumnName="nom_departamento" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="estatus_tiempo" ColumnName="estatus_tiempo" />
+          <ScalarProperty Name="clave_nivel" ColumnName="clave_nivel" />
+          <ScalarProperty Name="cuota" ColumnName="cuota" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -442,19 +442,47 @@ EXEC [LoginUser] 0194,'3132333435'
 --        END
 --  END 
 
+--GO
+--  CREATE PROCEDURE Loginuser
+--  @num_empleado INT,
+--  @pwd VARCHAR(50)
+--  AS
+--  BEGIN
+-- SELECT empleado.id_empleado, empleado.num_empleado,empleado.nom_empleado,empleado.apellido, departamento.nom_departamento,empleado.email,empleado.estado from empleado
+--INNER JOIN departamento on empleado.num_departamento = departamento.id_departamento
+--WHERE empleado.num_empleado = @num_empleado AND empleado.pwd = @pwd
+--					   END
+--GO
 GO
-  CREATE PROCEDURE Loginuser
+CREATE PROCEDURE [dbo].[Loginuser]
   @num_empleado INT,
   @pwd VARCHAR(50)
   AS
   BEGIN
- SELECT empleado.id_empleado, empleado.num_empleado,empleado.nom_empleado,empleado.apellido, departamento.nom_departamento,empleado.email,empleado.estado from empleado
-INNER JOIN departamento on empleado.num_departamento = departamento.id_departamento
+ SELECT
+    empleado.id_empleado,
+    empleado.num_empleado,
+		empleado.nom_empleado,
+		empleado.apellido,
+    CONCAT (nom_empleado, ' ', apellido) as 'NombreCompleto',
+    empleado.email,
+    nivel.id_nivel,
+    departamento.id_departamento,
+    departamento.nom_departamento,
+		empleado.estado,
+		empleado.estatus_tiempo,
+    nivel.clave_nivel,
+    cuota.cuota,  
+    cuota.costo
+FROM
+    empleado
+    INNER JOIN nivel ON nivel.id_nivel = empleado.nivel
+    INNER JOIN departamento ON departamento.id_departamento= empleado.num_departamento
+    LEFT OUTER JOIN cuota ON departamento.id_departamento = cuota.area AND nivel.id_nivel = cuota.nivel
 WHERE empleado.num_empleado = @num_empleado AND empleado.pwd = @pwd
 					   END
+
 GO
-
-
 
 --3 parametros (Quincena, mes, año y numero de empleado)
 --Nombre del metodo "existePeriodo"

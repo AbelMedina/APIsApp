@@ -15,7 +15,7 @@ namespace SL.Controllers
         public IHttpActionResult actividadesPorEmpleado([FromBody] ML.ActividadEmpleado actividadEmpleado)
         {
             ML.Result result = BL.Actividad.actividadesPorEmpleado(int.Parse(actividadEmpleado.IdEmpleado));
-            //Thread.Sleep(TimeSpan.FromSeconds(10));
+            Thread.Sleep(TimeSpan.FromSeconds(5));
             if (result.Correct)
             {
                 return Content(HttpStatusCode.OK, result);
