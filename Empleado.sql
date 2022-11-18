@@ -1165,3 +1165,23 @@ GO
 
 
 SELECT * FROM hora_no_asignable WHERE id_hora_no_asignable = 32 AND tiempo = 35
+GO
+
+
+
+CREATE PROCEDURE EliminaHoraNoAsignable @idNoAsignable      INT,
+                                        @resta_no_asignable INT,
+                                        @resta_total        INT,
+                                        @idTiempo           INT
+AS
+  BEGIN
+      DELETE FROM hora_no_asignable
+      WHERE  id_hora_no_asignable = @idNoAsignable
+
+      UPDATE tiempo
+      SET    horas_no_asignables = @resta_no_asignable,
+             total = @resta_total
+      WHERE  id_tiempo = @idTiempo
+  END 
+
+  SELECT * FROM tiempo
