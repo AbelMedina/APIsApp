@@ -244,6 +244,7 @@ namespace BL
                         idTiempo = query.Value;
                         foreach (var item in registrarNuevoReporte.detalleHorasAsignables)
                         {
+                            result.Object = Convert.ToInt32(idTiempo);
                             if (item.IDProyecto != 0 /*|| item.IDProyecto != null*/)
                             {
                                 var query2 = context.Registrarhorasasignables(item.IDProyecto, Convert.ToInt32(idTiempo), item.uno, item.dos, item.tres, item.cuatro, item.cinco, item.seis, item.siete, item.ocho, item.nueve, item.diez, item.once, item.doce, item.trece, item.catorce, item.quince, item.diezyseis, item.Total, item.cuota, item.costo, item.totalCuota, item.totalCosto);
@@ -432,6 +433,33 @@ namespace BL
                 result.Correct = false;
                 result.ErrorMessage = Ex.Message;
                 result.Ex = Ex;
+            }
+            return result;
+        }
+        public static ML.Result EliminaHoraNoAsignable(ML.EliminaHoraNoAsignable eliminaHoraNoAsignable)
+        {
+            ML.Result result = new ML.Result();
+            try
+            {
+                using (DL.administracionEntities context = new DL.administracionEntities())
+                {
+                    var query = context.EliminaHoraNoAsignable(eliminaHoraNoAsignable.IdNoAsignable, eliminaHoraNoAsignable.resta_no_asignable, eliminaHoraNoAsignable.resta_total, eliminaHoraNoAsignable.idTiempo);
+                    if (query >= 1)
+                    {
+                        result.Correct = true;
+                    }
+                    else
+                    {
+                        result.Correct = true;
+                        result.ErrorMessage = "No hay registros a eliminar.";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Correct = false;
+                result.ErrorMessage = ex.Message;
+                result.Ex = ex;
             }
             return result;
         }

@@ -168,4 +168,12 @@ namespace ML
         public List<ML.RegistroTiempo> detalleHorasAsignables { get; set; }
         public List<ML.RegistroTiempoNoAsignable> detalleHorasNoAsignables { get; set; }
     }
+
+    public class EliminaHoraNoAsignable
+    {
+        public int IdNoAsignable { get; set; }
+        public int resta_no_asignable { get; set; }
+        public int resta_total { get; set; }
+        public int idTiempo { get; set; }
+    }
 }

@@ -923,5 +923,26 @@ namespace DL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Loginuser_Result9>("Loginuser", num_empleadoParameter, pwdParameter);
         }
+    
+        public virtual int EliminaHoraNoAsignable(Nullable<int> idNoAsignable, Nullable<int> resta_no_asignable, Nullable<int> resta_total, Nullable<int> idTiempo)
+        {
+            var idNoAsignableParameter = idNoAsignable.HasValue ?
+                new ObjectParameter("idNoAsignable", idNoAsignable) :
+                new ObjectParameter("idNoAsignable", typeof(int));
+    
+            var resta_no_asignableParameter = resta_no_asignable.HasValue ?
+                new ObjectParameter("resta_no_asignable", resta_no_asignable) :
+                new ObjectParameter("resta_no_asignable", typeof(int));
+    
+            var resta_totalParameter = resta_total.HasValue ?
+                new ObjectParameter("resta_total", resta_total) :
+                new ObjectParameter("resta_total", typeof(int));
+    
+            var idTiempoParameter = idTiempo.HasValue ?
+                new ObjectParameter("idTiempo", idTiempo) :
+                new ObjectParameter("idTiempo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminaHoraNoAsignable", idNoAsignableParameter, resta_no_asignableParameter, resta_totalParameter, idTiempoParameter);
+        }
     }
 }

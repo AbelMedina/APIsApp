@@ -1466,6 +1466,12 @@
   <Function Name="clientesPorGerente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idCliente" Type="int" Mode="In" />
   </Function>
+  <Function Name="EliminaHoraNoAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idNoAsignable" Type="int" Mode="In" />
+    <Parameter Name="resta_no_asignable" Type="int" Mode="In" />
+    <Parameter Name="resta_total" Type="int" Mode="In" />
+    <Parameter Name="idTiempo" Type="int" Mode="In" />
+  </Function>
   <Function Name="EliminarHoraAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id_Tiempo" Type="int" Mode="In" />
   </Function>

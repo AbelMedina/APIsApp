@@ -1471,6 +1471,12 @@
         <Function Name="clientesPorGerente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
         </Function>
+        <Function Name="EliminaHoraNoAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idNoAsignable" Type="int" Mode="In" />
+          <Parameter Name="resta_no_asignable" Type="int" Mode="In" />
+          <Parameter Name="resta_total" Type="int" Mode="In" />
+          <Parameter Name="idTiempo" Type="int" Mode="In" />
+        </Function>
         <Function Name="EliminarHoraAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id_Tiempo" Type="int" Mode="In" />
         </Function>
@@ -3768,6 +3774,12 @@
             <Parameter Name="num_empleado" Mode="In" Type="Int32" />
             <Parameter Name="pwd" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="EliminaHoraNoAsignable">
+            <Parameter Name="idNoAsignable" Mode="In" Type="Int32" />
+            <Parameter Name="resta_no_asignable" Mode="In" Type="Int32" />
+            <Parameter Name="resta_total" Mode="In" Type="Int32" />
+            <Parameter Name="idTiempo" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="AutoCompleteProyectos_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -5625,6 +5637,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EliminaHoraNoAsignable" FunctionName="administracionModel.Store.EliminaHoraNoAsignable" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

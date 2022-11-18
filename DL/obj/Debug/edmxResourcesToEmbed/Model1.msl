@@ -1409,5 +1409,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EliminaHoraNoAsignable" FunctionName="administracionModel.Store.EliminaHoraNoAsignable" />
   </EntityContainerMapping>
 </Mapping>

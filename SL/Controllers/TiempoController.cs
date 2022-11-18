@@ -52,5 +52,18 @@ namespace SL.Controllers
                 return Content(HttpStatusCode.NotFound, result);
             }
         }
+        [Route("api/tiempo/EliminaHoraNoAsignable")]
+        public IHttpActionResult EliminaHoraNoAsignable([FromBody]ML.EliminaHoraNoAsignable eliminaHoraNoAsignable)
+        {
+            ML.Result result = BL.Tiempo.EliminaHoraNoAsignable(eliminaHoraNoAsignable);
+            if (result.Correct)
+            {
+                return Content(HttpStatusCode.OK, result);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, result);
+            }
+        }
     }
 }
