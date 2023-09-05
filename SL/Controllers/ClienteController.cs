@@ -15,7 +15,7 @@ namespace SL.Controllers
         public IHttpActionResult gerentesConProyecto()
         {
             ML.Result result = BL.Cliente.GerenteByEstatus();
-            Thread.Sleep(TimeSpan.FromSeconds(5));
+            //Thread.Sleep(TimeSpan.FromSeconds(5));
             if (result.Correct)
             {
                 return Content(HttpStatusCode.OK, result);

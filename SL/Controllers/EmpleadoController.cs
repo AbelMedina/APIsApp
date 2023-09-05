@@ -16,7 +16,7 @@ namespace SL.Controllers
         public IHttpActionResult ReportesByIdEmpleado([FromBody] ML.Emp emp)
         {
             ML.Result result = BL.Empleado.ReportesByIdEmpleado(int.Parse(emp.idEmpleado));
-            Thread.Sleep(TimeSpan.FromSeconds(5));
+            //Thread.Sleep(TimeSpan.FromSeconds(5));
             if (result.Correct)
             {
                 return Content(HttpStatusCode.OK, result);

@@ -1918,15 +1918,51 @@
       <Parameter Name="total_cuota" Mode="In" Type="Decimal" />
       <Parameter Name="total_costo" Mode="In" Type="Decimal" />
     </FunctionImport>
-    <FunctionImport Name="Loginuser" ReturnType="Collection(administracionModel.Loginuser_Result9)">
+    <FunctionImport Name="EliminaHoraNoAsignable">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="resta" Mode="In" Type="Int32" />
+      <Parameter Name="resta_total" Mode="In" Type="Int32" />
+      <Parameter Name="idTiempo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EliminaHoraAsignable">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="resta" Mode="In" Type="Int32" />
+      <Parameter Name="resta_total" Mode="In" Type="Int32" />
+      <Parameter Name="idTiempo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteImg">
+      <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertOrUpdateIMG">
+      <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+      <Parameter Name="ImgEmpleado" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="Loginuser" ReturnType="Collection(administracionModel.Loginuser_Result14)">
       <Parameter Name="num_empleado" Mode="In" Type="Int32" />
       <Parameter Name="pwd" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="EliminaHoraNoAsignable">
-      <Parameter Name="idNoAsignable" Mode="In" Type="Int32" />
-      <Parameter Name="resta_no_asignable" Mode="In" Type="Int32" />
-      <Parameter Name="resta_total" Mode="In" Type="Int32" />
-      <Parameter Name="idTiempo" Mode="In" Type="Int32" />
+    <FunctionImport Name="ActualizaContrasena">
+      <Parameter Name="idempleado" Mode="In" Type="Int32" />
+      <Parameter Name="contrasena" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ExisteCorreo" ReturnType="Collection(String)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EliminaDispositivo">
+      <Parameter Name="IdDispositivo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="HorasPorActividad" ReturnType="Collection(String)">
+      <Parameter Name="id_actividad" Mode="In" Type="Int32" />
+      <Parameter Name="id_empleado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ConsultaDispositivos" ReturnType="Collection(administracionModel.ConsultaDispositivos_Result)" />
+    <FunctionImport Name="Registraoactualizadispositivo">
+      <Parameter Name="Token" Mode="In" Type="String" />
+      <Parameter Name="IdDispositivo" Mode="In" Type="String" />
+      <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+      <Parameter Name="SistemaOperativo" Mode="In" Type="String" />
+      <Parameter Name="VersionSO" Mode="In" Type="String" />
+      <Parameter Name="Manufactura" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="AutoCompleteProyectos_Result">
@@ -2370,5 +2406,96 @@
     <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
     <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
     <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result10">
+    <Property Type="Int32" Name="id_empleado" Nullable="false" />
+    <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="id_nivel" Nullable="false" />
+    <Property Type="Int32" Name="id_departamento" Nullable="false" />
+    <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+    <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+    <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result11">
+    <Property Type="Int32" Name="id_empleado" Nullable="false" />
+    <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="id_nivel" Nullable="false" />
+    <Property Type="Int32" Name="id_departamento" Nullable="false" />
+    <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+    <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+    <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result12">
+    <Property Type="Int32" Name="id_empleado" Nullable="false" />
+    <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="id_nivel" Nullable="false" />
+    <Property Type="Int32" Name="id_departamento" Nullable="false" />
+    <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+    <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+    <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Binary" Name="ProfilePicture" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result13">
+    <Property Type="Int32" Name="id_empleado" Nullable="false" />
+    <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="id_nivel" Nullable="false" />
+    <Property Type="Int32" Name="id_departamento" Nullable="false" />
+    <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+    <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+    <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Binary" Name="ProfilePicture" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Loginuser_Result14">
+    <Property Type="Int32" Name="id_empleado" Nullable="false" />
+    <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+    <Property Type="Int32" Name="id_nivel" Nullable="false" />
+    <Property Type="Int32" Name="id_departamento" Nullable="false" />
+    <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+    <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+    <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+    <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Binary" Name="ProfilePicture" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ConsultaDispositivos_Result">
+    <Property Type="String" Name="Token" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="IdDispositivo" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IdEmpleado" Nullable="true" />
+    <Property Type="String" Name="SistemaOperativo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="VersionSO" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Manufactura" Nullable="true" MaxLength="100" />
   </ComplexType>
 </Schema>

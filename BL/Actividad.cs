@@ -43,5 +43,36 @@ namespace BL
             }
             return result;
         }
+
+        public static ML.Result HorasPorActividad(ML.HorasPorActividad horasPorActividad)
+        {
+            ML.Result result = new ML.Result();
+            try
+            {
+                using (DL.administracionEntities context = new DL.administracionEntities())
+                {
+                    var query = context.HorasPorActividad(horasPorActividad.IdActividad, horasPorActividad.IdEmpleado).FirstOrDefault();
+                    if (query != null)
+                    {
+                        result.Object = new List<object>();
+                        ML.ResultadoHorasPorActividad resultado = new ML.ResultadoHorasPorActividad();
+                        resultado.horas = int.Parse(query);
+                        result.Object = resultado;
+                        result.Correct = true;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("No se encontraron datos");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Correct = false;
+                result.ErrorMessage = ex.Message;
+                result.Ex = ex;
+            }
+            return result;
+        }
     }
 }

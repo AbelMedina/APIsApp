@@ -911,28 +911,15 @@ namespace DL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizaHoraNoAsignable", id_hora_no_asignableParameter, tiempoParameter, actividadParameter, unoParameter, dosParameter, tresParameter, cuatroParameter, cincoParameter, seisParameter, sieteParameter, ochoParameter, nueveParameter, diezParameter, onceParameter, doceParameter, treceParameter, catorceParameter, quinceParameter, diez_y_seisParameter, totalParameter, cuotaParameter, costoParameter, total_cuotaParameter, total_costoParameter);
         }
     
-        public virtual ObjectResult<Loginuser_Result9> Loginuser(Nullable<int> num_empleado, string pwd)
+        public virtual int EliminaHoraNoAsignable(Nullable<int> id, Nullable<int> resta, Nullable<int> resta_total, Nullable<int> idTiempo)
         {
-            var num_empleadoParameter = num_empleado.HasValue ?
-                new ObjectParameter("num_empleado", num_empleado) :
-                new ObjectParameter("num_empleado", typeof(int));
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
     
-            var pwdParameter = pwd != null ?
-                new ObjectParameter("pwd", pwd) :
-                new ObjectParameter("pwd", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Loginuser_Result9>("Loginuser", num_empleadoParameter, pwdParameter);
-        }
-    
-        public virtual int EliminaHoraNoAsignable(Nullable<int> idNoAsignable, Nullable<int> resta_no_asignable, Nullable<int> resta_total, Nullable<int> idTiempo)
-        {
-            var idNoAsignableParameter = idNoAsignable.HasValue ?
-                new ObjectParameter("idNoAsignable", idNoAsignable) :
-                new ObjectParameter("idNoAsignable", typeof(int));
-    
-            var resta_no_asignableParameter = resta_no_asignable.HasValue ?
-                new ObjectParameter("resta_no_asignable", resta_no_asignable) :
-                new ObjectParameter("resta_no_asignable", typeof(int));
+            var restaParameter = resta.HasValue ?
+                new ObjectParameter("resta", resta) :
+                new ObjectParameter("resta", typeof(int));
     
             var resta_totalParameter = resta_total.HasValue ?
                 new ObjectParameter("resta_total", resta_total) :
@@ -942,7 +929,141 @@ namespace DL
                 new ObjectParameter("idTiempo", idTiempo) :
                 new ObjectParameter("idTiempo", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminaHoraNoAsignable", idNoAsignableParameter, resta_no_asignableParameter, resta_totalParameter, idTiempoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminaHoraNoAsignable", idParameter, restaParameter, resta_totalParameter, idTiempoParameter);
+        }
+    
+        public virtual int EliminaHoraAsignable(Nullable<int> id, Nullable<int> resta, Nullable<int> resta_total, Nullable<int> idTiempo)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var restaParameter = resta.HasValue ?
+                new ObjectParameter("resta", resta) :
+                new ObjectParameter("resta", typeof(int));
+    
+            var resta_totalParameter = resta_total.HasValue ?
+                new ObjectParameter("resta_total", resta_total) :
+                new ObjectParameter("resta_total", typeof(int));
+    
+            var idTiempoParameter = idTiempo.HasValue ?
+                new ObjectParameter("idTiempo", idTiempo) :
+                new ObjectParameter("idTiempo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminaHoraAsignable", idParameter, restaParameter, resta_totalParameter, idTiempoParameter);
+        }
+    
+        public virtual int DeleteImg(Nullable<int> idEmpleado)
+        {
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("IdEmpleado", idEmpleado) :
+                new ObjectParameter("IdEmpleado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteImg", idEmpleadoParameter);
+        }
+    
+        public virtual int InsertOrUpdateIMG(Nullable<int> idEmpleado, byte[] imgEmpleado)
+        {
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("IdEmpleado", idEmpleado) :
+                new ObjectParameter("IdEmpleado", typeof(int));
+    
+            var imgEmpleadoParameter = imgEmpleado != null ?
+                new ObjectParameter("ImgEmpleado", imgEmpleado) :
+                new ObjectParameter("ImgEmpleado", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertOrUpdateIMG", idEmpleadoParameter, imgEmpleadoParameter);
+        }
+    
+        public virtual ObjectResult<Loginuser_Result14> Loginuser(Nullable<int> num_empleado, string pwd)
+        {
+            var num_empleadoParameter = num_empleado.HasValue ?
+                new ObjectParameter("num_empleado", num_empleado) :
+                new ObjectParameter("num_empleado", typeof(int));
+    
+            var pwdParameter = pwd != null ?
+                new ObjectParameter("pwd", pwd) :
+                new ObjectParameter("pwd", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Loginuser_Result14>("Loginuser", num_empleadoParameter, pwdParameter);
+        }
+    
+        public virtual int ActualizaContrasena(Nullable<int> idempleado, string contrasena)
+        {
+            var idempleadoParameter = idempleado.HasValue ?
+                new ObjectParameter("idempleado", idempleado) :
+                new ObjectParameter("idempleado", typeof(int));
+    
+            var contrasenaParameter = contrasena != null ?
+                new ObjectParameter("contrasena", contrasena) :
+                new ObjectParameter("contrasena", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizaContrasena", idempleadoParameter, contrasenaParameter);
+        }
+    
+        public virtual ObjectResult<string> ExisteCorreo(string email)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("ExisteCorreo", emailParameter);
+        }
+    
+        public virtual int EliminaDispositivo(string idDispositivo)
+        {
+            var idDispositivoParameter = idDispositivo != null ?
+                new ObjectParameter("IdDispositivo", idDispositivo) :
+                new ObjectParameter("IdDispositivo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminaDispositivo", idDispositivoParameter);
+        }
+    
+        public virtual ObjectResult<string> HorasPorActividad(Nullable<int> id_actividad, string id_empleado)
+        {
+            var id_actividadParameter = id_actividad.HasValue ?
+                new ObjectParameter("id_actividad", id_actividad) :
+                new ObjectParameter("id_actividad", typeof(int));
+    
+            var id_empleadoParameter = id_empleado != null ?
+                new ObjectParameter("id_empleado", id_empleado) :
+                new ObjectParameter("id_empleado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("HorasPorActividad", id_actividadParameter, id_empleadoParameter);
+        }
+    
+        public virtual ObjectResult<ConsultaDispositivos_Result> ConsultaDispositivos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultaDispositivos_Result>("ConsultaDispositivos");
+        }
+    
+        public virtual int Registraoactualizadispositivo(string token, string idDispositivo, Nullable<int> idEmpleado, string sistemaOperativo, string versionSO, string manufactura)
+        {
+            var tokenParameter = token != null ?
+                new ObjectParameter("Token", token) :
+                new ObjectParameter("Token", typeof(string));
+    
+            var idDispositivoParameter = idDispositivo != null ?
+                new ObjectParameter("IdDispositivo", idDispositivo) :
+                new ObjectParameter("IdDispositivo", typeof(string));
+    
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("IdEmpleado", idEmpleado) :
+                new ObjectParameter("IdEmpleado", typeof(int));
+    
+            var sistemaOperativoParameter = sistemaOperativo != null ?
+                new ObjectParameter("SistemaOperativo", sistemaOperativo) :
+                new ObjectParameter("SistemaOperativo", typeof(string));
+    
+            var versionSOParameter = versionSO != null ?
+                new ObjectParameter("VersionSO", versionSO) :
+                new ObjectParameter("VersionSO", typeof(string));
+    
+            var manufacturaParameter = manufactura != null ?
+                new ObjectParameter("Manufactura", manufactura) :
+                new ObjectParameter("Manufactura", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Registraoactualizadispositivo", tokenParameter, idDispositivoParameter, idEmpleadoParameter, sistemaOperativoParameter, versionSOParameter, manufacturaParameter);
         }
     }
 }

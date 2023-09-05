@@ -34,5 +34,66 @@ namespace SL.Controllers
                     return Content(HttpStatusCode.NotFound, result);
             }
         }
+
+        [Route("api/empleado/ImgInsertOrUpdate")]
+        [HttpPost]
+        public IHttpActionResult ImgInsertOrUpdate([FromBody] ML.ImgInsertOrUpdate imgInsertOrUpdate)
+        {
+            ML.Result result = BL.LoginUser.ImgInsertOrUpdate(imgInsertOrUpdate);
+            if (result.Correct)
+            {
+                return Content(HttpStatusCode.OK, result);
+            }
+            else
+            {
+                return Content(HttpStatusCode.BadRequest, result);
+            }
+        }
+
+        [Route("api/empleado/ImgDelete")]
+        [HttpPost]
+        public IHttpActionResult ImgDelete([FromBody] ML.ImgDelete imgDelete)
+        {
+            ML.Result result = BL.LoginUser.DeleteImg(imgDelete);
+            if (result.Correct)
+            {
+                return Content(HttpStatusCode.OK, result);
+            }
+            else
+            {
+                return Content(HttpStatusCode.BadRequest, result);
+            }
+        }
+
+        [Route("api/empleado/ActualizaContrasena")]
+        [HttpPost]
+        public IHttpActionResult ActualizaContrasena([FromBody] ML.Login login)
+        {
+            ML.Result result = BL.LoginUser.ActualizaContrasena(login);
+            if (result.Correct)
+            {
+                return Content(HttpStatusCode.OK, result);
+            }
+            else
+            {
+                return Content(HttpStatusCode.BadRequest, result);
+            }
+        }
+
+        [Route("api/empleado/ExisteCorreo")]
+        [HttpPost]
+        public IHttpActionResult ExisteCorreo([FromBody] ML.ExisteCorreo existeCorreo)
+        {
+            ML.Result result = BL.LoginUser.ExisteCorreo(existeCorreo);
+            if (result.Correct)
+            {
+                return Content(HttpStatusCode.OK, result);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, result);
+            }
+        }
+
     }
 }

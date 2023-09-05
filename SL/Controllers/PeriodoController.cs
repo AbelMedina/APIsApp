@@ -45,7 +45,7 @@ namespace SL.Controllers
         public IHttpActionResult existePeriodo([FromBody] ML.EntradaExistePeriodo entrada)
         {
             ML.Result result = BL.Periodo.ExistePeriodo(entrada);
-            Thread.Sleep(TimeSpan.FromSeconds(10));
+            //Thread.Sleep(TimeSpan.FromSeconds(10));
             if (result.Correct)
             {
                 return Content(HttpStatusCode.OK, result);

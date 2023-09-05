@@ -1377,6 +1377,10 @@
   <Function Name="actividadesPorEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idEmpleado" Type="int" Mode="In" />
   </Function>
+  <Function Name="ActualizaContrasena" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idempleado" Type="int" Mode="In" />
+    <Parameter Name="contrasena" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="ActualizaHoraAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id_Hora_Asignable" Type="int" Mode="In" />
     <Parameter Name="IdTiempo" Type="int" Mode="In" />
@@ -1466,9 +1470,22 @@
   <Function Name="clientesPorGerente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idCliente" Type="int" Mode="In" />
   </Function>
+  <Function Name="ConsultaDispositivos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DeleteImg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpleado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EliminaDispositivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDispositivo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="EliminaHoraAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="resta" Type="int" Mode="In" />
+    <Parameter Name="resta_total" Type="int" Mode="In" />
+    <Parameter Name="idTiempo" Type="int" Mode="In" />
+  </Function>
   <Function Name="EliminaHoraNoAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="idNoAsignable" Type="int" Mode="In" />
-    <Parameter Name="resta_no_asignable" Type="int" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="resta" Type="int" Mode="In" />
     <Parameter Name="resta_total" Type="int" Mode="In" />
     <Parameter Name="idTiempo" Type="int" Mode="In" />
   </Function>
@@ -1499,6 +1516,9 @@
     <Parameter Name="Empleado_buscar" Type="varchar" Mode="In" />
   </Function>
   <Function Name="Empleados_load" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ExisteCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="existePeriodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="quincena" Type="varchar" Mode="In" />
     <Parameter Name="mes" Type="varchar" Mode="In" />
@@ -1514,7 +1534,15 @@
   <Function Name="horasNoAsignables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdTiempo" Type="int" Mode="In" />
   </Function>
+  <Function Name="HorasPorActividad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_actividad" Type="int" Mode="In" />
+    <Parameter Name="id_empleado" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="InsertaReporte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="InsertOrUpdateIMG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpleado" Type="int" Mode="In" />
+    <Parameter Name="ImgEmpleado" Type="varbinary(max)" Mode="In" />
+  </Function>
   <Function Name="Loginuser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="num_empleado" Type="int" Mode="In" />
     <Parameter Name="pwd" Type="varchar" Mode="In" />
@@ -1549,6 +1577,14 @@
     <Parameter Name="estatus" Type="bit" Mode="In" />
     <Parameter Name="envio" Type="bit" Mode="In" />
     <Parameter Name="fechareporte" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Registraoactualizadispositivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Token" Type="varchar(max)" Mode="In" />
+    <Parameter Name="IdDispositivo" Type="varchar" Mode="In" />
+    <Parameter Name="IdEmpleado" Type="int" Mode="In" />
+    <Parameter Name="SistemaOperativo" Type="varchar" Mode="In" />
+    <Parameter Name="VersionSO" Type="varchar" Mode="In" />
+    <Parameter Name="Manufactura" Type="varchar" Mode="In" />
   </Function>
   <Function Name="Registrarhorasasignables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idproyecto" Type="int" Mode="In" />

@@ -15,7 +15,7 @@ namespace SL.Controllers
         public IHttpActionResult actividadesPorEmpleado([FromBody] ML.ActividadEmpleado actividadEmpleado)
         {
             ML.Result result = BL.Actividad.actividadesPorEmpleado(int.Parse(actividadEmpleado.IdEmpleado));
-            Thread.Sleep(TimeSpan.FromSeconds(5));
+            //Thread.Sleep(TimeSpan.FromSeconds(5));
             if (result.Correct)
             {
                 return Content(HttpStatusCode.OK, result);
@@ -25,5 +25,20 @@ namespace SL.Controllers
                 return Content(HttpStatusCode.NotFound, result);
             }
         }
+        [Route("api/actividad/horasPorActividad")]
+        [HttpPost]
+        public IHttpActionResult horasPorActividad([FromBody] ML.HorasPorActividad horasPorActividad)
+        {
+            ML.Result result = BL.Actividad.HorasPorActividad(horasPorActividad);
+            if(result.Correct)
+            {
+                return Content(HttpStatusCode.OK, result);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, result);
+            }
+        }
+
     }
 }

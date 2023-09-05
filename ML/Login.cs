@@ -24,7 +24,23 @@ namespace ML
         public int estatus_tiempo { get; set; }
         public decimal cuota { get; set; }
         public decimal costo { get; set; }
+        public byte[]  ProfilePicture { get; set; }
+    }
 
+    public class ImgInsertOrUpdate
+    {
+        public int id_empleado { get; set; }
+        public byte[] ProfilePicture { get; set; }
+    }
+
+    public class ImgDelete
+    {
+        public int id_empleado { get; set; }
+    }
+
+    public class ExisteCorreo
+    {
+        public string Email { get; set; }
     }
 
 }

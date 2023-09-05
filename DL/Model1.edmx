@@ -1382,6 +1382,10 @@
         <Function Name="actividadesPorEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idEmpleado" Type="int" Mode="In" />
         </Function>
+        <Function Name="ActualizaContrasena" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idempleado" Type="int" Mode="In" />
+          <Parameter Name="contrasena" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="ActualizaHoraAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id_Hora_Asignable" Type="int" Mode="In" />
           <Parameter Name="IdTiempo" Type="int" Mode="In" />
@@ -1471,9 +1475,22 @@
         <Function Name="clientesPorGerente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
         </Function>
+        <Function Name="ConsultaDispositivos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="DeleteImg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpleado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="EliminaDispositivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDispositivo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="EliminaHoraAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="resta" Type="int" Mode="In" />
+          <Parameter Name="resta_total" Type="int" Mode="In" />
+          <Parameter Name="idTiempo" Type="int" Mode="In" />
+        </Function>
         <Function Name="EliminaHoraNoAsignable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="idNoAsignable" Type="int" Mode="In" />
-          <Parameter Name="resta_no_asignable" Type="int" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="resta" Type="int" Mode="In" />
           <Parameter Name="resta_total" Type="int" Mode="In" />
           <Parameter Name="idTiempo" Type="int" Mode="In" />
         </Function>
@@ -1504,6 +1521,9 @@
           <Parameter Name="Empleado_buscar" Type="varchar" Mode="In" />
         </Function>
         <Function Name="Empleados_load" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ExisteCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="existePeriodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="quincena" Type="varchar" Mode="In" />
           <Parameter Name="mes" Type="varchar" Mode="In" />
@@ -1519,7 +1539,15 @@
         <Function Name="horasNoAsignables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdTiempo" Type="int" Mode="In" />
         </Function>
+        <Function Name="HorasPorActividad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_actividad" Type="int" Mode="In" />
+          <Parameter Name="id_empleado" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="InsertaReporte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="InsertOrUpdateIMG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpleado" Type="int" Mode="In" />
+          <Parameter Name="ImgEmpleado" Type="varbinary(max)" Mode="In" />
+        </Function>
         <Function Name="Loginuser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="num_empleado" Type="int" Mode="In" />
           <Parameter Name="pwd" Type="varchar" Mode="In" />
@@ -1554,6 +1582,14 @@
           <Parameter Name="estatus" Type="bit" Mode="In" />
           <Parameter Name="envio" Type="bit" Mode="In" />
           <Parameter Name="fechareporte" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Registraoactualizadispositivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Token" Type="varchar(max)" Mode="In" />
+          <Parameter Name="IdDispositivo" Type="varchar" Mode="In" />
+          <Parameter Name="IdEmpleado" Type="int" Mode="In" />
+          <Parameter Name="SistemaOperativo" Type="varchar" Mode="In" />
+          <Parameter Name="VersionSO" Type="varchar" Mode="In" />
+          <Parameter Name="Manufactura" Type="varchar" Mode="In" />
         </Function>
         <Function Name="Registrarhorasasignables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idproyecto" Type="int" Mode="In" />
@@ -3770,15 +3806,51 @@
             <Parameter Name="total_cuota" Mode="In" Type="Decimal" />
             <Parameter Name="total_costo" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <FunctionImport Name="Loginuser" ReturnType="Collection(administracionModel.Loginuser_Result9)">
+          <FunctionImport Name="EliminaHoraNoAsignable">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="resta" Mode="In" Type="Int32" />
+            <Parameter Name="resta_total" Mode="In" Type="Int32" />
+            <Parameter Name="idTiempo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EliminaHoraAsignable">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="resta" Mode="In" Type="Int32" />
+            <Parameter Name="resta_total" Mode="In" Type="Int32" />
+            <Parameter Name="idTiempo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteImg">
+          <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertOrUpdateIMG">
+            <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+            <Parameter Name="ImgEmpleado" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="Loginuser" ReturnType="Collection(administracionModel.Loginuser_Result14)">
             <Parameter Name="num_empleado" Mode="In" Type="Int32" />
             <Parameter Name="pwd" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="EliminaHoraNoAsignable">
-            <Parameter Name="idNoAsignable" Mode="In" Type="Int32" />
-            <Parameter Name="resta_no_asignable" Mode="In" Type="Int32" />
-            <Parameter Name="resta_total" Mode="In" Type="Int32" />
-            <Parameter Name="idTiempo" Mode="In" Type="Int32" />
+          <FunctionImport Name="ActualizaContrasena">
+            <Parameter Name="idempleado" Mode="In" Type="Int32" />
+            <Parameter Name="contrasena" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ExisteCorreo" ReturnType="Collection(String)">
+          <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="EliminaDispositivo">
+          <Parameter Name="IdDispositivo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="HorasPorActividad" ReturnType="Collection(String)">
+            <Parameter Name="id_actividad" Mode="In" Type="Int32" />
+            <Parameter Name="id_empleado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultaDispositivos" ReturnType="Collection(administracionModel.ConsultaDispositivos_Result)" />
+          <FunctionImport Name="Registraoactualizadispositivo">
+            <Parameter Name="Token" Mode="In" Type="String" />
+            <Parameter Name="IdDispositivo" Mode="In" Type="String" />
+            <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+            <Parameter Name="SistemaOperativo" Mode="In" Type="String" />
+            <Parameter Name="VersionSO" Mode="In" Type="String" />
+            <Parameter Name="Manufactura" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="AutoCompleteProyectos_Result">
@@ -4222,6 +4294,97 @@
           <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
           <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
           <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="Loginuser_Result10">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+          <Property Type="Int32" Name="id_nivel" Nullable="false" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+          <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="Loginuser_Result11">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+          <Property Type="Int32" Name="id_nivel" Nullable="false" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+          <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="Loginuser_Result12">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+          <Property Type="Int32" Name="id_nivel" Nullable="false" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+          <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Binary" Name="ProfilePicture" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Loginuser_Result13">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+          <Property Type="Int32" Name="id_nivel" Nullable="false" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+          <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Binary" Name="ProfilePicture" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Loginuser_Result14">
+          <Property Type="Int32" Name="id_empleado" Nullable="false" />
+          <Property Type="String" Name="num_empleado" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="nom_empleado" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="254" />
+          <Property Type="Int32" Name="id_nivel" Nullable="false" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="String" Name="nom_departamento" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="Int32" Name="estatus_tiempo" Nullable="true" />
+          <Property Type="String" Name="clave_nivel" Nullable="true" MaxLength="7" />
+          <Property Type="Decimal" Name="cuota" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="costo" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Binary" Name="ProfilePicture" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ConsultaDispositivos_Result">
+          <Property Type="String" Name="Token" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="IdDispositivo" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="IdEmpleado" Nullable="true" />
+          <Property Type="String" Name="SistemaOperativo" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="VersionSO" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Manufactura" Nullable="true" MaxLength="100" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -5617,9 +5780,13 @@
           <FunctionImportMapping FunctionImportName="ActualizaTiempo" FunctionName="administracionModel.Store.ActualizaTiempo" />
           <FunctionImportMapping FunctionImportName="ActualizaHoraAsignable" FunctionName="administracionModel.Store.ActualizaHoraAsignable" />
           <FunctionImportMapping FunctionImportName="ActualizaHoraNoAsignable" FunctionName="administracionModel.Store.ActualizaHoraNoAsignable" />
+          <FunctionImportMapping FunctionImportName="EliminaHoraNoAsignable" FunctionName="administracionModel.Store.EliminaHoraNoAsignable" />
+          <FunctionImportMapping FunctionImportName="EliminaHoraAsignable" FunctionName="administracionModel.Store.EliminaHoraAsignable" />
+          <FunctionImportMapping FunctionImportName="DeleteImg" FunctionName="administracionModel.Store.DeleteImg" />
+          <FunctionImportMapping FunctionImportName="InsertOrUpdateIMG" FunctionName="administracionModel.Store.InsertOrUpdateIMG" />
           <FunctionImportMapping FunctionImportName="Loginuser" FunctionName="administracionModel.Store.Loginuser">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="administracionModel.Loginuser_Result9">
+              <ComplexTypeMapping TypeName="administracionModel.Loginuser_Result14">
                 <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
                 <ScalarProperty Name="num_empleado" ColumnName="num_empleado" />
                 <ScalarProperty Name="nom_empleado" ColumnName="nom_empleado" />
@@ -5634,10 +5801,27 @@
                 <ScalarProperty Name="clave_nivel" ColumnName="clave_nivel" />
                 <ScalarProperty Name="cuota" ColumnName="cuota" />
                 <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="EliminaHoraNoAsignable" FunctionName="administracionModel.Store.EliminaHoraNoAsignable" />
+          <FunctionImportMapping FunctionImportName="ActualizaContrasena" FunctionName="administracionModel.Store.ActualizaContrasena" />
+          <FunctionImportMapping FunctionImportName="ExisteCorreo" FunctionName="administracionModel.Store.ExisteCorreo" />
+          <FunctionImportMapping FunctionImportName="EliminaDispositivo" FunctionName="administracionModel.Store.EliminaDispositivo" />
+          <FunctionImportMapping FunctionImportName="HorasPorActividad" FunctionName="administracionModel.Store.HorasPorActividad" />
+          <FunctionImportMapping FunctionImportName="ConsultaDispositivos" FunctionName="administracionModel.Store.ConsultaDispositivos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="administracionModel.ConsultaDispositivos_Result">
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="IdDispositivo" ColumnName="IdDispositivo" />
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="SistemaOperativo" ColumnName="SistemaOperativo" />
+                <ScalarProperty Name="VersionSO" ColumnName="VersionSO" />
+                <ScalarProperty Name="Manufactura" ColumnName="Manufactura" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Registraoactualizadispositivo" FunctionName="administracionModel.Store.Registraoactualizadispositivo" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

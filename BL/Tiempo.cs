@@ -436,23 +436,44 @@ namespace BL
             }
             return result;
         }
-        public static ML.Result EliminaHoraNoAsignable(ML.EliminaHoraNoAsignable eliminaHoraNoAsignable)
+        public static ML.Result EliminaHora(ML.EliminaHora eliminaHora)
         {
             ML.Result result = new ML.Result();
             try
             {
-                using (DL.administracionEntities context = new DL.administracionEntities())
+                if (eliminaHora.operacion == 1)
                 {
-                    var query = context.EliminaHoraNoAsignable(eliminaHoraNoAsignable.IdNoAsignable, eliminaHoraNoAsignable.resta_no_asignable, eliminaHoraNoAsignable.resta_total, eliminaHoraNoAsignable.idTiempo);
-                    if (query >= 1)
+                    using (DL.administracionEntities context = new DL.administracionEntities())
                     {
-                        result.Correct = true;
+                        var query = context.EliminaHoraAsignable(eliminaHora.Id, eliminaHora.resta, eliminaHora.resta_total, eliminaHora.idTiempo);
+                        if (query >= 1)
+                        {
+                            result.Correct = true;
+                        }
+                        else
+                        {
+                            throw new ArgumentException("No hay registros a eliminar.");
+                        }
                     }
-                    else
+                }
+                else if(eliminaHora.operacion == 2)
+                {
+                    using (DL.administracionEntities context = new DL.administracionEntities())
                     {
-                        result.Correct = true;
-                        result.ErrorMessage = "No hay registros a eliminar.";
+                        var query = context.EliminaHoraNoAsignable(eliminaHora.Id, eliminaHora.resta, eliminaHora.resta_total, eliminaHora.idTiempo);
+                        if (query >= 1)
+                        {
+                            result.Correct = true;
+                        }
+                        else
+                        {
+                            throw new ArgumentException("No hay registros a eliminar.");
+                        }
                     }
+                }
+                else
+                {
+                    throw new ArgumentException("Operación no valida");
                 }
             }
             catch (Exception ex)

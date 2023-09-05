@@ -1389,9 +1389,13 @@
     <FunctionImportMapping FunctionImportName="ActualizaTiempo" FunctionName="administracionModel.Store.ActualizaTiempo" />
     <FunctionImportMapping FunctionImportName="ActualizaHoraAsignable" FunctionName="administracionModel.Store.ActualizaHoraAsignable" />
     <FunctionImportMapping FunctionImportName="ActualizaHoraNoAsignable" FunctionName="administracionModel.Store.ActualizaHoraNoAsignable" />
+    <FunctionImportMapping FunctionImportName="EliminaHoraNoAsignable" FunctionName="administracionModel.Store.EliminaHoraNoAsignable" />
+    <FunctionImportMapping FunctionImportName="EliminaHoraAsignable" FunctionName="administracionModel.Store.EliminaHoraAsignable" />
+    <FunctionImportMapping FunctionImportName="DeleteImg" FunctionName="administracionModel.Store.DeleteImg" />
+    <FunctionImportMapping FunctionImportName="InsertOrUpdateIMG" FunctionName="administracionModel.Store.InsertOrUpdateIMG" />
     <FunctionImportMapping FunctionImportName="Loginuser" FunctionName="administracionModel.Store.Loginuser">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="administracionModel.Loginuser_Result9">
+        <ComplexTypeMapping TypeName="administracionModel.Loginuser_Result14">
           <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
           <ScalarProperty Name="num_empleado" ColumnName="num_empleado" />
           <ScalarProperty Name="nom_empleado" ColumnName="nom_empleado" />
@@ -1406,9 +1410,26 @@
           <ScalarProperty Name="clave_nivel" ColumnName="clave_nivel" />
           <ScalarProperty Name="cuota" ColumnName="cuota" />
           <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="EliminaHoraNoAsignable" FunctionName="administracionModel.Store.EliminaHoraNoAsignable" />
+    <FunctionImportMapping FunctionImportName="ActualizaContrasena" FunctionName="administracionModel.Store.ActualizaContrasena" />
+    <FunctionImportMapping FunctionImportName="ExisteCorreo" FunctionName="administracionModel.Store.ExisteCorreo" />
+    <FunctionImportMapping FunctionImportName="EliminaDispositivo" FunctionName="administracionModel.Store.EliminaDispositivo" />
+    <FunctionImportMapping FunctionImportName="HorasPorActividad" FunctionName="administracionModel.Store.HorasPorActividad" />
+    <FunctionImportMapping FunctionImportName="ConsultaDispositivos" FunctionName="administracionModel.Store.ConsultaDispositivos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="administracionModel.ConsultaDispositivos_Result">
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="IdDispositivo" ColumnName="IdDispositivo" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="SistemaOperativo" ColumnName="SistemaOperativo" />
+          <ScalarProperty Name="VersionSO" ColumnName="VersionSO" />
+          <ScalarProperty Name="Manufactura" ColumnName="Manufactura" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Registraoactualizadispositivo" FunctionName="administracionModel.Store.Registraoactualizadispositivo" />
   </EntityContainerMapping>
 </Mapping>

@@ -76,7 +76,10 @@
   <ItemGroup>
     <Compile Include="Actividad.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Dispositivo.cs" />
+    <Compile Include="Email.cs" />
     <Compile Include="Empleado.cs" />
+    <Compile Include="json.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Periodo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

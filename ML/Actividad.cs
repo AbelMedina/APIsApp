@@ -17,4 +17,15 @@ namespace ML
     {
         public string IdEmpleado { get; set; }
     }
+
+    public class HorasPorActividad
+    {
+        public int IdActividad { get; set; }
+        public string IdEmpleado { get; set; }
+    }
+
+    public class ResultadoHorasPorActividad
+    {
+        public int horas { get; set; }
+    }
 }
